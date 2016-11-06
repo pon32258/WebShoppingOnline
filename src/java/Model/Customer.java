@@ -167,7 +167,7 @@ public class Customer {
         if(cus == null){
             cus = new Customer();
         }
-        cus.setCustomerId(rs.getInt("companyId"));
+        cus.setCustomerId(rs.getInt("customerId"));
         cus.setFname(rs.getString("fname"));
         cus.setSname(rs.getString("sname"));
         cus.setEmail(rs.getString("email"));
