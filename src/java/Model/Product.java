@@ -5,6 +5,7 @@
  */
 package model;
 
+import Utility.ConnectionBuilder;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -78,10 +79,11 @@ public class Product {
         this.price = price;
     }
     
-    public static List<Product> getProductByName(String word,String type, Connection con) {
+    public static List<Product> getProductByName(String word,String type) {
         List<Product> products = new ArrayList<Product>();
         try {
-            PreparedStatement ppstm = con.prepareStatement("SELECT * FROM item i"
+            Connection conn = ConnectionBuilder.getConnection();
+            PreparedStatement ppstm = conn.prepareStatement("SELECT * FROM item i"
                     + "JOIN itemType it ON i.typeId = it.typeId "
                     + "JOIN brand b ON i.brandId = b.brandId "
                     + "WHERE LOWER(i.itemName) LIKE ? OR LOWER(it.typeName) LIKE ?"
@@ -97,14 +99,17 @@ public class Product {
             }
         } catch (SQLException ex) {
             Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
         }
         return products;
     }
 
-    public static Product getProductById(int prodId, Connection connection) {
+    public static Product getProductById(int prodId) {
         Product prod = null;
         try {
-            PreparedStatement ppstm = connection.prepareStatement("SELECT * FROM item i"
+            Connection conn = ConnectionBuilder.getConnection();
+            PreparedStatement ppstm = conn.prepareStatement("SELECT * FROM item i"
                     + "JOIN itemType it ON i.typeId = it.typeId "
                     + "JOIN brand b ON i.brandId = b.brandId "
                     + "WHERE i.itemId = ?");
@@ -115,6 +120,8 @@ public class Product {
                 orm(rs, prod);
             }
         } catch (SQLException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
         }
         return prod;
