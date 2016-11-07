@@ -36,7 +36,7 @@ public class Customer {
     }
 
     public Customer(int customerId, String fname, String sname, String email, 
-            String address, String tel, String username, String password, boolean statusId) {
+            String address, String tel, String username, String password,String city ,String postcode) {
         this.customerId = customerId;
         this.fname = fname;
         this.sname = sname;
@@ -45,6 +45,8 @@ public class Customer {
         this.tel = tel;
         this.username = username;
         this.password = password;
+        this.city = city;
+        this.postcode = postcode;
     }
 
     public String getCity() {
@@ -191,7 +193,7 @@ public class Customer {
         boolean result = false;
         try {           
             String sqlcmd = "INSERT INTO " + TABLE_NAME + "(fname ,"
-                    + "sname,email,address,tel,username,password) values(?,?,?,?,?,?,?)";
+                    + "sname,email,address,tel,username,password,city,postcode) values(?,?,?,?,?,?,?,?,?)";
             PreparedStatement pstm = conn.prepareStatement(sqlcmd);
             pstm.setString(1, cus.getFname());
             pstm.setString(2, cus.getSname());
