@@ -19,21 +19,9 @@ import java.util.logging.Logger;
 public class ConnectionBuilder {
     public static Connection mainConnection = null;
     
-    public static Connection getConnection(){
-        Connection con = null;
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Properties property = new Properties();
-            property.put("user", "pon322");
-            property.put("password", "pon322");
-            property.put("useEncoding", "true");
-            property.put("characterEncoding", "UTF-8");
-            con  =  DriverManager.getConnection("jdbc:mysql://54.169.211.228:3306/int303_project?zeroDateTimeBehavior=convertToNull",property);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ConnectionBuilder.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex){
-            Logger.getLogger(ConnectionBuilder.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return con;
+    public static Connection getConnection() throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://54.169.211.228:3306/int303_project?zeroDateTimeBehavior=convertToNull", "pon322", "pon322");
+        return conn;
     }
 }
