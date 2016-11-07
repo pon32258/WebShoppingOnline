@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -40,14 +42,12 @@ public class LoginServlet extends HttpServlet {
         String target = "/login.jsp" ;
         String message = "" ;
         if (userid != null && password != null) {
-            Connection conn = ConnectionBuilder.getConnection();
-            Customer user = Customer.getCustomerById(Integer.parseInt(userid),conn);
+            Customer user = Customer.getCustomerById(userid);
             if (user == null) {
                 message = " User ID "+ userid + " does not exist !!! " ;
             } else if (password.equals(user.getPassword())) {              
                 request.getSession().setAttribute("user", user);
-                target = "/index.jsp";
-              
+                target = "/index.jsp";             
             } else {
                 message = " Incorrect password ... try agian " ;
             }
@@ -68,7 +68,13 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -82,7 +88,13 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

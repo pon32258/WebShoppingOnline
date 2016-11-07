@@ -248,24 +248,25 @@
 						<div class="panel-heading">
 							<h3 class="panel-title">Login</h3>
 						</div>
-						<div class="panel-body">
+						<div class="panel-body">                                              
 							<p>
 								Please login using your existing account
 							</p>
 						<!-- Login Form Starts -->
-							<form class="form-inline" role="form">
+							<form class="form-inline" role="form" action="Login" method="post">
 								<div class="form-group">
 									<label class="sr-only" for="exampleInputEmail2">Username</label>
-									<input type="text" class="form-control" id="exampleInputEmail2" placeholder="Username">
+									<input type="text" class="form-control" id="exampleInputEmail2" placeholder="Username" name="userid">
 								</div>
 								<div class="form-group">
 									<label class="sr-only" for="exampleInputPassword2">Password</label>
-									<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+									<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" name="password">
 								</div>
 								<button type="submit" class="btn btn-black">
 									Login
 								</button>
 							</form>
+                                                        <br><h4 style="color:red">${message}</h4>
 						<!-- Login Form Ends -->
 						</div>
 					</div>

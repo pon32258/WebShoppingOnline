@@ -5,6 +5,7 @@
  */
 package model;
 
+import Utility.ConnectionBuilder;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,7 +30,7 @@ public class Customer {
     private String password;
     private String city;
     private String postcode;
-    private static final String TABLE_NAME = "customer";
+    private static final String TABLE_NAME = "Customer";
     
     public Customer(){
     
@@ -133,10 +134,11 @@ public class Customer {
         this.password = password;
     }
     
-    public static List<Customer> getCustomerByName(String word, Connection con) {
+    public static List<Customer> getCustomerByName(String word) {
         List<Customer> customers = new ArrayList<Customer>();
         try {
-            PreparedStatement ppstm = con.prepareStatement("SELECT * FROM " + TABLE_NAME
+            Connection conn = ConnectionBuilder.getConnection();
+            PreparedStatement ppstm = conn.prepareStatement("SELECT * FROM " + TABLE_NAME
                     + "WHERE LOWER(fname) LIKE ? OR LOWER(username) LIKE ?");
             ppstm.setString(1, "%"+word.toLowerCase()+"%");
             ppstm.setString(2, "%"+word.toLowerCase()+"%");
@@ -148,23 +150,28 @@ public class Customer {
             }
         } catch (SQLException ex) {
             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return customers;
     }
 
-    public static Customer getCustomerById(int customerId, Connection connection) {
+    public static Customer getCustomerById(String customerId) {
         Customer cus = null;
         try {
-            PreparedStatement ppstm = connection.prepareStatement("SELECT * FROM " + TABLE_NAME 
-                    + " WHERE customerId = ?");
-            ppstm.setInt(1, customerId);
+            Connection conn = ConnectionBuilder.getConnection();
+            PreparedStatement ppstm = conn.prepareStatement("SELECT * FROM " + TABLE_NAME 
+                    + " WHERE username = ?");
+            ppstm.setString(1, customerId);
             ResultSet rs = ppstm.executeQuery();
             while (rs.next()) {
                 cus = new Customer();
                 orm(rs, cus);
             }
         } catch (SQLException ex) {
+            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -188,10 +195,10 @@ public class Customer {
         cus.setPostcode(rs.getString("postcode"));
     }
     
-    public static boolean insertCustomer(Customer cus, Connection conn) {
-
+    public static boolean insertCustomer(Customer cus) {       
         boolean result = false;
-        try {           
+        try {  
+            Connection conn = ConnectionBuilder.getConnection();
             String sqlcmd = "INSERT INTO " + TABLE_NAME + "(fname ,"
                     + "sname,email,address,tel,username,password,city,postcode) values(?,?,?,?,?,?,?,?,?)";
             PreparedStatement pstm = conn.prepareStatement(sqlcmd);
@@ -211,14 +218,16 @@ public class Customer {
             
         } catch (SQLException ex) {
             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
     }
 
-    public static boolean editCustomer(Customer cus, Connection conn) {
-        boolean result = false;
-        
+    public static boolean editCustomer(Customer cus) {
+        boolean result = false;       
         try {
+            Connection conn = ConnectionBuilder.getConnection();
             String sql = "UPDATE " + TABLE_NAME + " SET fname=? ,"
                     + "sname=?,email=?,address=?,tel=?,username=?,password=?,"
                     + "city=?,postcode=? WHERE customerId=?";
@@ -238,6 +247,8 @@ public class Customer {
                 result = true;
             }
         } catch (SQLException ex) {
+            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -263,10 +274,10 @@ public class Customer {
 //        return result;
 //    }
     
-    public static boolean deleteCustomer(Customer cus, Connection conn) {
-        boolean result = false;
-        
+    public static boolean deleteCustomer(Customer cus) {
+        boolean result = false;       
         try {
+            Connection conn = ConnectionBuilder.getConnection();
             String sql = "DELETE FROM "+TABLE_NAME+" WHERE customerId=?";
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setInt(1,cus.getCustomerId());
@@ -274,6 +285,8 @@ public class Customer {
                 result = true;
             }
         } catch (SQLException ex) {
+            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
