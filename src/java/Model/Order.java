@@ -16,25 +16,16 @@ import java.sql.Date;
 public class Order {
     
     private int orderId;
-    private Date orderDate;
-    private int companyId;
-    private int statusId;
-    private String invoiceCode;
-    private Date deliverDate;
+    private Date orderDate; 
     private int orderType;
     private int customerId;
 
     public Order() {
     }
 
-    public Order(int orderId, Date orderDate, int companyId, int statusId, 
-            String invoiceCode, Date deliverDate, int orderType, int customerId) {
+    public Order(int orderId, Date orderDate, int orderType, int customerId) {
         this.orderId = orderId;
         this.orderDate = orderDate;
-        this.companyId = companyId;
-        this.statusId = statusId;
-        this.invoiceCode = invoiceCode;
-        this.deliverDate = deliverDate;
         this.orderType = orderType;
         this.customerId = customerId;
     }
@@ -61,38 +52,6 @@ public class Order {
 
     public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
-    }
-
-    public int getCompanyId() {
-        return companyId;
-    }
-
-    public void setCompanyId(int companyId) {
-        this.companyId = companyId;
-    }
-
-    public int getStatusId() {
-        return statusId;
-    }
-
-    public void setStatusId(int statusId) {
-        this.statusId = statusId;
-    }
-
-    public String getInvoiceCode() {
-        return invoiceCode;
-    }
-
-    public void setInvoiceCode(String invoiceCode) {
-        this.invoiceCode = invoiceCode;
-    }
-
-    public Date getDeliverDate() {
-        return deliverDate;
-    }
-
-    public void setDeliverDate(Date deliverDate) {
-        this.deliverDate = deliverDate;
     }
 
     public int getOrderType() {

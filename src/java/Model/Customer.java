@@ -27,7 +27,8 @@ public class Customer {
     private String tel;
     private String username;
     private String password;
-    private boolean statusId;
+    private String city;
+    private String postcode;
     private static final String TABLE_NAME = "customer";
     
     public Customer(){
@@ -44,9 +45,23 @@ public class Customer {
         this.tel = tel;
         this.username = username;
         this.password = password;
-        this.statusId = statusId;
     }
 
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
+    }
     
     public static String getTABLE_NAME() {
         return TABLE_NAME;
@@ -115,14 +130,6 @@ public class Customer {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public boolean isStatus() {
-        return statusId;
-    }
-
-    public void setStatusId(boolean statusId) {
-        this.statusId = statusId;
-    }
     
     public static List<Customer> getCustomerByName(String word, Connection con) {
         List<Customer> customers = new ArrayList<Customer>();
@@ -175,7 +182,8 @@ public class Customer {
         cus.setTel(rs.getString("tel"));
         cus.setUsername(rs.getString("username"));
         cus.setPassword(rs.getString("password"));
-        cus.setStatusId(rs.getBoolean("statusId"));
+        cus.setCity(rs.getString("city"));
+        cus.setPostcode(rs.getString("postcode"));
     }
     
     public static boolean insertCustomer(Customer cus, Connection conn) {
@@ -192,6 +200,8 @@ public class Customer {
             pstm.setString(5, cus.getTel());
             pstm.setString(6, cus.getUsername());
             pstm.setString(7, cus.getPassword());
+            pstm.setString(8, cus.getCity());
+            pstm.setString(9, cus.getPostcode());
 
             if (pstm.executeUpdate() > 0) {
                 result = true;
@@ -208,7 +218,8 @@ public class Customer {
         
         try {
             String sql = "UPDATE " + TABLE_NAME + " SET fname=? ,"
-                    + "sname=?,email=?,address=?,tel=?,username=?,password=? WHERE customerId=?";
+                    + "sname=?,email=?,address=?,tel=?,username=?,password=?,"
+                    + "city=?,postcode=? WHERE customerId=?";
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, cus.getFname());
             pstm.setString(2, cus.getSname());
@@ -217,7 +228,9 @@ public class Customer {
             pstm.setString(5, cus.getTel());
             pstm.setString(6, cus.getUsername());
             pstm.setString(7, cus.getPassword());
-            pstm.setInt(8, cus.getCustomerId());
+            pstm.setString(8, cus.getCity());
+            pstm.setString(9, cus.getPostcode());
+            pstm.setInt(10, cus.getCustomerId());
 
             if (pstm.executeUpdate() > 0) {
                 result = true;
@@ -229,24 +242,24 @@ public class Customer {
         return result;
     }
     
-    public static boolean editStatusCustomer(Customer cus,Boolean status, Connection conn) {
-        boolean result = false;
-        
-        try {
-            String sql = "UPDATE " + TABLE_NAME + " SET statusId=? WHERE customerId=?";
-            PreparedStatement pstm = conn.prepareStatement(sql);
-            pstm.setBoolean(1, status);
-            pstm.setInt(2, cus.getCustomerId());
-
-            if (pstm.executeUpdate() > 0) {
-                result = true;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return result;
-    }
+//    public static boolean editStatusCustomer(Customer cus,Boolean status, Connection conn) {
+//        boolean result = false;
+//        
+//        try {
+//            String sql = "UPDATE " + TABLE_NAME + " SET statusId=? WHERE customerId=?";
+//            PreparedStatement pstm = conn.prepareStatement(sql);
+//            pstm.setBoolean(1, status);
+//            pstm.setInt(2, cus.getCustomerId());
+//
+//            if (pstm.executeUpdate() > 0) {
+//                result = true;
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//        return result;
+//    }
     
     public static boolean deleteCustomer(Customer cus, Connection conn) {
         boolean result = false;

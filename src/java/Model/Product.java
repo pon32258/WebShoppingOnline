@@ -23,9 +23,27 @@ public class Product {
     private String prodName;
     private String typeName;
     private double price;
+    private String brand;
+    private String description;
 
     public Product(){
     
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
     
     public int getProdId() {
@@ -63,11 +81,14 @@ public class Product {
     public static List<Product> getProductByName(String word,String type, Connection con) {
         List<Product> products = new ArrayList<Product>();
         try {
-            PreparedStatement ppstm = con.prepareStatement("SELECT * FROM product p"
-                    + "JOIN productType pt ON p.typeId = pt.typeId "
-                    + "WHERE LOWER(p.prodName) LIKE ? OR LOWER(pt.typeName) LIKE ?");
+            PreparedStatement ppstm = con.prepareStatement("SELECT * FROM item i"
+                    + "JOIN itemType it ON i.typeId = it.typeId "
+                    + "JOIN brand b ON i.brandId = b.brandId "
+                    + "WHERE LOWER(i.itemName) LIKE ? OR LOWER(it.typeName) LIKE ?"
+                    + "OR LOWER(b.brandName) LIKE ?");
             ppstm.setString(1, "%"+word.toLowerCase()+"%");
             ppstm.setString(2, "%"+type.toLowerCase()+"%");
+            ppstm.setString(3, "%"+word.toLowerCase()+"%");
             ResultSet rs = ppstm.executeQuery();
             while (rs.next()) {
                 Product prod = new Product();
@@ -83,8 +104,10 @@ public class Product {
     public static Product getProductById(int prodId, Connection connection) {
         Product prod = null;
         try {
-            PreparedStatement ppstm = connection.prepareStatement("SELECT * FROM product" 
-                    + " WHERE prodId = ?");
+            PreparedStatement ppstm = connection.prepareStatement("SELECT * FROM item i"
+                    + "JOIN itemType it ON i.typeId = it.typeId "
+                    + "JOIN brand b ON i.brandId = b.brandId "
+                    + "WHERE i.itemId = ?");
             ppstm.setInt(1, prodId);
             ResultSet rs = ppstm.executeQuery();
             while (rs.next()) {
@@ -101,10 +124,12 @@ public class Product {
         if(prod == null){
             prod = new Product();
         }
-        prod.setProdId(rs.getInt("prodId"));
-        prod.setProdName(rs.getString("prodName"));
+        prod.setProdId(rs.getInt("itemId"));
+        prod.setProdName(rs.getString("itemName"));
         prod.setTypeName(rs.getString("typeName"));
         prod.setPrice(rs.getInt("price"));
+        prod.setBrand(rs.getString("brandName"));
+        prod.setDescription(rs.getString("description"));
     }
     
 }
