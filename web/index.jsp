@@ -471,8 +471,8 @@
                             <!-- Product #1 Starts -->
                             <div class="col-md-4 col-sm-6">
                                 <div class="product-col">
-                                    <div class="image">
-                                        <img src="images/product-images/9.jpg" alt="product" class="img-responsive img-center-sm img-center-xs" />
+                                    <div class="image" >
+                                        <img src="images/product-images/9.jpg" alt="product" class="img-responsive img-center-sm img-center-xs"  />
                                     </div>
                                     <div class="caption">
                                         <h4>
