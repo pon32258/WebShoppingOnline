@@ -30,16 +30,73 @@
             </div>
             <!-- Header Top Links Ends -->				
             <!-- Shopping Cart Starts -->
-            <div class="col-md-2 col-sm-3 col-xs-12">                                          
+            <div class="col-md-2 col-sm-3 col-xs-12">
                 <div id="cart" class="btn-group pull-right">
                     <button type="button" data-toggle="dropdown" class="btn dropdown-toggle text-uppercase">
                         <i class="fa fa-shopping-cart"></i>
-                        <span id="cart-total">0 item(s)</span>
+                        <span id="cart-total">2 item(s)</span>
                         <i class="fa fa-caret-down"></i>
                     </button>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu pull-right">
                         <li>
-                            <p class="text-center">Your shopping cart is empty!</p>
+                            <table class="table hcart">
+                                <tr>
+                                    <td class="text-center">
+                                        <a href="product.jsp">
+                                            <img src="images/product-images/hcart-thumb1.jpg" alt="image" title="image" class="img-thumbnail img-responsive" />
+                                        </a>
+                                    </td>
+                                    <td class="text-left">
+                                        <a href="product-full.jsp">
+                                            Seeds
+                                        </a>
+                                    </td>
+                                    <td class="text-right">x 1</td>
+                                    <td class="text-right">$120.00</td>
+                                    <td class="text-center">
+                                        <a href="#">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">
+                                        <a href="product.jsp">
+                                            <img src="images/product-images/hcart-thumb2.jpg" alt="image" title="image" class="img-thumbnail img-responsive" />
+                                        </a>
+                                    </td>
+                                    <td class="text-left">
+                                        <a href="product-full.jsp">
+                                            Organic
+                                        </a>
+                                    </td>
+                                    <td class="text-right">x 2</td>
+                                    <td class="text-right">$240.00</td>
+                                    <td class="text-center">
+                                        <a href="#">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li>
+                            <table class="table table-bordered total">
+                                <tbody>                                   
+                                    <tr>
+                                        <td class="text-right"><strong>Total</strong></td>
+                                        <td class="text-left">$600.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p class="text-right btn-block1">
+                                <a href="cart.jsp">
+                                    View Cart
+                                </a>
+                                <a href="#">
+                                    Checkout
+                                </a>
+                            </p>
                         </li>									
                     </ul>
                 </div>
