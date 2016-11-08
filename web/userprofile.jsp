@@ -102,10 +102,9 @@
                     <h3 class="text-justify">Tel</h3>
                     <input type="number" class="form-control"  placeholder="Tel" name="tel" readonly>
                     <h3 class="text-justify">Gender</h3>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="male" checked=""> Male  &nbsp;&nbsp;&nbsp; <input type="radio" name="gender" value="female"> Female 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="male" checked="" disabled=""> Male  &nbsp;&nbsp;&nbsp; <input type="radio" name="gender" value="female" disabled=""> Female 
                     <br>
-                    <input type="checkbox" value="agree"required>I read and agree <a href="www.google.com">term of service</a> or something like that </input> 
-                    <br><br>                    
+                    <br>                    
                     <button type="submit" class="btn btn-black"value="Submit">Submit</button>
                     </div>   
                     </form>
