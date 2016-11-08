@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Uti
+package Utility;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -19,11 +20,16 @@ public class ConnectionBuilder {
 
     public static Connection mainConnection = null;
 
-    public static Connection getConnection() throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.jdbc.Driver");
+    public static Connection getConnection() {
         Connection conn = null;
-        conn = DriverManager.getConnection("jdbc:mysql://54.169.211.228:3306/int303_project?zeroDateTimeBehavior=convertToNull", "pon322", "pon322");
-        conn.close();
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            conn = DriverManager.getConnection("jdbc:mysql://54.169.211.228:3306/int303_project?zeroDateTimeBehavior=convertToNull", "pon322", "pon322");
+        } catch (ClassNotFoundException ex) {
+            System.err.println(ex);
+        } catch (SQLException ex) {
+            System.err.println(ex);
+        }
         return conn;
     }
 }
