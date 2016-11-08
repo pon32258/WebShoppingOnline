@@ -159,7 +159,7 @@
                 <h1 class="text-uppercase">Register</h1>
                 <div class="col-sm-9"  style="border: 1px solid lightgray;padding-bottom: 3%;border-radius:10px ">
                     
-                    <form action="WTF" method="get" >
+                    <form action="Register" method="post" >
                         <div class="col-sm-12">
                     <h3 class="text-justify">Username</h3>
                     <input type="text" class="form-control"  placeholder="Username" name="userid" required>
@@ -170,30 +170,30 @@
                     </div> 
                     <div class="col-sm-6">
                     <h3 class="text-justify">Name</h3>
-                    <input type="text" class="form-control"  placeholder="Name" name="fname" >
+                    <input type="text" class="form-control"  placeholder="Name" name="fname" required>
                     </div>
                     <div class="col-sm-6">
                     <h3 class="text-justify">Last name</h3>
-                    <input type="text" class="form-control"  placeholder="Last name" name="sname" >
+                    <input type="text" class="form-control"  placeholder="Last name" name="sname" required>
                     </div>
                     <br><br><br><br>
                     
                     <div class="col-sm-12">
                     <h3 class="text-justify">Address</h3>
-                    <input type="text" class="form-control"  placeholder="Address" name="address" > 
+                    <input type="text" class="form-control"  placeholder="Address" name="address" required> 
                     </div>
                     <div class="col-sm-8">
                     <h3 class="text-justify">City</h3>
-                    <input type="text" class="form-control"  placeholder="City" name="city" >
+                    <input type="text" class="form-control"  placeholder="City" name="city" required>
                     </div>
                     <div class="col-sm-4">
                     <h3 class="text-justify">Post code</h3>
-                    <input type="text" class="form-control"  placeholder="Postcode" name="postcode" >
+                    <input type="text" class="form-control"  placeholder="Postcode" name="postcode" required>
                     </div>
                     <br><br><br><br>
                     <div class="col-sm-12">
                     <h3 class="text-justify">Tel</h3>
-                    <input type="number" class="form-control"  placeholder="Tel" name="tel" >
+                    <input type="number" class="form-control"  placeholder="Tel" name="tel" required>
                     <h3 class="text-justify">Gender</h3>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="male" checked=""> Male  &nbsp;&nbsp;&nbsp; <input type="radio" name="gender" value="female"> Female 
                     <br>
@@ -202,6 +202,8 @@
                     <button type="submit" class="btn btn-black"value="Submit">Submit</button> <button type="reset" class="btn btn-black">Reset</button> 
                     </div>   
                     </form>
+                    <br><br>
+                    <h3 style="color:${color}">${message}
                 </div>
                 <div class="col-sm-3">
                     <h2 class="text-uppercase">Simply text of H2</h2>

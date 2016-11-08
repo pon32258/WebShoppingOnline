@@ -17,48 +17,21 @@
 					<div class="col-md-5 col-xs-12 hidden-sm hidden-xs">
 						<ul class="list-unstyled list-inline header-links text-center">
 							<li><a href="index.jsp">Home</a></li>
-							<li><a href="#">Wish List(0)</a></li>
 							<li><a href="cart.jsp">Shopping Cart</a></li>
-							<li><a href="login.jsp">Login</a></li>
-							<li><a href="register.jsp">Register</a></li>
+                                                        <c:choose>
+                                                            <c:when test="${sessionScope.user==null}">
+                                                                <li><a href="login.jsp">Login</a></li>
+                                                                <li><a href="register.jsp">Register</a></li>
+                                                            </c:when>
+                                                            <c:otherwise>
+                                                                <li><a href="Logout">Logout</a></li>
+                                                            </c:otherwise>
+                                                        </c:choose>
 						</ul>
 					</div>
-				<!-- Header Top Links Ends -->
-				<!-- Currency & Languages Starts -->
-					<div class="col-md-2 col-sm-5 col-xs-12 text-center">
-					<!-- Languages Starts -->
-						<div class="btn-group">
-							<button class="btn btn-link dropdown-toggle text-uppercase" data-toggle="dropdown">
-								Eng
-								<i class="fa fa-caret-down"></i>
-							</button>
-							<ul class="pull-right dropdown-menu">
-								<li>
-									<a tabindex="-1" href="#">English</a>
-								</li>
-								<li>
-									<a tabindex="-1" href="#">French</a>
-								</li>
-							</ul>
-						</div>
-					<!-- Languages Ends -->
-					<!-- Currency Starts -->
-						<div class="btn-group">
-							<button class="btn btn-link dropdown-toggle text-uppercase" data-toggle="dropdown">
-								$
-								<i class="fa fa-caret-down"></i>
-							</button>
-							<ul class="pull-right dropdown-menu">
-								<li><a tabindex="-1" href="#">Pound </a></li>
-								<li><a tabindex="-1" href="#">US Dollar</a></li>
-								<li><a tabindex="-1" href="#">Euro</a></li>
-							</ul>
-						</div>
-					<!-- Currency Ends -->
-					</div>
-				<!-- Currency & Languages Ends -->
+				<!-- Header Top Links Ends -->				
 				<!-- Shopping Cart Starts -->
-					<div class="col-md-2 col-sm-3 col-xs-12">
+					<div class="col-md-2 col-sm-3 col-xs-12">                                          
 						<div id="cart" class="btn-group pull-right">
 							<button type="button" data-toggle="dropdown" class="btn dropdown-toggle text-uppercase">
 								<i class="fa fa-shopping-cart"></i>
