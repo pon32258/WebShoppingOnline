@@ -99,8 +99,6 @@ public class Product {
             }
         } catch (SQLException ex) {
             Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
         }
         return products;
     }
@@ -120,8 +118,6 @@ public class Product {
                 orm(rs, prod);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
             Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
         }
         return prod;

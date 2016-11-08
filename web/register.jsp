@@ -43,87 +43,7 @@
 
     </head>
     <body>
-        <!-- Header Wrap Starts -->
-        <header class="header-wrap inner">
-            <!-- Header Top Starts -->
-            <div class="header-top">
-                <!-- Nested Container Starts -->
-                <div class="container">
-                    <!-- Nested Row Starts -->
-                    <div class="row">
-                        <!-- Logo Starts -->
-                        <div class="col-md-3 col-sm-4 col-xs-12">
-                            <a href="index.jsp">
-                                <img src="images/logo.png" alt="Digi Shoppe" class="img-responsive logo" />
-                            </a>
-                        </div>
-                        <!-- Logo Ends -->
-                        <!-- Header Top Links Starts -->
-                        <div class="col-md-5 col-xs-12 hidden-sm hidden-xs">
-                            <ul class="list-unstyled list-inline header-links text-center">
-                                <li><a href="index.jsp">Home</a></li>
-                                <li><a href="#">Wish List(0)</a></li>
-                                <li><a href="cart.jsp">Shopping Cart</a></li>
-                                <li><a href="login.jsp">Login</a></li>
-                                <li><a href="register.jsp">Register</a></li>
-                            </ul>
-                        </div>
-                        <!-- Header Top Links Ends -->
-                        <!-- Currency & Languages Starts -->
-                        <div class="col-md-2 col-sm-5 col-xs-12 text-center">
-                            <!-- Languages Starts -->
-                            <div class="btn-group">
-                                <button class="btn btn-link dropdown-toggle text-uppercase" data-toggle="dropdown">
-                                    Eng
-                                    <i class="fa fa-caret-down"></i>
-                                </button>
-                                <ul class="pull-right dropdown-menu">
-                                    <li>
-                                        <a tabindex="-1" href="#">English</a>
-                                    </li>
-                                    <li>
-                                        <a tabindex="-1" href="#">French</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- Languages Ends -->
-                            <!-- Currency Starts -->
-                            <div class="btn-group">
-                                <button class="btn btn-link dropdown-toggle text-uppercase" data-toggle="dropdown">
-                                    $
-                                    <i class="fa fa-caret-down"></i>
-                                </button>
-                                <ul class="pull-right dropdown-menu">
-                                    <li><a tabindex="-1" href="#">Pound </a></li>
-                                    <li><a tabindex="-1" href="#">US Dollar</a></li>
-                                    <li><a tabindex="-1" href="#">Euro</a></li>
-                                </ul>
-                            </div>
-                            <!-- Currency Ends -->
-                        </div>
-                        <!-- Currency & Languages Ends -->
-                        <!-- Shopping Cart Starts -->
-                        <div class="col-md-2 col-sm-3 col-xs-12">
-                            <div id="cart" class="btn-group pull-right">
-                                <button type="button" data-toggle="dropdown" class="btn dropdown-toggle text-uppercase">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    <span id="cart-total">0 item(s)</span>
-                                    <i class="fa fa-caret-down"></i>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <p class="text-center">Your shopping cart is empty!</p>
-                                    </li>									
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Shopping Cart Ends -->
-                    </div>
-                    <!-- Nested Row Ends -->
-                </div>
-                <!-- Nested Container Ends -->
-            </div>
-            <!-- Header Top Ends -->
+        <jsp:include page="WEB-INF/include/header.jsp"/>
             <!-- Main Menu Starts -->
             <nav id="main-menu" class="navbar" role="navigation">
                 <!-- Nested Container Starts -->
@@ -236,18 +156,52 @@
         <div class="main-container container">
             <!-- Typography #1 Starts -->
             <div class="row">
-                <div class="col-sm-9">
-                    <h1 class="text-uppercase">Simply text of H1</h1>
-                    <p class="text-justify">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including  versions of Lorem Ipsum.
-                    </p>
-                    <p class="text-justify">
-                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident,
-                    </p>
-                    <h3 class="text-uppercase">Simply text of H3</h3>
-                    <h4 class="text-uppercase">Simply text of H4</h4>
-                    <h5 class="text-uppercase">Simply text of H5</h5>
-                    <h6 class="text-uppercase">Simply text of H6</h6>
+                <h1 class="text-uppercase">Register</h1>
+                <div class="col-sm-9"  style="border: 1px solid lightgray;padding-bottom: 3%;border-radius:10px ">
+                    
+                    <form action="WTF" method="get" >
+                        <div class="col-sm-12">
+                    <h3 class="text-justify">Username</h3>
+                    <input type="text" class="form-control"  placeholder="Username" name="userid" required>
+                    <h3 class="text-justify">Password </h3>
+                    <input type="text" class="form-control"  placeholder="Password" name="password" required>
+                    <h3 class="text-justify">Email </h3>
+                    <input type="text" class="form-control"  placeholder="Email" name="email"required>
+                    </div> 
+                    <div class="col-sm-6">
+                    <h3 class="text-justify">Name</h3>
+                    <input type="text" class="form-control"  placeholder="Name" name="fname" >
+                    </div>
+                    <div class="col-sm-6">
+                    <h3 class="text-justify">Last name</h3>
+                    <input type="text" class="form-control"  placeholder="Last name" name="sname" >
+                    </div>
+                    <br><br><br><br>
+                    
+                    <div class="col-sm-12">
+                    <h3 class="text-justify">Address</h3>
+                    <input type="text" class="form-control"  placeholder="Address" name="address" > 
+                    </div>
+                    <div class="col-sm-8">
+                    <h3 class="text-justify">City</h3>
+                    <input type="text" class="form-control"  placeholder="City" name="city" >
+                    </div>
+                    <div class="col-sm-4">
+                    <h3 class="text-justify">Post code</h3>
+                    <input type="text" class="form-control"  placeholder="Postcode" name="postcode" >
+                    </div>
+                    <br><br><br><br>
+                    <div class="col-sm-12">
+                    <h3 class="text-justify">Tel</h3>
+                    <input type="number" class="form-control"  placeholder="Tel" name="tel" >
+                    <h3 class="text-justify">Gender</h3>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="male" checked=""> Male  &nbsp;&nbsp;&nbsp; <input type="radio" name="gender" value="female"> Female 
+                    <br>
+                    <input type="checkbox" value="agree"required>I read and agree <a href="www.google.com">term of service</a> or something like that </input> 
+                    <br><br>                    
+                    <button type="submit" class="btn btn-black"value="Submit">Submit</button> <button type="reset" class="btn btn-black">Reset</button> 
+                    </div>   
+                    </form>
                 </div>
                 <div class="col-sm-3">
                     <h2 class="text-uppercase">Simply text of H2</h2>

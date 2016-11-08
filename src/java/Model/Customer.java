@@ -150,8 +150,6 @@ public class Customer {
             }
         } catch (SQLException ex) {
             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return customers;
@@ -171,8 +169,6 @@ public class Customer {
             }
         } catch (SQLException ex) {
             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return cus;
@@ -186,7 +182,7 @@ public class Customer {
         cus.setCustomerId(rs.getInt("customerId"));
         cus.setFname(rs.getString("fname"));
         cus.setSname(rs.getString("sname"));
-        cus.setEmail(rs.getString("email"));
+        cus.setEmail(rs.getString("emai"));
         cus.setAddress(rs.getString("address"));
         cus.setTel(rs.getString("tel"));
         cus.setUsername(rs.getString("username"));
@@ -218,8 +214,6 @@ public class Customer {
             
         } catch (SQLException ex) {
             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
     }
@@ -247,8 +241,6 @@ public class Customer {
                 result = true;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -286,9 +278,8 @@ public class Customer {
             }
         } catch (SQLException ex) {
             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
     }
+
 }
