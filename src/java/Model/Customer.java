@@ -30,7 +30,7 @@ public class Customer {
     private String password;
     private String city;
     private String postcode;
-    private static final String TABLE_NAME = "Customer";
+    private static final String TABLE_NAME = "customer";
     
     public Customer(){
     
@@ -181,7 +181,7 @@ public class Customer {
         cus.setCustomerId(rs.getInt("customerId"));
         cus.setFname(rs.getString("fname"));
         cus.setSname(rs.getString("sname"));
-        cus.setEmail(rs.getString("emai"));
+        cus.setEmail(rs.getString("email"));
         cus.setAddress(rs.getString("address"));
         cus.setTel(rs.getString("tel"));
         cus.setUsername(rs.getString("username"));
@@ -195,7 +195,7 @@ public class Customer {
         try {  
             Connection conn = ConnectionBuilder.getConnection();
             String sqlcmd = "INSERT INTO " + TABLE_NAME + "(fname ,"
-                    + "sname,emai,address,tel,username,password,city,postcode) values(?,?,?,?,?,?,?,?,?)";
+                    + "sname,email,address,tel,username,password,city,postcode) values(?,?,?,?,?,?,?,?,?)";
             PreparedStatement pstm = conn.prepareStatement(sqlcmd);
             pstm.setString(1, cus.getFname());
             pstm.setString(2, cus.getSname());

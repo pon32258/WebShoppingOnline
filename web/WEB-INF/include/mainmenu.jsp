@@ -15,64 +15,16 @@
         <div class="collapse navbar-collapse navbar-cat-collapse">
             <!-- Nav Links Starts -->
             <ul class="nav navbar-nav">
-                <li><a href="category-list.jsp">Digital Cameras</a></li>
-                <li class="dropdown">
-                    <a href="category-list.jsp" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10">
-                        Sound Devices
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a tabindex="-1" href="#">Music System</a></li>
-                        <li><a tabindex="-1" href="#">DTS</a></li>
-                        <li><a tabindex="-1" href="#">Home Theater</a></li> 
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="category-list.jsp" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10">Televisions </a>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-inner">
-                            <ul class="list-unstyled">
-                                <li class="dropdown-header">Sub Category</li>
-                                <li><a tabindex="-1" href="#">item 1</a></li>
-                                <li><a tabindex="-1" href="#">item 2</a></li>
-                                <li><a tabindex="-1" href="#">item 3</a></li>
-                            </ul>										
-                            <ul class="list-unstyled">
-                                <li class="dropdown-header">Sub Category</li>
-                                <li><a tabindex="-1" href="#">item 1</a></li>
-                                <li><a tabindex="-1" href="#">item 2</a></li>
-                                <li><a tabindex="-1" href="#">item 3</a></li>
-                            </ul>
-                            <ul class="list-unstyled">
-                                <li class="dropdown-header">Sub Category</li>
-                                <li><a tabindex="-1" href="#">item 1</a></li>
-                                <li><a tabindex="-1" href="#">item 2</a></li>
-                                <li><a tabindex="-1" href="#">item 3</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-                <li><a href="category-list.jsp">Computers </a></li>
-                <li><a href="category-list.jsp">Washing Machines</a></li>
-                <li class="dropdown">
-                    <a href="category-list.jsp" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="10">
-                        Pages
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a tabindex="-1" href="index.jsp">Home</a></li>
-                        <li><a tabindex="-1" href="about.jsp">About</a></li>
-                        <li><a tabindex="-1" href="category-list.jsp">Category List</a></li>
-                        <li><a tabindex="-1" href="category-grid.jsp">Category Grid</a></li>
-                        <li><a tabindex="-1" href="product.jsp">Product</a></li>
-                        <li><a tabindex="-1" href="product-full.jsp">Product Full Width</a></li>
-                        <li><a tabindex="-1" href="cart.jsp">Cart</a></li>
-                        <li><a tabindex="-1" href="login.jsp">Login</a></li>
-                        <li><a tabindex="-1" href="compare.jsp">Compare Products</a></li>
-                        <li><a tabindex="-1" href="typography.jsp">Typography</a></li>
-                        <li><a tabindex="-1" href="register.jsp">Register</a></li>
-                        <li><a tabindex="-1" href="contact.jsp">Contact</a></li>
-                        <li><a tabindex="-1" href="404.jsp">404</a></li>
-                    </ul>
-                </li>
+                <li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</li>
+                <li><a href="SearchProduct?searchText=Camera">Digital Cameras</a></li>
+                <li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</li>
+                <li><a href="SearchProduct?searchText=SoundDevice">Sound Devices</a></li>
+                <li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</li>
+                <li><a href="SearchProduct?searchText=Television">Televisions</a></li>
+                <li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</li>
+                <li><a href="SearchProduct?searchText=Computer">Computer</a></li>
+                <li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</li>
+                <li><a href="SearchProduct?searchText=Telephone">Telephone</a></li>               
             </ul>
             <!-- Nav Links Ends -->
             <!-- Search Form Starts -->					

@@ -83,10 +83,10 @@ public class Product {
         List<Product> products = new ArrayList<Product>();
         try {
             Connection conn = ConnectionBuilder.getConnection();
-            PreparedStatement ppstm = conn.prepareStatement("SELECT * FROM item i"
+            PreparedStatement ppstm = conn.prepareStatement("SELECT * FROM item i "
                     + "JOIN itemType it ON i.typeId = it.typeId "
                     + "JOIN brand b ON i.brandId = b.brandId "
-                    + "WHERE LOWER(i.itemName) LIKE ? OR LOWER(it.typeName) LIKE ?"
+                    + "WHERE LOWER(i.itemName) LIKE ? OR LOWER(it.typeName) LIKE ? "
                     + "OR LOWER(b.brandName) LIKE ?");
             ppstm.setString(1, "%"+word.toLowerCase()+"%");
             ppstm.setString(2, "%"+type.toLowerCase()+"%");
@@ -132,7 +132,7 @@ public class Product {
         prod.setTypeName(rs.getString("typeName"));
         prod.setPrice(rs.getInt("price"));
         prod.setBrand(rs.getString("brandName"));
-        prod.setDescription(rs.getString("description"));
+        prod.setDescription(rs.getString("itemDescription"));
     }
     
 }
