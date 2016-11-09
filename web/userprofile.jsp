@@ -69,47 +69,57 @@
                     <form action="Profile" method="post" >
                         <div class="col-sm-12">
                     <h3 class="text-justify">Username</h3>
-                    <input type="text" class="form-control"  placeholder="Username" name="userid" readonly>
-                    <h3 class="text-justify">Password </h3>
-                    <input type="text" class="form-control"  placeholder="Password" name="password" readonly>
+                    <input type="text" class="form-control"  placeholder="Username" name="userid" disabled>                    
                     <h3 class="text-justify">Email </h3>
-                    <input type="text" class="form-control"  placeholder="Email" name="email" readonly>
+                    <input type="text" class="form-control"  placeholder="Email" name="email" disabled>
                     </div> 
                     <div class="col-sm-6">
                     <h3 class="text-justify">Name</h3>
-                    <input type="text" class="form-control"  placeholder="Name" name="fname" readonly>
+                    <input type="text" class="form-control"  placeholder="Name" name="fname" disabled>
                     </div>
                     <div class="col-sm-6">
                     <h3 class="text-justify">Last name</h3>
-                    <input type="text" class="form-control"  placeholder="Last name" name="sname" readonly>
+                    <input type="text" class="form-control"  placeholder="Last name" name="sname" disabled>
                     </div>
                     <br><br><br><br>
                     
                     <div class="col-sm-12">
                     <h3 class="text-justify">Address</h3>
-                    <input type="text" class="form-control"  placeholder="Address" name="address" readonly> 
+                    <input type="text" class="form-control"  placeholder="Address" name="address" disabled> 
                     </div>
                     <div class="col-sm-8">
                     <h3 class="text-justify">City</h3>
-                    <input type="text" class="form-control"  placeholder="City" name="city" readonly>
+                    <input type="text" class="form-control"  placeholder="City" name="city" disabled>
                     </div>
                     <div class="col-sm-4">
                     <h3 class="text-justify">Post code</h3>
-                    <input type="text" class="form-control"  placeholder="Postcode" name="postcode" readonly>
+                    <input type="text" class="form-control"  placeholder="Postcode" name="postcode" disabled>
                     </div>
                     <br><br><br><br>
                     <div class="col-sm-12">
                     <h3 class="text-justify">Tel</h3>
-                    <input type="number" class="form-control"  placeholder="Tel" name="tel" readonly>
+                    <input type="number" class="form-control"  placeholder="Tel" name="tel" disabled>
                     <h3 class="text-justify">Gender</h3>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="male" checked="" disabled=""> Male  &nbsp;&nbsp;&nbsp; <input type="radio" name="gender" value="female" disabled=""> Female 
-                    <br>
-                    <br>                    
-                    <button type="submit" class="btn btn-black"value="Submit">Submit</button>
+                    <br><br>                    
+                    <button type="submit" class="btn btn-black"value="Edit">Edit Profile</button>
+                    <br><br>
+                    <hr>
+                    <div class="col-sm-9">
+                    <h3 class="text-justify">Change Password </h3>
+                    <input type="password" class="form-control"  placeholder="Password" name="password" disabled>
+                    </div><br><br><br>
+                    <div class="col-sm-3">
+                    <button type="submit" class="btn btn-black"value="change">Change Password</button>
+                    
+                    </div>
                     </div>   
                     </form>
                     <br><br>
                     <h3 style="color:${color}">${message}
+                        
+                    
+                        
                 </div>
                 <div class="col-sm-3">
                     <h2 class="text-uppercase">Simply text of H2</h2>
@@ -118,86 +128,7 @@
                     </p>
                 </div>
             </div>
+                    </div>
             <!-- Typography #1 Ends -->	
-            <hr />
-            <!-- Typography #2 Starts -->
-            <div class="row">
-                <div class="col-sm-6">
-                    <h3 class="text-uppercase">2 Columns</h3>
-                    <p class="text-justify">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets.
-                    </p>
-                </div>
-                <div class="col-sm-6">
-                    <h3 class="text-uppercase">2 Columns</h3>
-                    <p class="text-justify">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets.
-                    </p>
-                </div>
-            </div>
-            <!-- Typography #2 Ends -->	
-            <hr />
-            <!-- Typography #3 Starts -->
-            <div class="row">
-                <div class="col-sm-4">
-                    <h3 class="text-uppercase">3 Columns</h3>
-                    <p class="text-justify">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                    </p>
-                </div>
-                <div class="col-sm-4">
-                    <h3 class="text-uppercase">3 Columns</h3>
-                    <p class="text-justify">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                    </p>
-                </div>
-                <div class="col-sm-4">
-                    <h3 class="text-uppercase">3 Columns</h3>
-                    <p class="text-justify">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                    </p>
-                </div>
-            </div>
-            <!-- Typography #3 Ends -->
-            <hr />
-            <!-- Typography #4 Starts -->
-            <div class="row">
-                <div class="col-sm-3">
-                    <h3 class="text-uppercase">4 Columns</h3>
-                    <p class="text-justify">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <h3 class="text-uppercase">4 Columns</h3>
-                    <p class="text-justify">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <h3 class="text-uppercase">4 Columns</h3>
-                    <p class="text-justify">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                    </p>
-                </div>
-                <div class="col-sm-3">
-                    <h3 class="text-uppercase">4 Columns</h3>
-                    <p class="text-justify">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                    </p>
-                </div>
-            </div>
-            <!-- Typography #4 Ends -->
-        </div>
-        <!-- Main Container Ends -->
-        <jsp:include page="WEB-INF/include/footer.jsp"/>
-        <!-- JavaScript Files -->
-        <script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/jquery-migrate-1.2.1.min.js"></script>	
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/bootstrap-hover-dropdown.min.js"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/custom.js"></script>
     </body>
 </html>
