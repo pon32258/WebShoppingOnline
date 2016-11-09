@@ -66,53 +66,43 @@
                 <h1 class="text-uppercase">Profile</h1>
                 <div class="col-sm-9"  style="border: 1px solid lightgray;padding-bottom: 3%;border-radius:10px ">
                     
-                    <form action="editprofile.jsp" method="post" >
+                    <form action="userprofile.jsp" method="post" >
                         <div class="col-sm-12">
                     <h3 class="text-justify">Username</h3>
-                    <input type="text" class="form-control"  placeholder="Username" name="userid" disabled>                    
+                    <input type="text" class="form-control"  placeholder="Username" name="userid" >                    
                     <h3 class="text-justify">Email </h3>
-                    <input type="text" class="form-control"  placeholder="Email" name="email" disabled>
+                    <input type="text" class="form-control"  placeholder="Email" name="email" >
                     </div> 
                     <div class="col-sm-6">
                     <h3 class="text-justify">Name</h3>
-                    <input type="text" class="form-control"  placeholder="Name" name="fname" disabled>
+                    <input type="text" class="form-control"  placeholder="Name" name="fname" >
                     </div>
                     <div class="col-sm-6">
                     <h3 class="text-justify">Last name</h3>
-                    <input type="text" class="form-control"  placeholder="Last name" name="sname" disabled>
+                    <input type="text" class="form-control"  placeholder="Last name" name="sname" >
                     </div>
                     <br><br><br><br>
                     
                     <div class="col-sm-12">
                     <h3 class="text-justify">Address</h3>
-                    <input type="text" class="form-control"  placeholder="Address" name="address" disabled> 
+                    <input type="text" class="form-control"  placeholder="Address" name="address" > 
                     </div>
                     <div class="col-sm-8">
                     <h3 class="text-justify">City</h3>
-                    <input type="text" class="form-control"  placeholder="City" name="city" disabled>
+                    <input type="text" class="form-control"  placeholder="City" name="city" >
                     </div>
                     <div class="col-sm-4">
                     <h3 class="text-justify">Post code</h3>
-                    <input type="text" class="form-control"  placeholder="Postcode" name="postcode" disabled>
+                    <input type="text" class="form-control"  placeholder="Postcode" name="postcode" >
                     </div>
                     <br><br><br><br>
                     <div class="col-sm-12">
                     <h3 class="text-justify">Tel</h3>
-                    <input type="number" class="form-control"  placeholder="Tel" name="tel" disabled>
+                    <input type="number" class="form-control"  placeholder="Tel" name="tel" >
                     <h3 class="text-justify">Gender</h3>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="male" checked="" disabled=""> Male  &nbsp;&nbsp;&nbsp; <input type="radio" name="gender" value="female" disabled=""> Female 
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="male" checked="" > Male  &nbsp;&nbsp;&nbsp; <input type="radio" name="gender" value="female" > Female 
                     <br><br>                    
-                    <button type="submit" class="btn btn-black"value="Edit">Edit Profile</button>
-                    <br><br>
-                    <hr>
-                    <div class="col-sm-9">
-                    <h3 class="text-justify">Change Password </h3>
-                    <input type="password" class="form-control"  placeholder="Password" name="password" disabled>
-                    </div><br><br><br>
-                    <div class="col-sm-3">
-                    <button type="submit" class="btn btn-black"value="change">Change Password</button>
-                    
-                    </div>
+                    <button type="submit" class="btn btn-black"value="submit">Confirm</button>&nbsp;&nbsp;<button type="cancel" class="btn btn-black" onclick="javascript:window.location='userprofile.jsp';">Cancel</button>
                     </div>   
                     </form>
                     <br><br>
