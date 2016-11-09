@@ -20,6 +20,7 @@ import java.util.logging.Logger;
  * @author frest
  */
 public class Product {
+
     private int prodId;
     private String prodName;
     private String typeName;
@@ -27,8 +28,8 @@ public class Product {
     private String brand;
     private String description;
 
-    public Product(){
-    
+    public Product() {
+
     }
 
     public String getBrand() {
@@ -46,7 +47,7 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
     public int getProdId() {
         return prodId;
     }
@@ -78,8 +79,8 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
-    
-    public static List<Product> getProductByName(String word,String type) {
+
+    public static List<Product> getProductByName(String word, String type) {
         List<Product> products = new ArrayList<Product>();
         try {
             Connection conn = ConnectionBuilder.getConnection();
@@ -88,9 +89,9 @@ public class Product {
                     + "JOIN brand b ON i.brandId = b.brandId "
                     + "WHERE LOWER(i.itemName) LIKE ? OR LOWER(it.typeName) LIKE ? "
                     + "OR LOWER(b.brandName) LIKE ?");
-            ppstm.setString(1, "%"+word.toLowerCase()+"%");
-            ppstm.setString(2, "%"+type.toLowerCase()+"%");
-            ppstm.setString(3, "%"+word.toLowerCase()+"%");
+            ppstm.setString(1, "%" + word.toLowerCase() + "%");
+            ppstm.setString(2, "%" + type.toLowerCase() + "%");
+            ppstm.setString(3, "%" + word.toLowerCase() + "%");
             ResultSet rs = ppstm.executeQuery();
             while (rs.next()) {
                 Product prod = new Product();
@@ -123,8 +124,30 @@ public class Product {
         return prod;
     }
     
-    public static void orm(ResultSet rs , Product prod) throws SQLException{
-        if(prod == null){
+    public static List<Product> getProductByType(int typeId){
+        List<Product> products = new ArrayList<Product>();
+        Connection conn = ConnectionBuilder.getConnection();
+        String sql = "SELECT * FROM item i "
+                + "JOIN itemtype it ON i.typeId = it.typeid"
+                + "WHERE i.typeId = ?" ;
+        try {
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, typeId);
+            ResultSet rs = pstm.executeQuery();
+            while(rs.next()){
+                Product prod = new Product();
+                orm(rs,prod);
+                products.add(prod);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return products;
+    }
+    
+
+    public static void orm(ResultSet rs, Product prod) throws SQLException {
+        if (prod == null) {
             prod = new Product();
         }
         prod.setProdId(rs.getInt("itemId"));
@@ -134,5 +157,5 @@ public class Product {
         prod.setBrand(rs.getString("brandName"));
         prod.setDescription(rs.getString("itemDescription"));
     }
-    
+
 }
