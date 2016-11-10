@@ -40,7 +40,7 @@ public class SearchProductServlet extends HttpServlet {
             searchText = search;
         }
         if (type!=null) {
-            //products = Product.searchByType(Integer.parseInt(request.getParameter("type")));
+            products = Product.getProductByType(Integer.parseInt(request.getParameter("type")));
         } else {
             products = Product.getProductByName("", searchText);
         }

@@ -36,6 +36,15 @@ public class Customer {
     
     }
 
+    public Customer(String fname, String sname, String address, String tel, String city, String postcode) {
+        this.fname = fname;
+        this.sname = sname;
+        this.address = address;
+        this.tel = tel;
+        this.city = city;
+        this.postcode = postcode;
+    }
+
     public Customer(String fname, String sname, String email, 
             String address, String tel, String username, String password,String city ,String postcode) {
         this.fname = fname;
