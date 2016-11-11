@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
     <head>
@@ -44,8 +45,8 @@
     </head>
     <body>
         <header class="header-wrap inner">
-        <jsp:include page="WEB-INF/include/header.jsp"/>
-        <jsp:include page="WEB-INF/include/mainmenu.jsp"/>
+            <jsp:include page="WEB-INF/include/header.jsp"/>
+            <jsp:include page="WEB-INF/include/mainmenu.jsp"/>
         </header>
         <!-- Breadcrumb Starts -->
         <div class="breadcrumb-wrap">
@@ -124,34 +125,36 @@
                     </div>
                     <!-- Product Filter Ends -->
                     <!-- Product List Display Starts -->
+
                     <div class="row">
-                        <!-- Product #1 Starts -->
-                        <c:forEach items="${products}" var="p" varStatus="vs">
-                        <div class="col-xs-12">
+                        <c:forEach items="${products}" var="p">
+                            <!-- Product #1 Starts -->                     
+                            <div class="col-xs-12">
                                 <div class="product-col list clearfix">
-					<div class="image">
-						<img src="images/product-images/${p.prodId}.jpg" alt="product" class="img-responsive" />
-					</div>
-					<div class="caption">
-						<h4><a href="product-full.html">${p.prodName}</a></h4>
-						<div class="description">
-							${p.description}
-						</div>
-						<div class="price">
-							<span class="price-new">$${p.price}</span> 
-						</div>
-						<div class="cart-button button-group">
-							<button type="button" class="btn btn-cart">
-								Add to cart
-								<i class="fa fa-shopping-cart"></i> 
-							</button>									
-						</div>
+                                    <div class="image">
+                                        <img src="images/product-images/${p.prodId}.jpg" alt="product" class="img-responsive" />
+                                    </div>
+                                    <div class="caption">
+                                        <h4><a href="product-full.html">${p.prodName}</a></h4>
+                                        <div class="description">
+                                            ${p.description}
                                         </div>
+                                        <div class="price">
+                                            <span class="price-new">${p.price}</span> 
+                                        </div>
+                                        <div class="cart-button button-group">
+                                            <button type="button" class="btn btn-cart">
+                                                Add to cart
+                                                <i class="fa fa-shopping-cart"></i> 
+                                            </button>									
+                                        </div>
+                                    </div>
                                 </div>
-			</div>                               
-			<!-- Product #1 Ends -->
-                        
+                            </div> 
+                        </c:forEach>
+                        <!-- Product #1 Ends -->
                     </div>
+
                     <!-- Product List Display Ends -->
                     <!-- Pagination & Results Starts -->
                     <div class="row">
