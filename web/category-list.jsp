@@ -93,10 +93,10 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="display">
-                                    <a href="category-list.jsp" class="active">
+                                    <a href="SearchProduct?target=/category-list.jsp&type=${param.type}" class="active">
                                         <i class="fa fa-th-list" title="List View"></i>
                                     </a>
-                                    <a href="category-grid.jsp">
+                                    <a href="SearchProduct?target=/category-grid.jsp&type=${param.type}">
                                         <i class="fa fa-th" title="Grid View"></i>
                                     </a>
                                 </div>
@@ -127,7 +127,7 @@
                     <!-- Product List Display Starts -->
 
                     <div class="row">
-                        <c:forEach items="${products}" var="p">
+                        <c:forEach items="${sessionScope.products}" var="p">
                             <!-- Product #1 Starts -->                     
                             <div class="col-xs-12">
                                 <div class="product-col list clearfix">
@@ -140,7 +140,7 @@
                                             ${p.description}
                                         </div>
                                         <div class="price">
-                                            <span class="price-new">${p.price}</span> 
+                                            <span class="price-new">$${p.price}</span> 
                                         </div>
                                         <div class="cart-button button-group">
                                             <button type="button" class="btn btn-cart">

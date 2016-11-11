@@ -31,24 +31,10 @@ public class SearchProductServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String searchText = "";
-        String search = request.getParameter("searchText");
         String type = request.getParameter("type");
-        System.out.println("TYPE" + type);
-        List<Product> products = null;
-        if (search != null) {
-            searchText = search;
-        }
-        if (type!=null) {
-            products = Product.getProductByType(Integer.parseInt(request.getParameter("type")));
-        } else {
-            products = Product.getProductByName("", searchText);
-        }
-
-        //String searchText = "";
-        String target = "/category-list.jsp";
+        String target = request.getParameter("target");
+        List<Product> products = Product.getProductByName("", type);
         request.getSession().setAttribute("products", products);
-        request.setAttribute("mss", "asd");
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }
 

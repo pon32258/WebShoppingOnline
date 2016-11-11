@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
     <head>
@@ -93,10 +94,10 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="display">
-                                    <a href="category-list.jsp">
+                                    <a href="SearchProduct?target=/category-list.jsp&type=${param.type}">
                                         <i class="fa fa-th-list" title="List View"></i>
                                     </a>
-                                    <a href="category-grid.jsp" class="active">
+                                    <a href="SearchProduct?target=/category-grid.jsp&type=${param.type}" class="active">
                                         <i class="fa fa-th" title="Grid View"></i>
                                     </a>
                                 </div>
@@ -127,191 +128,31 @@
                     <!-- Product Grid Display Starts -->
                     <div class="row">
                         <!-- Product #1 Starts -->
+                        <c:forEach items="${sessionScope.products}" var="p">
                         <div class="col-md-4 col-sm-6">
                             <div class="product-col">
                                 <div class="image">
-                                    <img src="images/product-images/15.jpg" alt="product" class="img-responsive" />
+                                    <img src="images/product-images/${p.prodId}.jpg" alt="product" class="img-responsive" />
                                 </div>
                                 <div class="caption">
-                                    <h4><a href="product.jsp">Digital Electro Goods</a></h4>
+                                    <h4><a href="product.jsp">${p.prodName}</a></h4>
                                     <div class="description">
-                                        We are so lucky living in such a wonderful time. Our almost unlimited ...
+                                        ${p.description}
                                     </div>
                                     <div class="price">
-                                        <span class="price-new">$199.50</span> 
-                                        <span class="price-old">$249.50</span>
+                                        <span class="price-new">$${p.price}</span> 
                                     </div>
                                     <div class="cart-button button-group">
                                         <button type="button" class="btn btn-cart">
                                             <i class="fa fa-shopping-cart"></i> 
                                             Add to cart
-                                        </button>
-                                        <button type="button" title="Wishlist" class="btn btn-wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </button>
-                                        <button type="button" title="Compare" class="btn btn-compare">
-                                            <i class="fa fa-bar-chart-o"></i>
                                         </button>									
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Product #1 Ends -->
-                        <!-- Product #2 Starts -->
-                        <div class="col-md-4 col-sm-6">
-                            <div class="product-col">
-                                <div class="image">
-                                    <img src="images/product-images/14.jpg" alt="product" class="img-responsive" />
-                                </div>
-                                <div class="caption">
-                                    <h4><a href="product.jsp">Digital Electro Goods</a></h4>
-                                    <div class="description">
-                                        We are so lucky living in such a wonderful time. Our almost unlimited ...
-                                    </div>
-                                    <div class="price">
-                                        <span class="price-new">$199.50</span> 
-                                        <span class="price-old">$249.50</span>
-                                    </div>
-                                    <div class="cart-button button-group">
-                                        <button type="button" class="btn btn-cart">
-                                            <i class="fa fa-shopping-cart"></i> 
-                                            Add to cart
-                                        </button>
-                                        <button type="button" title="Wishlist" class="btn btn-wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </button>
-                                        <button type="button" title="Compare" class="btn btn-compare">
-                                            <i class="fa fa-bar-chart-o"></i>
-                                        </button>									
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product #2 Ends -->
-                        <!-- Product #3 Starts -->
-                        <div class="col-md-4 col-sm-6">
-                            <div class="product-col">
-                                <div class="image">
-                                    <img src="images/product-images/5.jpg" alt="product" class="img-responsive" />
-                                </div>
-                                <div class="caption">
-                                    <h4><a href="product.jsp">Digital Electro Goods</a></h4>
-                                    <div class="description">
-                                        We are so lucky living in such a wonderful time. Our almost unlimited ...
-                                    </div>
-                                    <div class="price">
-                                        <span class="price-new">$199.50</span> 
-                                        <span class="price-old">$249.50</span>
-                                    </div>
-                                    <div class="cart-button button-group">
-                                        <button type="button" class="btn btn-cart">
-                                            <i class="fa fa-shopping-cart"></i> 
-                                            Add to cart
-                                        </button>
-                                        <button type="button" title="Wishlist" class="btn btn-wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </button>
-                                        <button type="button" title="Compare" class="btn btn-compare">
-                                            <i class="fa fa-bar-chart-o"></i>
-                                        </button>									
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product #3 Ends -->
-                        <!-- Product #4 Starts -->
-                        <div class="col-md-4 col-sm-6">
-                            <div class="product-col">
-                                <div class="image">
-                                    <img src="images/product-images/6.jpg" alt="product" class="img-responsive" />
-                                </div>
-                                <div class="caption">
-                                    <h4><a href="product.jsp">Digital Electro Goods</a></h4>
-                                    <div class="description">
-                                        We are so lucky living in such a wonderful time. Our almost unlimited ...
-                                    </div>
-                                    <div class="price">
-                                        <span class="price-new">$199.50</span> 
-                                        <span class="price-old">$249.50</span>
-                                    </div>
-                                    <div class="cart-button button-group">
-                                        <button type="button" class="btn btn-cart">
-                                            <i class="fa fa-shopping-cart"></i> 
-                                            Add to cart
-                                        </button>
-                                        <button type="button" title="Wishlist" class="btn btn-wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </button>
-                                        <button type="button" title="Compare" class="btn btn-compare">
-                                            <i class="fa fa-bar-chart-o"></i>
-                                        </button>									
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product #4 Ends -->
-                        <!-- Product #5 Starts -->
-                        <div class="col-md-4 col-sm-6">
-                            <div class="product-col">
-                                <div class="image">
-                                    <img src="images/product-images/7.jpg" alt="product" class="img-responsive" />
-                                </div>
-                                <div class="caption">
-                                    <h4><a href="product.jsp">Digital Electro Goods</a></h4>
-                                    <div class="description">
-                                        We are so lucky living in such a wonderful time. Our almost unlimited ...
-                                    </div>
-                                    <div class="price">
-                                        <span class="price-new">$199.50</span> 
-                                        <span class="price-old">$249.50</span>
-                                    </div>
-                                    <div class="cart-button button-group">
-                                        <button type="button" class="btn btn-cart">
-                                            <i class="fa fa-shopping-cart"></i> 
-                                            Add to cart
-                                        </button>
-                                        <button type="button" title="Wishlist" class="btn btn-wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </button>
-                                        <button type="button" title="Compare" class="btn btn-compare">
-                                            <i class="fa fa-bar-chart-o"></i>
-                                        </button>									
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product #5 Ends -->
-                        <!-- Product #6 Starts -->
-                        <div class="col-md-4 col-sm-6">
-                            <div class="product-col">
-                                <div class="image">
-                                    <img src="images/product-images/8.jpg" alt="product" class="img-responsive" />
-                                </div>
-                                <div class="caption">
-                                    <h4><a href="product.jsp">Digital Electro Goods</a></h4>
-                                    <div class="description">
-                                        We are so lucky living in such a wonderful time. Our almost unlimited ...
-                                    </div>
-                                    <div class="price">
-                                        <span class="price-new">$199.50</span> 
-                                        <span class="price-old">$249.50</span>
-                                    </div>
-                                    <div class="cart-button button-group">
-                                        <button type="button" class="btn btn-cart">
-                                            <i class="fa fa-shopping-cart"></i> 
-                                            Add to cart
-                                        </button>
-                                        <button type="button" title="Wishlist" class="btn btn-wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </button>
-                                        <button type="button" title="Compare" class="btn btn-compare">
-                                            <i class="fa fa-bar-chart-o"></i>
-                                        </button>									
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product #6 Ends -->
+                        </c:forEach>
+                        <!-- Product #1 Ends -->                        
                     </div>
                     <!-- Product Grid Display Ends -->
                 </div>

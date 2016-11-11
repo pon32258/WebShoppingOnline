@@ -87,8 +87,8 @@ public class Product {
             PreparedStatement ppstm = conn.prepareStatement("SELECT * FROM item i "
                     + "JOIN itemType it ON i.typeId = it.typeId "
                     + "JOIN brand b ON i.brandId = b.brandId "
-                    + "WHERE LOWER(i.itemName) LIKE ? OR LOWER(it.typeName) LIKE ? "
-                    + "OR LOWER(b.brandName) LIKE ?");
+                    + "WHERE LOWER(i.itemName) LIKE ? AND LOWER(it.typeName) LIKE ? "
+                    + "AND LOWER(b.brandName) LIKE ?");
             ppstm.setString(1, "%" + word.toLowerCase() + "%");
             ppstm.setString(2, "%" + type.toLowerCase() + "%");
             ppstm.setString(3, "%" + word.toLowerCase() + "%");

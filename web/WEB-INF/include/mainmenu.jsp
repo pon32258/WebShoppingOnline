@@ -16,15 +16,15 @@
             <!-- Nav Links Starts -->
             <ul class="nav navbar-nav">
                 <li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</li>
-                <li><a href="SearchProduct?searchText=Camera">Digital Cameras</a></li>
+                <li><a href="SearchProduct?target=/category-list.jsp&type=Camera">Digital Cameras</a></li>
                 <li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</li>
-                <li><a href="SearchProduct?searchText=SoundDevice">Sound Devices</a></li>
+                <li><a href="SearchProduct?target=/category-list.jsp&type=SoundDevice">Sound Devices</a></li>
                 <li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</li>
-                <li><a href="SearchProduct?searchText=Television">Televisions</a></li>
+                <li><a href="SearchProduct?target=/category-list.jsp&type=Television">Televisions</a></li>
                 <li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</li>
-                <li><a href="SearchProduct?searchText=Computer">Computer</a></li>
+                <li><a href="SearchProduct?target=/category-list.jsp&type=Computer">Computer</a></li>
                 <li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</li>
-                <li><a href="SearchProduct?searchText=Telephone">Telephone</a></li>               
+                <li><a href="SearchProduct?target=/category-list.jsp&type=Telephone">Telephone</a></li>               
             </ul>
             <!-- Nav Links Ends -->
             <!-- Search Form Starts -->					
