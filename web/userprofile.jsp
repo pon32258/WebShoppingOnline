@@ -105,15 +105,23 @@
                     <button type="submit" class="btn btn-black"value="Edit">Edit Profile</button>
                     <br><br>
                     <hr>
-                    <div class="col-sm-9">
-                    <h3 class="text-justify">Change Password </h3>
-                    <input type="password" class="form-control"  placeholder="Password" name="password" disabled>
-                    </div><br><br><br>
-                    <div class="col-sm-3">
+                     </form>
+                    <form action="editprofile.jsp" method="post" >
+                   
+                        
+                    <h3 class="text-justify">Change Password </h3>                    
+                    Old password : <input type="text" class="form-control"  placeholder="Old Password" name="oldpassword" >
+                    <br>
+                    New password : <input type="text" class="form-control"  placeholder="New Password" name="newpassword" >
+                    Confirm password : <input type="text" class="form-control"  placeholder="Confirm Password" name="confirmpassword"  >
+                    <br><br><br>
                     <button type="submit" class="btn btn-black"value="change">Change Password</button>
+
                     
-                    </div>
-                    </div>   
+                    
+                    </div> 
+                   
+
                     </form>
                     <br><br>
                     <h3 style="color:${color}">${message}

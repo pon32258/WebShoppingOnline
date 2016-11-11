@@ -11,7 +11,8 @@
         <meta name="author" content="">
 
         <title>Digi Shoppe - Bootstrap 3 Template</title>
-
+        
+        <link href="css/owl.carousel.css" rel="stylesheet">
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
