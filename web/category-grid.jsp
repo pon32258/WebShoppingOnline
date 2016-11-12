@@ -101,27 +101,7 @@
                                         <i class="fa fa-th" title="Grid View"></i>
                                     </a>
                                 </div>
-                            </div>
-                            <div class="col-md-2 text-right">
-                                <label class="control-label">Sort</label>
-                            </div>
-                            <div class="col-md-3 text-right">
-                                <select class="form-control">
-                                    <option value="default" selected="selected">Default</option>
-                                    <option value="NAZ">Name (A - Z)</option>
-                                    <option value="NZA">Name (Z - A)</option>
-                                </select>
-                            </div>
-                            <div class="col-md-1 text-right">
-                                <label class="control-label" for="input-limit">Show</label>
-                            </div>
-                            <div class="col-md-2 text-right">
-                                <select id="input-limit" class="form-control">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3" selected="selected">3</option>
-                                </select>
-                            </div>
+                            </div>                           
                         </div>						 
                     </div>
                     <!-- Product Filter Ends -->
@@ -143,10 +123,15 @@
                                         <span class="price-new">$${p.price}</span> 
                                     </div>
                                     <div class="cart-button button-group">
-                                        <button type="button" class="btn btn-cart">
-                                            <i class="fa fa-shopping-cart"></i> 
-                                            Add to cart
-                                        </button>									
+                                        <form action="AddToCart">                                           
+                                            <input type="hidden" name="pid" value="${p.prodId}">
+                                            <a href="SearchProduct?target=${param.target}&type=${param.type}">
+                                            <button type="button" class="btn btn-cart">
+                                                Add to cart
+                                                <i class="fa fa-shopping-cart"></i> 
+                                            </button>
+                                            </a>
+                                            </form>									
                                     </div>
                                 </div>
                             </div>

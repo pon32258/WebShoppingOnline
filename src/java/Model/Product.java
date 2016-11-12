@@ -88,7 +88,8 @@ public class Product {
                     + "JOIN itemType it ON i.typeId = it.typeId "
                     + "JOIN brand b ON i.brandId = b.brandId "
                     + "WHERE LOWER(i.itemName) LIKE ? AND LOWER(it.typeName) LIKE ? "
-                    + "AND LOWER(b.brandName) LIKE ?");
+                    + "AND LOWER(b.brandName) LIKE ? "
+                    + "ORDER BY i.itemName");
             ppstm.setString(1, "%" + word.toLowerCase() + "%");
             ppstm.setString(2, "%" + type.toLowerCase() + "%");
             ppstm.setString(3, "%" + word.toLowerCase() + "%");

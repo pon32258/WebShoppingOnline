@@ -33,16 +33,16 @@ public class AddToCartServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession(true) ;
+        String target = request.getParameter("target");
         if (session.getAttribute("CART") == null) {
             session.setAttribute("CART", new ArrayList<Product>());
-        }else{
+        }
         ArrayList<Product> cart = (ArrayList) session.getAttribute("CART") ;
         int pid = Integer.parseInt(request.getParameter("pid")) ;
         Product prod = Product.getProductById(pid);
         cart.add(prod);
-        session.setAttribute("CART", cart);
-        }
-        getServletContext().getRequestDispatcher("/ProductListing.jsp").forward(request, response);
+        session.setAttribute("CART", cart);       
+        getServletContext().getRequestDispatcher(target).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

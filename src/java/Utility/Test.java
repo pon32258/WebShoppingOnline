@@ -40,8 +40,8 @@ public class Test {
 //        } catch (SQLException ex) {
 //            Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-          List<Product> products = Product.getProductByName("", "");
-          System.out.println(products.size());
+//          List<Product> products = Product.getProductByName("", "");
+//          System.out.println(products.size());
 
     }
 }
