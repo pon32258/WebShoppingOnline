@@ -6,7 +6,8 @@
     </filter>
     <filter-mapping>
         <filter-name>CheckSessionFilter</filter-name>
-        <servlet-name>LoginServlet</servlet-name>
+        <servlet-name>AddToCartServlet</servlet-name>
+        <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
     <servlet>

@@ -5,8 +5,8 @@
  */
 package Controller;
 
+import Model.Cart;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -35,13 +35,13 @@ public class AddToCartServlet extends HttpServlet {
         HttpSession session = request.getSession(true) ;
         String target = request.getParameter("target");
         if (session.getAttribute("CART") == null) {
-            session.setAttribute("CART", new ArrayList<Product>());
+            session.setAttribute("CART", new Cart());
         }
-        ArrayList<Product> cart = (ArrayList) session.getAttribute("CART") ;
+        Cart cart = (Cart) session.getAttribute("CART") ;
         int pid = Integer.parseInt(request.getParameter("pid")) ;
-        Product prod = Product.getProductById(pid);
-        cart.add(prod);
-        session.setAttribute("CART", cart);       
+        cart.addItem(pid);
+        session.setAttribute("CART", cart);
+              
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }
 

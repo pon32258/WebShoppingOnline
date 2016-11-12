@@ -6,6 +6,7 @@
 package model;
 
 import Utility.ConnectionBuilder;
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +20,7 @@ import java.util.logging.Logger;
  *
  * @author frest
  */
-public class Product {
+public class Product implements Serializable{
 
     private int prodId;
     private String prodName;
@@ -109,7 +110,7 @@ public class Product {
         Product prod = null;
         try {
             Connection conn = ConnectionBuilder.getConnection();
-            PreparedStatement ppstm = conn.prepareStatement("SELECT * FROM item i"
+            PreparedStatement ppstm = conn.prepareStatement("SELECT * FROM item i "
                     + "JOIN itemType it ON i.typeId = it.typeId "
                     + "JOIN brand b ON i.brandId = b.brandId "
                     + "WHERE i.itemId = ?");

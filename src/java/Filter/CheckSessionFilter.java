@@ -23,27 +23,23 @@ import javax.servlet.http.HttpSession;
  * @author Witchapon Kaptop
  */
 public class CheckSessionFilter implements Filter {
-    
-    FilterConfig config ; 
-    
+    FilterConfig config ;
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        config = filterConfig;
+        config = filterConfig ;
     }
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-       
-        HttpSession  session = ((HttpServletRequest)request).getSession(false);
-        if(session == null){    
-            config.getServletContext().getRequestDispatcher("/login").forward(request, response);
-        }else{
+        HttpSession s = ((HttpServletRequest) request).getSession(false) ;
+        if (s==null || s.getAttribute("user")==null) {
+            config.getServletContext().getRequestDispatcher("/Login").forward(request, response);
+        } else {
             chain.doFilter(request, response);
         }
     }
 
     @Override
     public void destroy() {
-       
     }
 }
