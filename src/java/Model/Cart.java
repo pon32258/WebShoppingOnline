@@ -8,10 +8,11 @@ package Model;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+import model.Product;
 
 /**
  *
- * @author frest
+ * @author INT303
  */
 public class Cart implements Serializable {
     Map<Integer,LineItem> items = null ;
@@ -24,14 +25,14 @@ public class Cart implements Serializable {
         return items.size() ;
     }
     
-    public LineItem getItem(int prodId) {
-        return items.get(prodId) ;
+    public LineItem getItem(int productId) {
+        return items.get(productId) ;
     }
     
-    public void addItem(int prodId) {
-        LineItem lit = items.get(prodId) ;
+    public void addItem(int productId) {
+        LineItem lit = items.get(productId) ;
         if (lit == null) {
-            items.put(prodId, new LineItem(prodId,1));
+            items.put(productId, new LineItem(productId));
         } else {
             lit.setQuantity(lit.getQuantity()+1);
         }
@@ -46,8 +47,8 @@ public class Cart implements Serializable {
         }
     }
 
-    public void remove(int prodId) {
-        items.remove(prodId) ;
+    public void remove(int productId) {
+        items.remove(productId) ;
     }
     
     public double getTotalPrice() {
@@ -66,17 +67,18 @@ public class Cart implements Serializable {
         this.items = items;
     }
 
-    public static class LineItem implements Serializable{
-        Product prod;
+    public static class LineItem implements Serializable {
+        Product product;
         int quantity  ;
         double total ;
+        double discount ;
 
         public Product getProduct() {
-            return prod;
+            return product;
         }
 
         public void setProduct(Product p) {
-            this.prod = p;
+            this.product = p;
         }
 
         public int getQuantity() {
@@ -95,15 +97,28 @@ public class Cart implements Serializable {
         public void setTotal(double total) {
             this.total = total;
         }
-       
-        public LineItem(int prodId, int qty) {
+
+        public double getDiscount() {
+            return discount;
+        }
+
+        public void setDiscount(double discount) {
+            this.discount = discount;
+        }
+        
+        public LineItem(int productId) {
+            this(productId, 1) ;
+        }
+        
+        public LineItem(int productId, int qty) {
             quantity = qty ;
-            prod = Product.getProductById(prodId);
+            product = Product.getProductById(productId);
             calculateTotal();
         }
         
         private void calculateTotal() {
-            total = prod.getPrice() * quantity  ;
+            total = product.getPrice() * quantity  ;
         }
     }
+    
 }
