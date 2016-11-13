@@ -2,7 +2,7 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <filter>
         <filter-name>CheckSessionFilter</filter-name>
-        <filter-class>Filter.CheckSessionFilter</filter-class>
+        <filter-class>int303.Filter.CheckSessionFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>CheckSessionFilter</filter-name>
@@ -12,27 +12,27 @@
     </filter-mapping>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>Controller.LoginServlet</servlet-class>
+        <servlet-class>int303.Controller.LoginServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddToCartServlet</servlet-name>
-        <servlet-class>Controller.AddToCartServlet</servlet-class>
+        <servlet-class>int303.Controller.AddToCartServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LogoutServlet</servlet-name>
-        <servlet-class>Controller.LogoutServlet</servlet-class>
+        <servlet-class>int303.Controller.LogoutServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>Controller.RegisterServlet</servlet-class>
+        <servlet-class>int303.Controller.RegisterServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SearchProductServlet</servlet-name>
-        <servlet-class>Controller.SearchProductServlet</servlet-class>
+        <servlet-class>int303.Controller.SearchProductServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EditProfileServlet</servlet-name>
-        <servlet-class>Controller.EditProfileServlet</servlet-class>
+        <servlet-class>int303.Controller.EditProfileServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>

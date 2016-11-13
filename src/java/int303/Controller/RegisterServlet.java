@@ -3,26 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package int303.Controller;
 
-import Utility.ConnectionBuilder;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Customer;
+import int303.Model.Customer;
 
 /**
  *
- * @author Witchapon-Pc
+ * @author frest
  */
-public class LoginServlet extends HttpServlet {
+public class RegisterServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,27 +27,33 @@ public class LoginServlet extends HttpServlet {
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
-     * @throws java.sql.SQLException
-     * @throws java.lang.ClassNotFoundException
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException, ClassNotFoundException {
+            throws ServletException, IOException {
         String userid = request.getParameter("userid") ;
         String password = request.getParameter("password") ;
-        String target = "/login.jsp" ;
+        String email = request.getParameter("email") ;
+        String fname = request.getParameter("fname") ;
+        String sname = request.getParameter("sname") ;
+        String address = request.getParameter("address") ;
+        String city = request.getParameter("city") ;
+        String postcode = request.getParameter("postcode") ;
+        String tel = request.getParameter("tel") ;
+        String target = "/register.jsp" ;
         String message = "" ;
-        if (userid != null && password != null) {
-            Customer user = Customer.getCustomerById(userid);
-            if (user == null) {
-                message = " User ID "+ userid + " does not exist !!! " ;
-            } else if (password.equals(user.getPassword())) {              
-                request.getSession().setAttribute("user", user);
-                target = "/index.jsp" ;      
-            } else {
-                message = " Incorrect password ... try agian " ;
-            }
+        String color = "red";
+        if (userid != null && password != null && password != null && password != null && password != null 
+                && password != null && password != null && password != null && password != null) {
+            Customer user = new Customer(fname,sname,email,address,tel,userid,password,city,postcode);
+            if (Customer.insertCustomer(user) == true){
+                message = "Register Success.";
+                color = "green";
+            }else{
+                 message = "Register fail.";
+            }              
         }
         request.setAttribute("message", message);
+        request.setAttribute("color", color);
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }
 
@@ -68,18 +69,12 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
      * Handles the HTTP <code>POST</code> method.
-     *ห
+     *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
@@ -88,14 +83,17 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
-    
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
 }

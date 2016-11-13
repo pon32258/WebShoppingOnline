@@ -3,18 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package int303.Model;
 
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-import model.Product;
 
 /**
  *
- * @author INT303
+ * @author frest
  */
-public class Cart implements Serializable {
+public class Cart {
     Map<Integer,LineItem> items = null ;
 
     public Cart() {
@@ -120,5 +119,4 @@ public class Cart implements Serializable {
             total = product.getPrice() * quantity  ;
         }
     }
-    
 }

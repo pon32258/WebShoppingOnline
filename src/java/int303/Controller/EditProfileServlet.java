@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package int303.Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -11,13 +11,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Customer;
+import int303.Model.Customer;
 
 /**
  *
- * @author frest
+ * @author Witchapon Kaptop
  */
-public class RegisterServlet extends HttpServlet {
+public class EditProfileServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,31 +30,28 @@ public class RegisterServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String userid = request.getParameter("userid") ;
-        String password = request.getParameter("password") ;
-        String email = request.getParameter("email") ;
-        String fname = request.getParameter("fname") ;
-        String sname = request.getParameter("sname") ;
-        String address = request.getParameter("address") ;
-        String city = request.getParameter("city") ;
-        String postcode = request.getParameter("postcode") ;
-        String tel = request.getParameter("tel") ;
-        String target = "/register.jsp" ;
-        String message = "" ;
-        String color = "red";
-        if (userid != null && password != null && password != null && password != null && password != null 
-                && password != null && password != null && password != null && password != null) {
-            Customer user = new Customer(fname,sname,email,address,tel,userid,password,city,postcode);
-            if (Customer.insertCustomer(user) == true){
-                message = "Register Success.";
-                color = "green";
-            }else{
-                 message = "Register fail.";
-            }              
+            
+            String fname = request.getParameter("fname");
+            String sname = request.getParameter("sname");
+            String address = request.getParameter("address");
+            String city = request.getParameter("city");
+            String postCode = request.getParameter("postcode");
+            String tel = request.getParameter("tel");
+            String target = "/editprofile.jsp";
+            String mss = "";
+           
+            
+            if(fname != null || sname != null || address !=null || city != null ||postCode != null || tel != null  ){
+               Customer user = new Customer(fname,sname,address,city,postCode,tel);
+               if(Customer.editCustomer(user) == true ){
+                   mss = "Update Profile Successs.";
+                   
+               }else{
+                   mss = "Fail to Update Profile.";
+               }          
         }
-        request.setAttribute("message", message);
-        request.setAttribute("color", color);
-        getServletContext().getRequestDispatcher(target).forward(request, response);
+            request.setAttribute("mss", mss);
+            getServletContext().getRequestDispatcher(target).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

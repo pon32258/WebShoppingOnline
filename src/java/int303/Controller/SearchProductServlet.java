@@ -3,21 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package int303.Controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Customer;
+import int303.Model.Product;
 
 /**
  *
- * @author Witchapon Kaptop
+ * @author frest
  */
-public class EditProfileServlet extends HttpServlet {
+public class SearchProductServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,28 +30,11 @@ public class EditProfileServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            
-            String fname = request.getParameter("fname");
-            String sname = request.getParameter("sname");
-            String address = request.getParameter("address");
-            String city = request.getParameter("city");
-            String postCode = request.getParameter("postcode");
-            String tel = request.getParameter("tel");
-            String target = "/editprofile.jsp";
-            String mss = "";
-           
-            
-            if(fname != null || sname != null || address !=null || city != null ||postCode != null || tel != null  ){
-               Customer user = new Customer(fname,sname,address,city,postCode,tel);
-               if(Customer.editCustomer(user) == true ){
-                   mss = "Update Profile Successs.";
-                   
-               }else{
-                   mss = "Fail to Update Profile.";
-               }          
-        }
-            request.setAttribute("mss", mss);
-            getServletContext().getRequestDispatcher(target).forward(request, response);
+        String type = request.getParameter("type");
+        String target = request.getParameter("target");
+        List<Product> products = Product.getProductByName("", type);
+        request.getSession().setAttribute("products", products);
+        getServletContext().getRequestDispatcher(target).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -3,21 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller;
+package int303.Controller;
 
+import int303.Model.Cart;
 import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Product;
+import javax.servlet.http.HttpSession;
+import int303.Model.Product;
 
 /**
  *
  * @author frest
  */
-public class SearchProductServlet extends HttpServlet {
+public class AddToCartServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,10 +32,16 @@ public class SearchProductServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String type = request.getParameter("type");
+        HttpSession session = request.getSession(true) ;
         String target = request.getParameter("target");
-        List<Product> products = Product.getProductByName("", type);
-        request.getSession().setAttribute("products", products);
+        if (session.getAttribute("CART") == null) {
+            session.setAttribute("CART", new Cart());
+        }
+        Cart cart = (Cart) session.getAttribute("CART") ;
+        int pid = Integer.parseInt(request.getParameter("pid")) ;
+        cart.addItem(pid);
+        session.setAttribute("CART", cart);
+              
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }
 
