@@ -566,7 +566,17 @@ hr{
 			   -moz-border-radius:5px;
 					border-radius:5px;			
 		}
-		.product-col.list{
+                .product-col2{
+			padding:15px 10px;
+			margin-bottom:20px;
+			text-align:center;
+			background-color:#fff;
+			border:1px solid #ddd;
+			-webkit-border-radius:5px;
+			   -moz-border-radius:5px;
+					border-radius:5px;			
+		}
+		.product-col2.list{
 			padding:15px;
 			text-align:left;
 		}

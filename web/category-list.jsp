@@ -20,6 +20,8 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css">
 
         <!-- CSS Files -->
+        
+        <link href="css/owl.carousel.css" rel="stylesheet">
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
@@ -91,25 +93,31 @@
                         <c:forEach items="${sessionScope.products}" var="p">
                             <!-- Product #1 Starts -->                     
                             <div class="col-xs-12">
-                                <div class="product-col list clearfix">
+                                              
+                                
+                                <div class="product-col2 list clearfix">
+                                    <div class="col-xs-4">
                                     <div class="image">
                                         <img src="images/product-images/${p.prodId}.jpg" alt="product" class="img-responsive" />
                                     </div>
-                                    <div class="caption">
-                                        <h4><a href="product-full.html">${p.prodName}</a></h4>
-                                        <div class="description">
-                                            ${p.description}
-                                        </div>
-                                        <div class="price">
-                                            <span class="price-new">$${p.price}</span> 
-                                        </div>
-                                        <div class="cart-button button-group">                                        
-                                            <form action="AddToCart">                                           
-                                            <input type="hidden" name="pid" value="${p.prodId}">
-                                            <input type="hidden" name="target" value="/SearchProduct?target=${param.target}&type=${param.type}">
-                                            <input type="submit" class="btn btn-cart" value="Add to cart">
-                                            
-                                            </form>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="caption">
+                                            <h4><a href="product-full.html">${p.prodName}</a></h4>
+                                            <div class="description">
+                                                ${p.description}
+                                            </div>
+                                            <div class="price">
+                                                <span class="price-new">$${p.price}</span> 
+                                            </div>
+                                            <div class="cart-button button-group">                                        
+                                                <form action="AddToCart">                                           
+                                                <input type="hidden" name="pid" value="${p.prodId}">
+                                                <input type="hidden" name="target" value="/SearchProduct?target=${param.target}&type=${param.type}">
+                                                <input type="submit" class="btn btn-cart" value="Add to cart">
+
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

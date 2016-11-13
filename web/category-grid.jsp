@@ -13,7 +13,6 @@
 
         <title>Digi Shoppe - Bootstrap 3 Template</title>
         
-        <link href="css/owl.carousel.css" rel="stylesheet">
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -21,6 +20,8 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css">
 
         <!-- CSS Files -->
+        
+        <link href="css/owl.carousel.css" rel="stylesheet">
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
