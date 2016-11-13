@@ -117,9 +117,10 @@
                                 </div>
                                 <div class="caption">
                                     <h4><a href="product.jsp">${p.prodName}</a></h4>
-                                    <div class="description">
+                                    <div class="description max-lines">
                                         ${p.description}
                                     </div>
+                                    <a href=""
                                     <div class="price">
                                         <span class="price-new">$${p.price}</span> 
                                     </div>
