@@ -53,7 +53,7 @@
                 <!-- Breadcrumb Starts -->
                 <ol class="breadcrumb">
                     <li><a href="index.jsp">Home</a></li>
-                    <li class="active">Typography</li>
+                    <li class="active">Registration</li>
                 </ol>
                 <!-- Breadcrumb Ends -->		
             </div>
@@ -102,8 +102,8 @@
                     <h3 class="text-justify">Tel</h3>
                     <input type="number" class="form-control"  placeholder="Tel" name="tel" required>
                     <h3 class="text-justify">Gender</h3>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="male" checked=""> Male  &nbsp;&nbsp;&nbsp; <input type="radio" name="gender" value="female"> Female 
-                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="male" required> Male  &nbsp;&nbsp;&nbsp; <input type="radio" name="gender" value="female" required> Female 
+                    <br><br>
                     <input type="checkbox" value="agree"required>I read and agree <a href="www.google.com">term of service</a> or something like that </input> 
                     <br><br>                    
                     <button type="submit" class="btn btn-black"value="Submit">Submit</button> <button type="reset" class="btn btn-black">Reset</button> 
