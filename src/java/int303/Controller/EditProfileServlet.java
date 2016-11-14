@@ -31,20 +31,27 @@ public class EditProfileServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             
+            String customerId = request.getParameter("customerId");
+            String email = request.getParameter("email");
             String fname = request.getParameter("fname");
             String sname = request.getParameter("sname");
             String address = request.getParameter("address");
             String city = request.getParameter("city");
             String postCode = request.getParameter("postcode");
             String tel = request.getParameter("tel");
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
             String target = "/editprofile.jsp";
             String mss = "";
            
+            int customerId2 = Integer.parseInt(customerId);
             
-            if(fname != null || sname != null || address !=null || city != null ||postCode != null || tel != null  ){
-               Customer user = new Customer(fname,sname,address,city,postCode,tel);
+            if(email != null && fname != null && sname != null && address !=null && city != null &&postCode != null && tel != null  ){
+               Customer user = new Customer(customerId2,fname,sname,email,address,tel,username,password,city,postCode);
                if(Customer.editCustomer(user) == true ){
                    mss = "Update Profile Successs.";
+                   target = "/userprofile.jsp";
+                   request.getSession().setAttribute("user", user);
                    
                }else{
                    mss = "Fail to Update Profile.";

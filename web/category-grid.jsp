@@ -12,7 +12,7 @@
         <meta name="author" content="">
 
         <title>Digi Shoppe - Bootstrap 3 Template</title>
-        
+
         <!-- Bootstrap Core CSS -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -20,7 +20,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css">
 
         <!-- CSS Files -->
-        
+
         <link href="css/owl.carousel.css" rel="stylesheet">
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
@@ -47,8 +47,8 @@
     </head>
     <body>
         <header class="header-wrap inner">
-        <jsp:include page="WEB-INF/include/header.jsp"/>
-        <jsp:include page="WEB-INF/include/mainmenu.jsp"/>
+            <jsp:include page="WEB-INF/include/header.jsp"/>
+            <jsp:include page="WEB-INF/include/mainmenu.jsp"/>
         </header>
         <!-- Breadcrumb Starts -->
         <div class="breadcrumb-wrap">
@@ -110,35 +110,31 @@
                     <div class="row">
                         <!-- Product #1 Starts -->
                         <c:forEach items="${sessionScope.products}" var="p">
-                        <div class="col-md-4 col-sm-6">
-                            <div class="product-col">
-                                <div class="image">
-                                    <img src="images/product-images/${p.prodId}.jpg" alt="product" class="img-responsive" />
-                                </div>
-                                <div class="caption">
-                                    <h4><a href="product.jsp">${p.prodName}</a></h4>
-                                    <div class="description max-lines">
-                                        ${p.description}
+                            <div class="col-md-4 col-sm-6">
+                                <div class="product-col">
+                                    <div class="image">
+                                        <img src="images/product-images/${p.prodId}.jpg" alt="product" class="img-responsive" />
                                     </div>
-                                    <a href=""
-                                    <div class="price">
-                                        <span class="price-new">$${p.price}</span> 
-                                    </div>
-                                    <div class="cart-button button-group">
-                                        <form action="AddToCart">                                           
-                                            <input type="hidden" name="pid" value="${p.prodId}">
-                                            <a href="SearchProduct?target=${param.target}&type=${param.type}">
-                                            <button type="button" class="btn btn-cart">
-                                                Add to cart
-                                                <i class="fa fa-shopping-cart"></i> 
-                                            </button>
-                                            </a>
-                                            </form>									
+                                    <div class="caption">
+                                        <h4><a href="product.jsp">${p.prodName}</a></h4>
+                                        <div class="description max-lines">
+                                            ${p.description}
+                                        </div>
+                                        <a href=""
+                                           <div class="price">
+                                                <span class="price-new">$${p.price}</span> 
+                                            </div>
+                                            <div class="cart-button button-group">
+                                                <form action="AddToCart">                                           
+                                                <input type="hidden" name="pid" value="${p.prodId}">
+                                                <input type="hidden" name="target" value="/SearchProduct?target=${param.target}&type=${param.type}">
+                                                <input type="submit" class="btn btn-cart" value="Add to cart">
+                                                </form>								
+                                            </div>
                                     </div>
                                 </div>
-                            </div>
+                            </c:forEach>
                         </div>
-                        </c:forEach>
                         <!-- Product #1 Ends -->                        
                     </div>
                     <!-- Product Grid Display Ends -->

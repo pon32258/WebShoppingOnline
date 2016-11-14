@@ -36,15 +36,6 @@ public class Customer {
     
     }
 
-    public Customer(String fname, String sname, String address, String tel, String city, String postcode) {
-        this.fname = fname;
-        this.sname = sname;
-        this.address = address;
-        this.tel = tel;
-        this.city = city;
-        this.postcode = postcode;
-    }
-
     public Customer(String fname, String sname, String email, 
             String address, String tel, String username, String password,String city ,String postcode) {
         this.fname = fname;
@@ -57,7 +48,21 @@ public class Customer {
         this.city = city;
         this.postcode = postcode;
     }
-
+    
+     public Customer(int customerId,String fname, String sname, String email, 
+            String address, String tel, String username, String password,String city ,String postcode) {
+        this.customerId = customerId;
+        this.fname = fname;
+        this.sname = sname;
+        this.email = email;
+        this.address = address;
+        this.tel = tel;
+        this.username = username;
+        this.password = password;
+        this.city = city;
+        this.postcode = postcode;
+    }
+     
     public String getCity() {
         return city;
     }
@@ -168,8 +173,8 @@ public class Customer {
         try {
             Connection conn = ConnectionBuilder.getConnection();
             PreparedStatement ppstm = conn.prepareStatement("SELECT * FROM " + TABLE_NAME 
-                    + " WHERE username = ?");
-            ppstm.setString(1, customerId);
+                    + " WHERE LOWER(username) = ?");
+            ppstm.setString(1, customerId.toLowerCase());
             ResultSet rs = ppstm.executeQuery();
             while (rs.next()) {
                 cus = new Customer();
@@ -231,7 +236,7 @@ public class Customer {
         try {
             Connection conn = ConnectionBuilder.getConnection();
             String sql = "UPDATE " + TABLE_NAME + " SET fname=? ,"
-                    + "sname=?,email=?,address=?,tel=?,username=?,password=?,"
+                    + "sname=?,email=?,address=?,tel=?,"
                     + "city=?,postcode=? WHERE customerId=?";
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, cus.getFname());
@@ -239,12 +244,30 @@ public class Customer {
             pstm.setString(3, cus.getEmail());
             pstm.setString(4, cus.getAddress());
             pstm.setString(5, cus.getTel());
-            pstm.setString(6, cus.getUsername());
-            pstm.setString(7, cus.getPassword());
-            pstm.setString(8, cus.getCity());
-            pstm.setString(9, cus.getPostcode());
-            pstm.setInt(10, cus.getCustomerId());
+            pstm.setString(6, cus.getCity());
+            pstm.setString(7, cus.getPostcode());
+            pstm.setInt(8, cus.getCustomerId());
 
+            if (pstm.executeUpdate() > 0) {
+                result = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return result;
+    }
+    
+    public static boolean changePassword(Customer cus) {
+        boolean result = false;       
+        try {
+            Connection conn = ConnectionBuilder.getConnection();
+            String sql = "UPDATE " + TABLE_NAME + " SET password=? ,"
+                    + "WHERE customerId=?";
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, cus.getPassword());
+            pstm.setInt(2, cus.getCustomerId());
+   
             if (pstm.executeUpdate() > 0) {
                 result = true;
             }

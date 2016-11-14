@@ -63,64 +63,48 @@
         <div class="main-container container">
             <!-- Typography #1 Starts -->
             <div class="row">
+                <h3 style="color:red">${mss}</h3>
                 <h1 class="text-uppercase">Profile</h1>
                 <div class="col-sm-9"  style="border: 1px solid lightgray;padding-bottom: 3%;border-radius:10px ">
 
-                    <form action="editprofile.jsp" method="post" >
+                    <form action="EditProfile" method="post" >
                         <div class="col-sm-12">
-                            <h3 class="text-justify">user</h3>
-                            <input type="text" class="form-control"  placeholder="${sessionScope.user.username}" name="userid" disabled>                    
+                            <h3 class="text-justify">Username</h3>
+                            <input type="text" class="form-control"  value="${sessionScope.user.username}" name="username" disabled>                    
                             <h3 class="text-justify">Email </h3>
-                            <input type="text" class="form-control"  placeholder="${sessionScope.user.email}" name="email" disabled>
+                            <input type="text" class="form-control"  value="${sessionScope.user.email}" name="email" required>
                         </div> 
                         <div class="col-sm-6">
                             <h3 class="text-justify">Name</h3>
-                            <input type="text" class="form-control"  placeholder="${sessionScope.user.fname}" name="fname" disabled>
+                            <input type="text" class="form-control"  value="${sessionScope.user.fname}" name="fname" required>
                         </div>
                         <div class="col-sm-6">
                             <h3 class="text-justify">Last name</h3>
-                            <input type="text" class="form-control"  placeholder="${sessionScope.user.sname}" name="sname" disabled>
+                            <input type="text" class="form-control"  value="${sessionScope.user.sname}" name="sname" required>
                         </div>
                         <br><br><br><br>
 
                         <div class="col-sm-12">
                             <h3 class="text-justify">Address</h3>
-                            <input type="text" class="form-control"  placeholder="${sessionScope.user.address}" name="address" disabled> 
+                            <input type="text" class="form-control"  value="${sessionScope.user.address}" name="address" required> 
                         </div>
                         <div class="col-sm-8">
                             <h3 class="text-justify">City</h3>
-                            <input type="text" class="form-control"  placeholder="${sessionScope.user.city}" name="city" disabled>
+                            <input type="text" class="form-control"  value="${sessionScope.user.city}" name="city" required>
                         </div>
                         <div class="col-sm-4">
                             <h3 class="text-justify">Post code</h3>
-                            <input type="text" class="form-control"  placeholder="${sessionScope.user.postcode}" name="postcode" disabled>
+                            <input type="text" class="form-control"  value="${sessionScope.user.postcode}" name="postcode" required>
                         </div>
                         <br><br><br><br>
                         <div class="col-sm-12">
                             <h3 class="text-justify">Tel</h3>
-                            <input type="number" class="form-control"  placeholder="${sessionScope.user.tel}" name="tel" disabled>
-                            <h3 class="text-justify">Gender</h3>                   
+                            <input type="number" class="form-control"  value="${sessionScope.user.tel}" name="tel" required>
+                            <input type="hidden" name="customerId" value="${sessionScope.user.customerId}">
+                            <input type="hidden" name="password" value="${sessionScope.user.password}">
                             <br><br>                    
-                            <button type="submit" class="btn btn-black"value="Edit">Edit Profile</button>
-                            <br><br>
-                            <hr>
-                            </form>
-                            <form action="editprofile.jsp" method="post" >
-
-
-                                <h3 class="text-justify">Change Password </h3>                    
-                                Old password : <input type="text" class="form-control"  placeholder="Old Password" name="oldpassword" >
-                                <br>
-                                New password : <input type="text" class="form-control"  placeholder="New Password" name="newpassword" >
-                                Confirm password : <input type="text" class="form-control"  placeholder="Confirm Password" name="confirmpassword"  >
-                                <br><br><br>
-                                <button type="submit" class="btn btn-black"value="change">Change Password</button>
-
-
-
-                        </div> 
-
-
+                            <button type="submit" class="btn btn-black"value="submit">Confirm</button>&nbsp;&nbsp;<button type="cancel" class="btn btn-black" onclick="javascript:window.location = 'userprofile.jsp';">Cancel</button>
+                        </div>   
                     </form>
                     <br><br>
                     <h3 style="color:${color}">${message}
