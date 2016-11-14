@@ -24,7 +24,7 @@ public class ConnectionBuilder {
         Connection conn = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://54.169.211.228:3306/int303_project?zeroDateTimeBehavior=convertToNull", "pon322", "pon322");
+                conn = DriverManager.getConnection("jdbc:mysql://52.77.225.149:3306/INT303_WebshoppingOnline?zeroDateTimeBehavior=convertToNull", "pon322", "pon322");
         } catch (ClassNotFoundException ex) {
             System.err.println(ex);
         } catch (SQLException ex) {

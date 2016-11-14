@@ -44,8 +44,8 @@
     </head>
     <body>
         <header class="header-wrap inner">
-        <jsp:include page="WEB-INF/include/header.jsp"/>
-        <jsp:include page="WEB-INF/include/mainmenu.jsp"/>
+            <jsp:include page="WEB-INF/include/header.jsp"/>
+            <jsp:include page="WEB-INF/include/mainmenu.jsp"/>
         </header>
         <!-- Breadcrumb Starts -->
         <div class="breadcrumb-wrap">
@@ -65,69 +65,50 @@
             <div class="row">
                 <h1 class="text-uppercase">Profile</h1>
                 <div class="col-sm-9"  style="border: 1px solid lightgray;padding-bottom: 3%;border-radius:10px ">
-                    
-                    <form action="editprofile.jsp" method="post" >
+
+                    <form action="userprofile.jsp" method="post" >
                         <div class="col-sm-12">
-                    <h3 class="text-justify">Username</h3>
-                    <input type="text" class="form-control"  placeholder="Username" name="userid" disabled>                    
-                    <h3 class="text-justify">Email </h3>
-                    <input type="text" class="form-control"  placeholder="Email" name="email" disabled>
-                    </div> 
-                    <div class="col-sm-6">
-                    <h3 class="text-justify">Name</h3>
-                    <input type="text" class="form-control"  placeholder="Name" name="fname" disabled>
-                    </div>
-                    <div class="col-sm-6">
-                    <h3 class="text-justify">Last name</h3>
-                    <input type="text" class="form-control"  placeholder="Last name" name="sname" disabled>
-                    </div>
-                    <br><br><br><br>
-                    
-                    <div class="col-sm-12">
-                    <h3 class="text-justify">Address</h3>
-                    <input type="text" class="form-control"  placeholder="Address" name="address" disabled> 
-                    </div>
-                    <div class="col-sm-8">
-                    <h3 class="text-justify">City</h3>
-                    <input type="text" class="form-control"  placeholder="City" name="city" disabled>
-                    </div>
-                    <div class="col-sm-4">
-                    <h3 class="text-justify">Post code</h3>
-                    <input type="text" class="form-control"  placeholder="Postcode" name="postcode" disabled>
-                    </div>
-                    <br><br><br><br>
-                    <div class="col-sm-12">
-                    <h3 class="text-justify">Tel</h3>
-                    <input type="number" class="form-control"  placeholder="Tel" name="tel" disabled>
-                    <h3 class="text-justify">Gender</h3>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="male" checked="" disabled=""> Male  &nbsp;&nbsp;&nbsp; <input type="radio" name="gender" value="female" disabled=""> Female 
-                    <br><br>                    
-                    <button type="submit" class="btn btn-black"value="Edit">Edit Profile</button>
-                    <br><br>
-                    <hr>
-                     </form>
-                    <form action="editprofile.jsp" method="post" >
-                   
-                        
-                    <h3 class="text-justify">Change Password </h3>                    
-                    Old password : <input type="text" class="form-control"  placeholder="Old Password" name="oldpassword" >
-                    <br>
-                    New password : <input type="text" class="form-control"  placeholder="New Password" name="newpassword" >
-                    Confirm password : <input type="text" class="form-control"  placeholder="Confirm Password" name="confirmpassword"  >
-                    <br><br><br>
-                    <button type="submit" class="btn btn-black"value="change">Change Password</button>
+                            <h3 class="text-justify">Username</h3>
+                            <input type="text" class="form-control"  placeholder="${sessionScope.user.username}" name="userid" >                    
+                            <h3 class="text-justify">Email </h3>
+                            <input type="text" class="form-control"  placeholder="${sessionScope.user.email}" name="email" >
+                        </div> 
+                        <div class="col-sm-6">
+                            <h3 class="text-justify">Name</h3>
+                            <input type="text" class="form-control"  placeholder="${sessionScope.user.fname}" name="fname" >
+                        </div>
+                        <div class="col-sm-6">
+                            <h3 class="text-justify">Last name</h3>
+                            <input type="text" class="form-control"  placeholder="${sessionScope.user.sname}" name="sname" >
+                        </div>
+                        <br><br><br><br>
 
-                    
-                    
-                    </div> 
-                   
-
+                        <div class="col-sm-12">
+                            <h3 class="text-justify">Address</h3>
+                            <input type="text" class="form-control"  placeholder="${sessionScope.user.address}" name="address" > 
+                        </div>
+                        <div class="col-sm-8">
+                            <h3 class="text-justify">City</h3>
+                            <input type="text" class="form-control"  placeholder="${sessionScope.user.city}" name="city" >
+                        </div>
+                        <div class="col-sm-4">
+                            <h3 class="text-justify">Post code</h3>
+                            <input type="text" class="form-control"  placeholder="${sessionScope.user.postcode}" name="postcode" >
+                        </div>
+                        <br><br><br><br>
+                        <div class="col-sm-12">
+                            <h3 class="text-justify">Tel</h3>
+                            <input type="number" class="form-control"  placeholder="${sessionScope.user.tel}" name="tel" >
+                            <h3 class="text-justify">Gender</h3>                    
+                            <br><br>                    
+                            <button type="submit" class="btn btn-black"value="submit">Confirm</button>&nbsp;&nbsp;<button type="cancel" class="btn btn-black" onclick="javascript:window.location = 'userprofile.jsp';">Cancel</button>
+                        </div>   
                     </form>
                     <br><br>
                     <h3 style="color:${color}">${message}
-                        
-                    
-                        
+
+
+
                 </div>
                 <div class="col-sm-3">
                     <h2 class="text-uppercase">Simply text of H2</h2>
@@ -136,7 +117,7 @@
                     </p>
                 </div>
             </div>
-                    </div>
-            <!-- Typography #1 Ends -->	
+        </div>
+        <!-- Typography #1 Ends -->	
     </body>
 </html>
