@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!-- Header Top Starts -->
 <div class="header-top">
     <!-- Nested Container Starts -->
@@ -66,7 +67,7 @@
                                                     </a>
                                                 </td>                                               
                                                 <td class="text-right">x ${it.value.quantity}</td>
-                                                <td class="text-right">$${it.value.total}</td>
+                                                <td class="text-right">$<fmt:formatNumber value="${it.value.total}" pattern="#,###.00"/></td>
                                                 <td class="text-center">
                                                     <a href="#">
                                                         <i class="fa fa-times"></i>
@@ -82,7 +83,7 @@
                                         <tbody>                                   
                                             <tr>
                                                 <td class="text-right"><strong>Total</strong></td>
-                                                <td class="text-left">$${CART.totalPrice}</td>
+                                                <td class="text-left">$<fmt:formatNumber value="${CART.totalPrice}" pattern="#,###.00"/></td>
                                             </tr>
                                         </tbody>
                                     </table>

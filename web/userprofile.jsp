@@ -53,7 +53,7 @@
                 <!-- Breadcrumb Starts -->
                 <ol class="breadcrumb">
                     <li><a href="index.jsp">Home</a></li>
-                    <li class="active">Typography</li>
+                    <li class="active">Profile</li>
                 </ol>
                 <!-- Breadcrumb Ends -->		
             </div>

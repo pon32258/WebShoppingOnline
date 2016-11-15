@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html lang="en">
     <head>
@@ -56,7 +57,7 @@
                 <!-- Breadcrumb Starts -->
                 <ol class="breadcrumb">
                     <li><a href="index.jsp">Home</a></li>
-                    <li class="active">Spices &amp; Herbs</li>
+                    <li class="active">product category</li>
                 </ol>
                 <!-- Breadcrumb Ends -->		
             </div>
@@ -71,25 +72,10 @@
                 <!-- Primary Content Starts -->
                 <div class="col-md-9">
                     <!-- Main Heading Starts -->
-                    <h2 class="main-heading2 inner">
-                        Spices &amp; Herbs
+                    <h2 class="product-head">
+                        product category
                     </h2>
-                    <!-- Main Heading Ends -->
-                    <!-- Category Intro Content Starts -->
-                    <div class="row cat-intro">
-                        <div class="col-sm-3">
-                            <img src="images/misc/cat-thumb-img1.jpg" alt="Image" class="img-responsive img-thumbnail" />
-                        </div>
-                        <div class="col-sm-9 cat-body">
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                            </p>
-                            <p>
-                                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </p>
-                        </div>
-                    </div>					
-                    <!-- Category Intro Content Ends -->
+                    <!-- Main Heading Ends -->                   
                     <!-- Product Filter Starts -->
                     <div class="product-filter">
                         <div class="row">
@@ -122,13 +108,16 @@
                                         </div>
                                         <a href=""
                                            <div class="price">
-                                                <span class="price-new">$${p.price}</span> 
+                                                <span class="price-new">$<fmt:formatNumber value="${p.price}" pattern="#,###.00"/></span> 
                                             </div>
                                             <div class="cart-button button-group">
                                                 <form action="AddToCart">                                           
                                                 <input type="hidden" name="pid" value="${p.prodId}">
                                                 <input type="hidden" name="target" value="/SearchProduct?target=${param.target}&type=${param.type}">
-                                                <input type="submit" class="btn btn-cart" value="Add to cart">
+                                                <button type="submit" class="btn btn-cart" onclick="javascript:window.location = '/SearchProduct?target=${param.target}&type=${param.type}';">
+                                                        <i class="fa fa-shopping-cart"></i> 
+                                                        Add to cart
+                                                </button>
                                                 </form>								
                                             </div>
                                     </div>

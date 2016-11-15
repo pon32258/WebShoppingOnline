@@ -53,7 +53,7 @@
                 <!-- Breadcrumb Starts -->
                 <ol class="breadcrumb">
                     <li><a href="index.jsp">Home</a></li>
-                    <li class="active">Typography</li>
+                    <li class="active">Profile Edit</li>
                 </ol>
                 <!-- Breadcrumb Ends -->		
             </div>
@@ -108,7 +108,7 @@
                         </div>   
                     </form>
                     <br><br>
-                    <h3 style="color:${color}">${message}
+                    <h3 style="color:${color}">${message}</h3>
 
 
 

@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html lang="en">
     <head>
@@ -44,8 +46,8 @@
     </head>
     <body>
         <header class="header-wrap inner">
-        <jsp:include page="WEB-INF/include/header.jsp"/>
-        <jsp:include page="WEB-INF/include/mainmenu.jsp"/>
+            <jsp:include page="WEB-INF/include/header.jsp"/>
+            <jsp:include page="WEB-INF/include/mainmenu.jsp"/>
         </header>
         <!-- Breadcrumb Starts -->
         <div class="breadcrumb-wrap">
@@ -92,64 +94,44 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="text-center">
-                                <a href="product.jsp">
-                                    <img src="images/product-images/cart-thumb-img1.jpg" alt="Product Name" title="Product Name" class="img-thumbnail" />
-                                </a>
-                            </td>
-                            <td class="text-center">
-                                <a href="product-full.jsp">Digital Electro Goods</a>
-                            </td>							
-                            <td class="text-center">
-                                <div class="input-group btn-block">
-                                    <input type="text" name="quantity" value="1" size="1" class="form-control" />
-                                </div>								
-                            </td>
-                            <td class="text-center">
-                                $150.00
-                            </td>
-                            <td class="text-center">
-                                $150.00
-                            </td>
-                            <td class="text-center">
-                                <button type="submit" title="Update" class="btn btn-default tool-tip">
-                                    <i class="fa fa-refresh"></i>
-                                </button>
-                                <button type="button" title="Remove" class="btn btn-default tool-tip">
-                                    <i class="fa fa-times-circle"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-center">
-                                <a href="product.jsp">
-                                    <img src="images/product-images/cart-thumb-img2.jpg" alt="Product Name" title="Product Name" class="img-thumbnail" />
-                                </a>
-                            </td>
-                            <td class="text-center">
-                                <a href="product-full.jsp">Digital Electro Goods</a>
-                            </td>							
-                            <td class="text-center">
-                                <div class="input-group btn-block">
-                                    <input type="text" name="quantity" value="1" size="1" class="form-control" />
-                                </div>								
-                            </td>
-                            <td class="text-center">
-                                $150.00
-                            </td>
-                            <td class="text-center">
-                                $150.00
-                            </td>
-                            <td class="text-center">
-                                <button type="submit" title="Update" class="btn btn-default tool-tip">
-                                    <i class="fa fa-refresh"></i>
-                                </button>
-                                <button type="button" title="Remove" class="btn btn-default tool-tip">
-                                    <i class="fa fa-times-circle"></i>
-                                </button>
-                            </td>
-                        </tr>						
+                        <c:choose>
+                            <c:when test="${CART==null || CART.size==0}">
+                            <h3 style="color:red;margin-left: 480px">No item in cart ...</h3>
+                        </c:when>
+                        <c:otherwise>
+                            <c:forEach items="${CART.items}" var="it" varStatus="vs">
+                                <tr>
+                                    <td class="text-center">
+                                        <a href="product.jsp">
+                                            <img src="images/product-images/${it.value.product.prodId}.jpg" alt="Product Name" title="Product Name" class="img-thumbnail" />
+                                        </a>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="product-full.jsp">${it.value.product.prodName}</a>
+                                    </td>							
+                                    <td class="text-center">
+                                        <div class="input-group btn-block">
+                                            <input type="text" name="quantity" value="${it.value.quantity}" size="1" class="form-control" required>
+                                        </div>								
+                                    </td>
+                                    <td class="text-center">
+                                        <fmt:formatNumber value="${it.value.product.price}" pattern="#,###.00"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <fmt:formatNumber value="${it.value.total}" pattern="#,###.00"/>
+                                    </td>
+                                    <td class="text-center">
+                                        <button type="submit" title="Update" class="btn btn-default tool-tip">
+                                            <i class="fa fa-refresh"></i>
+                                        </button>
+                                        <button type="button" title="Remove" class="btn btn-default tool-tip">
+                                            <i class="fa fa-times-circle"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                        </c:otherwise>
+                    </c:choose>
                     </tbody>
                     <tfoot>
                         <tr>
@@ -157,7 +139,7 @@
                                 <strong>Total :</strong>
                             </td>
                             <td colspan="2" class="text-left">
-                                $300
+                                <fmt:formatNumber value="${CART.totalPrice}" pattern="#,###.00"/>
                             </td>
                         </tr>
                     </tfoot>

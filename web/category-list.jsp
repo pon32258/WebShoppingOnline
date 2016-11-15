@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html lang="en">
     <head>
@@ -20,7 +21,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css">
 
         <!-- CSS Files -->
-        
+
         <link href="css/owl.carousel.css" rel="stylesheet">
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
@@ -56,7 +57,7 @@
                 <!-- Breadcrumb Starts -->
                 <ol class="breadcrumb">
                     <li><a href="index.jsp">Home</a></li>
-                    <li class="active">Spices &amp; Herbs</li>
+                    <li class="active">product category</li>
                 </ol>
                 <!-- Breadcrumb Ends -->		
             </div>
@@ -70,6 +71,11 @@
                 <!-- Sidebar Ends -->
                 <!-- Primary Content Starts -->
                 <div class="col-md-9">
+                    <!-- Main Heading Starts -->
+                    <h2 class="product-head">
+                        product category
+                    </h2>
+                    <!-- Main Heading Ends --> 
                     <!-- Main Heading Starts -->                   
                     <!-- Product Filter Starts -->
                     <div class="product-filter">
@@ -93,13 +99,13 @@
                         <c:forEach items="${sessionScope.products}" var="p">
                             <!-- Product #1 Starts -->                     
                             <div class="col-xs-12">
-                                              
-                                
+
+
                                 <div class="product-col2 list clearfix">
                                     <div class="col-xs-4">
-                                    <div class="image">
-                                        <img src="images/product-images/${p.prodId}.jpg" alt="product" class="img-responsive" />
-                                    </div>
+                                        <div class="image">
+                                            <img src="images/product-images/${p.prodId}.jpg" alt="product" class="img-responsive" />
+                                        </div>
                                     </div>
                                     <div class="col-xs-7">
                                         <div class="caption">
@@ -108,16 +114,20 @@
                                                 ${p.description}
                                             </div>
                                             <div class="price">
-                                                <span class="price-new">$${p.price}</span> 
+                                                <span class="price-new">$<fmt:formatNumber value="${p.price}" pattern="#,###.00"/></span> 
                                             </div>
-                                            <div class="cart-button button-group">                                        
-                                                <form action="AddToCart">                                           
-                                                <input type="hidden" name="pid" value="${p.prodId}">
-                                                <input type="hidden" name="target" value="/SearchProduct?target=${param.target}&type=${param.type}">
-                                                <input type="submit" class="btn btn-cart" value="Add to cart">
-
-                                                </form>
-                                            </div>
+                                            
+                                                <div class="cart-button button-group">                                        
+                                                    <form action="AddToCart">                                           
+                                                        <input type="hidden" name="pid" value="${p.prodId}">
+                                                        <input type="hidden" name="target" value="/SearchProduct?target=${param.target}&type=${param.type}">                                                          
+                                                        <button type="submit" class="btn btn-cart" onclick="javascript:window.location = '/SearchProduct?target=${param.target}&type=${param.type}';">
+                                                            <i class="fa fa-shopping-cart"></i> 
+                                                            Add to cart
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -127,27 +137,7 @@
                     </div>
 
                     <!-- Product List Display Ends -->
-                    <!-- Pagination & Results Starts -->
-                    <div class="row">
-                        <!-- Pagination Starts -->
-                        <div class="col-sm-6 pagination-block">
-                            <ul class="pagination">
-                                <li><a href="#">&laquo;</a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">&raquo;</a></li>
-                            </ul>
-                        </div>
-                        <!-- Pagination Ends -->
-                        <!-- Results Starts -->
-                        <div class="col-sm-6 results">
-                            Showing 1 to 3 of 12 (4 Pages)
-                        </div>
-                        <!-- Results Ends -->
-                    </div>
+                    <!-- Pagination & Results Starts -->                    
                     <!-- Pagination & Results Ends -->
                 </div>
                 <!-- Primary Content Ends -->
