@@ -70,7 +70,7 @@
                     <form action="EditProfile" method="post" >
                         <div class="col-sm-12">
                             <h3 class="text-justify">Username</h3>
-                            <input type="text" class="form-control"  value="${sessionScope.user.username}" name="username" disabled>                    
+                            <input type="text" class="form-control"  value="${sessionScope.user.username}" disabled>                           
                             <h3 class="text-justify">Email </h3>
                             <input type="text" class="form-control"  value="${sessionScope.user.email}" name="email" required>
                         </div> 
@@ -102,6 +102,7 @@
                             <input type="number" class="form-control"  value="${sessionScope.user.tel}" name="tel" required>
                             <input type="hidden" name="customerId" value="${sessionScope.user.customerId}">
                             <input type="hidden" name="password" value="${sessionScope.user.password}">
+                            <input type="hidden" name="username" value="${sessionScope.user.username}">
                             <br><br>                    
                             <button type="submit" class="btn btn-black"value="submit">Confirm</button>&nbsp;&nbsp;<button type="cancel" class="btn btn-black" onclick="javascript:window.location = 'userprofile.jsp';">Cancel</button>
                         </div>   

@@ -5,19 +5,19 @@
  */
 package int303.Controller;
 
+import int303.Model.Customer;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import int303.Model.Customer;
 
 /**
  *
- * @author Witchapon Kaptop
+ * @author frest
  */
-public class EditProfileServlet extends HttpServlet {
+public class ChangePasswordServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,7 +30,6 @@ public class EditProfileServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
         String customerId = request.getParameter("customerId");
         String email = request.getParameter("email");
         String fname = request.getParameter("fname");
@@ -41,24 +40,34 @@ public class EditProfileServlet extends HttpServlet {
         String tel = request.getParameter("tel");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String target = "/editprofile.jsp";
+        String oldPassword = request.getParameter("oldpassword");
+        String newPassword = request.getParameter("newpassword");
+        String confirmPassword = request.getParameter("confirmpassword");
+        String target = "/userprofile.jsp";
         String mss = "";
         String color = "";
 
         int customerId2 = Integer.parseInt(customerId);
 
-        if (email != null && fname != null && sname != null && address != null && city != null && postCode != null && tel != null) {
-            Customer user = new Customer(customerId2, fname, sname, email, address, tel, username, password, city, postCode);
-            if (Customer.editCustomer(user) == true) {
-                color = "green";
-                mss = "Update Profile Successs.";
-                target = "/userprofile.jsp";
-                request.getSession().setAttribute("user", user);
+        if (oldPassword.equals(password)) {
+            if (confirmPassword.equals(newPassword)) {
+                Customer user = new Customer(customerId2, fname, sname, email, address, tel, username, newPassword, city, postCode);
+                if (Customer.changePassword(user) == true) {
+                    mss = "Change Password Successs.";
+                    color = "green";
+                    request.getSession().setAttribute("user", user);
 
+                } else {
+                    color = "red";
+                    mss = "Fail to Change Password.";
+                }
             } else {
                 color = "red";
-                mss = "Fail to Update Profile.";
+                mss = "New Password and Confirm Password is not match.";
             }
+        } else {
+            color = "red";
+            mss = "Old Password is Incorrect.";
         }
         request.setAttribute("color", color);
         request.setAttribute("mss", mss);

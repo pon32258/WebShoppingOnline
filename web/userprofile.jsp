@@ -63,6 +63,7 @@
         <div class="main-container container">
             <!-- Typography #1 Starts -->
             <div class="row">
+                <h3 style="color:${color}">${mss}</h3>
                 <h1 class="text-uppercase">Profile</h1>
                 <div class="col-sm-9"  style="border: 1px solid lightgray;padding-bottom: 3%;border-radius:10px ">
 
@@ -103,29 +104,33 @@
                             <button type="submit" class="btn btn-black"value="Edit">Edit Profile</button>
                             <br><br>
                             <hr>
-                            </form>
-                            <form action="editprofile.jsp" method="post" >
-
-
-                                <h3 class="text-justify">Change Password </h3>                    
-                                Old password : <input type="text" class="form-control"  placeholder="Old Password" name="oldpassword" >
-                                <br>
-                                New password : <input type="text" class="form-control"  placeholder="New Password" name="newpassword" >
-                                <br>
-                                Confirm password : <input type="text" class="form-control"  placeholder="Confirm Password" name="confirmpassword"  >
-                                <br><br>
-                                <button type="submit" class="btn btn-black"value="change">Change Password</button>
-
-
-
-                        </div> 
-
-
+                        </div>
                     </form>
+                    <div class="col-sm-12">
+                        <form action="ChangePassword" method="post" >
+                            <input type="hidden" name="customerId" value="${sessionScope.user.customerId}">
+                            <input type="hidden" name="password" value="${sessionScope.user.password}">
+                            <input type="hidden" value="${sessionScope.user.username}" name="username">                    
+                            <input type="hidden" value="${sessionScope.user.email}" name="email">
+                            <input type="hidden" value="${sessionScope.user.fname}" name="fname">
+                            <input type="hidden" value="${sessionScope.user.sname}" name="sname">
+                            <input type="hidden" value="${sessionScope.user.address}" name="address"> 
+                            <input type="hidden" value="${sessionScope.user.city}" name="city"  >
+                            <input type="hidden" value="${sessionScope.user.postcode}" name="postcode">
+                            <input type="hidden" value="${sessionScope.user.tel}" name="tel">
+                            <h3 class="text-justify">Change Password </h3>                    
+                            Old password : <input type="password" class="form-control"  placeholder="Old Password" name="oldpassword" required>
+                            <br>
+                            New password : <input type="password" class="form-control"  placeholder="New Password" name="newpassword" required>
+                            <br>
+                            Confirm password : <input type="password" class="form-control"  placeholder="Confirm Password" name="confirmpassword"  required>
+                            <br><br>
+                            <button type="submit" class="btn btn-black"value="change">Change Password</button>
+
+                        </form>
+                    </div> 
                     <br><br>
                     <h3 style="color:${color}">${message}
-
-
 
                 </div>
                 <div class="col-sm-3">
