@@ -31,7 +31,7 @@
             </div>
             <!-- Header Top Links Ends -->				
             <!-- Shopping Cart Starts -->
-            <div class="col-md-2 col-sm-3 col-xs-12">
+            <div class="col-md-3 col-sm-3 col-xs-12">
                 <div id="cart" class="btn-group pull-right">
                     <button type="button" data-toggle="dropdown" class="btn dropdown-toggle text-uppercase">
                         <i class="fa fa-shopping-cart"></i>
@@ -64,7 +64,7 @@
                                                     <a href="product-full.jsp">
                                                         ${it.value.product.prodName}
                                                     </a>
-                                                </td>
+                                                </td>                                               
                                                 <td class="text-right">x ${it.value.quantity}</td>
                                                 <td class="text-right">$${it.value.total}</td>
                                                 <td class="text-center">
@@ -82,7 +82,7 @@
                                         <tbody>                                   
                                             <tr>
                                                 <td class="text-right"><strong>Total</strong></td>
-                                                <td class="text-left">$600.00</td>
+                                                <td class="text-left">$${CART.totalPrice}</td>
                                             </tr>
                                         </tbody>
                                     </table>

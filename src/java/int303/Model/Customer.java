@@ -262,7 +262,7 @@ public class Customer {
         boolean result = false;       
         try {
             Connection conn = ConnectionBuilder.getConnection();
-            String sql = "UPDATE " + TABLE_NAME + " SET password=? ,"
+            String sql = "UPDATE " + TABLE_NAME + " SET password=? "
                     + "WHERE customerId=?";
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, cus.getPassword());
