@@ -4,43 +4,43 @@
                     <!-- Categories Links Starts -->
                     <h3 class="side-heading"><i class="fa fa-align-justify"></i> Brands</h3>
                     <div class="list-group categories">
-                        <a href="category-grid.jsp" class="list-group-item">
+                        <a href="SearchProduct?target=/category-list.jsp&searchBy=brand&brand=Acer" class="list-group-item">
                             <i class="fa fa-angle-right"></i>
                             Acer
                         </a>
-                        <a href="category-grid.jsp" class="list-group-item">
+                        <a href="SearchProduct?target=/category-list.jsp&searchBy=brand&brand=Apple" class="list-group-item">
                             <i class="fa fa-angle-right"></i>
                             Apple
                         </a>
-                        <a href="category-grid.jsp" class="list-group-item">
+                        <a href="SearchProduct?target=/category-list.jsp&searchBy=brand&brand=Asus" class="list-group-item">
                             <i class="fa fa-angle-right"></i>
                             Asus
                         </a>
-                        <a href="category-grid.jsp" class="list-group-item">
+                        <a href="SearchProduct?target=/category-list.jsp&searchBy=brand&brand=Canon" class="list-group-item">
                             <i class="fa fa-angle-right"></i>
                             Canon
                         </a>
-                        <a href="category-grid.jsp" class="list-group-item">
+                        <a href="SearchProduct?target=/category-list.jsp&searchBy=brand&brand=Hp" class="list-group-item">
                             <i class="fa fa-angle-right"></i>
                             Hp
                         </a>
-                        <a href="category-grid.jsp" class="list-group-item">
+                        <a href="SearchProduct?target=/category-list.jsp&searchBy=brand&brand=Huawei" class="list-group-item">
                             <i class="fa fa-angle-right"></i>
                             Huawei
                         </a>
-                        <a href="category-grid.jsp" class="list-group-item">
+                        <a href="SearchProduct?target=/category-list.jsp&searchBy=brand&brand=Lenovo" class="list-group-item">
                             <i class="fa fa-angle-right"></i>
                             Lenovo
                         </a>
-                        <a href="category-grid.jsp" class="list-group-item">
+                        <a href="SearchProduct?target=/category-list.jsp&searchBy=brand&brand=MSI" class="list-group-item">
                             <i class="fa fa-angle-right"></i>
                             MSI
                         </a>
-                        <a href="category-grid.jsp" class="list-group-item">
+                        <a href="SearchProduct?target=/category-list.jsp&searchBy=brand&brand=Nikon" class="list-group-item">
                             <i class="fa fa-angle-right"></i>
                             Nikon
                         </a>
-                        <a href="category-grid.jsp" class="list-group-item">
+                        <a href="SearchProduct?target=/category-list.jsp&searchBy=brand&brand=Samsung" class="list-group-item">
                             <i class="fa fa-angle-right"></i>
                             Samsung
                         </a>

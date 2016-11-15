@@ -81,10 +81,10 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="display">
-                                    <a href="SearchProduct?target=/category-list.jsp&type=${param.type}">
+                                    <a href="SearchProduct?target=/category-list.jsp&type=${param.type}&searchBy=${param.searchBy}&word=${param.word}&brand=${param.brand}">
                                         <i class="fa fa-th-list" title="List View"></i>
                                     </a>
-                                    <a href="SearchProduct?target=/category-grid.jsp&type=${param.type}" class="active">
+                                    <a href="SearchProduct?target=/category-grid.jsp&type=${param.type}&searchBy=${param.searchBy}&word=${param.word}&brand=${param.brand}" class="active">
                                         <i class="fa fa-th" title="Grid View"></i>
                                     </a>
                                 </div>
@@ -111,7 +111,7 @@
                                                 <span class="price-new">$<fmt:formatNumber value="${p.price}" pattern="#,###.00"/></span> 
                                             </div>
                                             <div class="cart-button button-group">
-                                                <form action="AddToCart">                                           
+                                                <form action="AddToCart" method="post">                                           
                                                 <input type="hidden" name="pid" value="${p.prodId}">
                                                 <input type="hidden" name="target" value="/SearchProduct?target=${param.target}&type=${param.type}">
                                                 <button type="submit" class="btn btn-cart" onclick="javascript:window.location = '/SearchProduct?target=${param.target}&type=${param.type}';">

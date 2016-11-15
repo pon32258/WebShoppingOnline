@@ -30,9 +30,21 @@ public class SearchProductServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String type = request.getParameter("type");
+        String searchBy = request.getParameter("searchBy");
         String target = request.getParameter("target");
-        List<Product> products = Product.getProductByName("", type);
+        List<Product> products = null;
+        
+        if(searchBy.equals("word")){
+        String word = request.getParameter("word");
+        products = Product.getProductByWord(word);    
+        }else if(searchBy.equals("type")){
+        String type = request.getParameter("type");
+        products = Product.getProductByType(type);    
+        }else if(searchBy.equals("brand")){
+        String brand = request.getParameter("brand");
+        products = Product.getProductByBrand(brand);
+        }
+        
         request.getSession().setAttribute("products", products);
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }

@@ -81,19 +81,60 @@ public class Product implements Serializable{
         this.price = price;
     }
 
-    public static List<Product> getProductByName(String word, String type) {
+    public static List<Product> getProductByWord(String word) {
         List<Product> products = new ArrayList<Product>();
         try {
             Connection conn = ConnectionBuilder.getConnection();
             PreparedStatement ppstm = conn.prepareStatement("SELECT * FROM item i "
                     + "JOIN itemType it ON i.typeId = it.typeId "
                     + "JOIN brand b ON i.brandId = b.brandId "
-                    + "WHERE LOWER(i.itemName) LIKE ? AND LOWER(it.typeName) LIKE ? "
-                    + "AND LOWER(b.brandName) LIKE ? "
+                    + "WHERE LOWER(i.itemName) LIKE ?"
                     + "ORDER BY i.itemName");
             ppstm.setString(1, "%" + word.toLowerCase() + "%");
-            ppstm.setString(2, "%" + type.toLowerCase() + "%");
-            ppstm.setString(3, "%" + word.toLowerCase() + "%");
+            ResultSet rs = ppstm.executeQuery();
+            while (rs.next()) {
+                Product prod = new Product();
+                orm(rs, prod);
+                products.add(prod);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return products;
+    }
+    
+    public static List<Product> getProductByType(String type) {
+        List<Product> products = new ArrayList<Product>();
+        try {
+            Connection conn = ConnectionBuilder.getConnection();
+            PreparedStatement ppstm = conn.prepareStatement("SELECT * FROM item i "
+                    + "JOIN itemType it ON i.typeId = it.typeId "
+                    + "JOIN brand b ON i.brandId = b.brandId "
+                    + "WHERE LOWER(it.typeName) LIKE ? "
+                    + "ORDER BY i.itemName");
+            ppstm.setString(1, "%" + type.toLowerCase() + "%");
+            ResultSet rs = ppstm.executeQuery();
+            while (rs.next()) {
+                Product prod = new Product();
+                orm(rs, prod);
+                products.add(prod);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return products;
+    }
+    
+    public static List<Product> getProductByBrand(String brand) {
+        List<Product> products = new ArrayList<Product>();
+        try {
+            Connection conn = ConnectionBuilder.getConnection();
+            PreparedStatement ppstm = conn.prepareStatement("SELECT * FROM item i "
+                    + "JOIN itemType it ON i.typeId = it.typeId "
+                    + "JOIN brand b ON i.brandId = b.brandId "
+                    + "WHERE LOWER(b.brandName) LIKE ? "
+                    + "ORDER BY i.itemName");
+            ppstm.setString(1, "%" + brand.toLowerCase() + "%");
             ResultSet rs = ppstm.executeQuery();
             while (rs.next()) {
                 Product prod = new Product();
@@ -124,27 +165,6 @@ public class Product implements Serializable{
             Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
         }
         return prod;
-    }
-    
-    public static List<Product> getProductByType(int typeId){
-        List<Product> products = new ArrayList<Product>();
-        Connection conn = ConnectionBuilder.getConnection();
-        String sql = "SELECT * FROM item i "
-                + "JOIN itemtype it ON i.typeId = it.typeid"
-                + "WHERE i.typeId = ?" ;
-        try {
-            PreparedStatement pstm = conn.prepareStatement(sql);
-            pstm.setInt(1, typeId);
-            ResultSet rs = pstm.executeQuery();
-            while(rs.next()){
-                Product prod = new Product();
-                orm(rs,prod);
-                products.add(prod);
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return products;
     }
     
 
