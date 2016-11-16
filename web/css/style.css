@@ -1451,3 +1451,7 @@ hr{
   max-height: 3.6em;
   line-height: 1.8em;
 }
+table { border: none; border-collapse: collapse; }
+table td { border-left: 1px solid lightgray; }
+table td:first-child { border-left: none; }
+table td:last-child { border-left: none; }
