@@ -109,7 +109,7 @@
                                     </div>
                                     <div class="col-xs-7">
                                         <div class="caption">
-                                            <h4><a href="product-full.html">${p.prodName}</a></h4>
+                                            <h4><a href="SearchProduct?target=/product.jsp&searchBy=id&id=${p.prodId}">${p.prodName}</a></h4>
                                             <div class="description">
                                                 ${p.description}
                                             </div>
@@ -120,8 +120,8 @@
                                                 <div class="cart-button button-group">                                        
                                                     <form action="AddToCart" method="post">                                           
                                                         <input type="hidden" name="pid" value="${p.prodId}">
-                                                        <input type="hidden" name="target" value="/SearchProduct?target=${param.target}&type=${param.type}">                                                          
-                                                        <button type="submit" class="btn btn-cart" onclick="javascript:window.location = '/SearchProduct?target=${param.target}&type=${param.type}';">
+                                                        <input type="hidden" name="target" value="/SearchProduct?target=/category-list.jsp&type=${param.type}&searchBy=${param.searchBy}&word=${param.word}&brand=${param.brand}">                                                          
+                                                        <button type="submit" class="btn btn-cart">
                                                             <i class="fa fa-shopping-cart"></i> 
                                                             Add to cart
                                                         </button>

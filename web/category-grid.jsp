@@ -96,7 +96,7 @@
                     <div class="row">
                         <!-- Product #1 Starts -->
                         <c:forEach items="${sessionScope.products}" var="p">
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-sm-4 col-sm-6">
                                 <div class="product-col">
                                     <div class="image">
                                         <img src="images/product-images/${p.prodId}.jpg" alt="product" class="img-responsive" />
@@ -106,40 +106,39 @@
                                         <div class="description max-lines">
                                             ${p.description}
                                         </div>
-                                        <a href=""
-                                           <div class="price">
-                                                <span class="price-new">$<fmt:formatNumber value="${p.price}" pattern="#,###.00"/></span> 
-                                            </div>
-                                            <div class="cart-button button-group">
-                                                <form action="AddToCart" method="post">                                           
+                                        <span class="price-new">$<fmt:formatNumber value="${p.price}" pattern="#,###.00"/></span>
+
+                                        <div class="cart-button button-group">
+                                            <form action="AddToCart" method="post">                                           
                                                 <input type="hidden" name="pid" value="${p.prodId}">
-                                                <input type="hidden" name="target" value="/SearchProduct?target=${param.target}&type=${param.type}">
-                                                <button type="submit" class="btn btn-cart" onclick="javascript:window.location = '/SearchProduct?target=${param.target}&type=${param.type}';">
-                                                        <i class="fa fa-shopping-cart"></i> 
-                                                        Add to cart
+                                                <input type="hidden" name="target" value="/SearchProduct?target=/category-list.jsp&type=${param.type}&searchBy=${param.searchBy}&word=${param.word}&brand=${param.brand}">                                                          
+                                                <button type="submit" class="btn btn-cart">
+                                                    <i class="fa fa-shopping-cart"></i> 
+                                                    Add to cart
                                                 </button>
-                                                </form>								
-                                            </div>
+                                            </form>								
+                                        </div>
                                     </div>
                                 </div>
-                            </c:forEach>
-                        </div>
-                        <!-- Product #1 Ends -->                        
+                            </div>
+                        </c:forEach>
                     </div>
-                    <!-- Product Grid Display Ends -->
+                    <!-- Product #1 Ends -->                        
                 </div>
-                <!-- Primary Content Ends -->
+                <!-- Product Grid Display Ends -->
             </div>
+            <!-- Primary Content Ends -->
         </div>
-        <!-- Main Container Ends -->
-        <jsp:include page="WEB-INF/include/footer.jsp"/>
-        <!-- JavaScript Files -->
-        <script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/jquery-migrate-1.2.1.min.js"></script>	
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/bootstrap-hover-dropdown.min.js"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/custom.js"></script>
-    </body>
+    </div>
+    <!-- Main Container Ends -->
+    <jsp:include page="WEB-INF/include/footer.jsp"/>
+    <!-- JavaScript Files -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery-migrate-1.2.1.min.js"></script>	
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-hover-dropdown.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/custom.js"></script>
+</body>
 </html>

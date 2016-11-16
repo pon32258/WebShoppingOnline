@@ -33,6 +33,7 @@ public class SearchProductServlet extends HttpServlet {
         String searchBy = request.getParameter("searchBy");
         String target = request.getParameter("target");
         List<Product> products = null;
+        Product product = null;
         
         if(searchBy.equals("word")){
         String word = request.getParameter("word");
@@ -43,6 +44,11 @@ public class SearchProductServlet extends HttpServlet {
         }else if(searchBy.equals("brand")){
         String brand = request.getParameter("brand");
         products = Product.getProductByBrand(brand);
+        }else if(searchBy.equals("id")){
+        String id = request.getParameter("id");
+        int id2 = Integer.parseInt(id);
+        product = Product.getProductById(id2);
+        request.setAttribute("product", product);
         }
         
         request.getSession().setAttribute("products", products);

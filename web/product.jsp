@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html lang="en">
     <head>
@@ -44,8 +46,8 @@
     </head>
     <body>
         <header class="header-wrap inner">
-        <jsp:include page="WEB-INF/include/header.jsp"/>
-        <jsp:include page="WEB-INF/include/mainmenu.jsp"/>
+            <jsp:include page="WEB-INF/include/header.jsp"/>
+            <jsp:include page="WEB-INF/include/mainmenu.jsp"/>
         </header>
         <!-- Breadcrumb Starts -->
         <div class="breadcrumb-wrap">
@@ -73,36 +75,21 @@
                         <!-- Left Starts -->
                         <div class="col-sm-5 images-block">
                             <p>
-                                <img src="images/product-images/pimg3.jpg" alt="Image" class="img-responsive thumbnail" />
-                            </p>
-                            <ul class="list-unstyled list-inline">
-                                <li>
-                                    <img src="images/product-images/thumb1.jpg" alt="Image" class="img-responsive thumbnail" />
-                                </li>
-                                <li>
-                                    <img src="images/product-images/thumb2.jpg" alt="Image" class="img-responsive thumbnail" />
-                                </li>
-                                <li>
-                                    <img src="images/product-images/thumb3.jpg" alt="Image" class="img-responsive thumbnail" />
-                                </li>
-                                <li>
-                                    <img src="images/product-images/thumb4.jpg" alt="Image" class="img-responsive thumbnail" />
-                                </li>
-                            </ul>
+                                <img src="images/product-images/${product.prodId}.jpg" alt="Image" class="img-responsive thumbnail" />
+                            </p>                            
                         </div>
                         <!-- Left Ends -->
                         <!-- Right Starts -->
                         <div class="col-sm-7 product-details">
                             <!-- Product Name Starts -->
-                            <h2>Digital Electro Goods</h2>
+                            <h2>${product.prodName}</h2>
                             <!-- Product Name Ends -->
                             <hr />
                             <!-- Manufacturer Starts -->
                             <ul class="list-unstyled manufacturer">
                                 <li>
-                                    <span>Brand:</span> Indian spices
+                                    <span>Brand:</span> ${product.brand}
                                 </li>
-                                <li><span>Reward Points:</span> 300</li>
                                 <li>
                                     <span>Availability:</span> <strong class="label label-success">In Stock</strong>
                                 </li>
@@ -112,7 +99,7 @@
                             <!-- Price Starts -->
                             <div class="price">
                                 <span class="price-head">Price :</span>
-                                <span class="price-new">$199.50</span> 
+                                <span class="price-new">$${product.price}</span> 
                             </div>
                             <!-- Price Ends -->
                             <hr />
@@ -123,15 +110,16 @@
                                     <input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control" />
                                 </div>
                                 <div class="cart-button button-group">
-                                    <button type="button" title="Wishlist" class="btn btn-wishlist">
-                                        <i class="fa fa-heart"></i>
-                                    </button>
-                                    <button type="button" title="Compare" class="btn btn-compare">
-                                        <i class="fa fa-bar-chart-o"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-cart">
-                                        <i class="fa fa-shopping-cart hidden-sm hidden-xs"></i> Add to Cart
-                                    </button>									
+                                    <form action="AddToCart" method="post">  
+                                        <button type="button" title="Wishlist" class="btn btn-wishlist">
+                                            <i class="fa fa-heart"></i>
+                                        </button>                                                                              
+                                        <input type="hidden" name="pid" value="${p.prodId}">
+                                        <input type="hidden" name="target" value="/SearchProduct?target=/category-list.jsp&type=${param.type}&searchBy=${param.searchBy}&word=${param.word}&brand=${param.brand}">
+                                        <button type="submit" class="btn btn-cart">
+                                            <i class="fa fa-shopping-cart hidden-sm hidden-xs"></i> Add to Cart
+                                        </button>
+                                    </form>   
                                 </div>
                             </div>
                             <!-- Available Options Ends -->
@@ -145,11 +133,8 @@
                         <h4 class="heading">Description</h4>
                         <div class="content panel-smart">
                             <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </p>
-                            <p>
-                                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </p>
+                                ${product.description}
+                            </p>                           
                         </div>
                     </div>
                     <!-- Product Description Ends -->
