@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<link href="css/owl.carousel.css" rel="stylesheet">
 <!-- Sidebar Starts -->
                 <div class="col-md-3" >
                     <!-- Categories Links Starts -->

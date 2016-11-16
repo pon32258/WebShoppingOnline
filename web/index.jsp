@@ -20,7 +20,6 @@
 
         <!-- CSS Files -->
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
-        <link href="css/owl.carousel.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
 
