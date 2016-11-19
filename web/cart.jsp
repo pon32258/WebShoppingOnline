@@ -213,11 +213,11 @@
                                         <label for="inputShipment" class="col-sm-3 control-label">Shipment :</label>
                                         <div class="col-sm-9">
                                             <select class="form-control" id="inputRegion1" name="shipment">                                                
-                                                <option value="1"> EMS </option>
-                                                <option value="2"> FedEx </option>
-                                                <option value="3"> DHL </option>
-                                                <option value="4"> Normal </option>
-                                                <option value="5"> Kerry Express </option>
+                                                <option value="1" ${sessionScope.shipment=='1'?'selected':''}> EMS </option>
+                                                <option value="2" ${sessionScope.shipment=='2'?'selected':''}> FedEx </option>
+                                                <option value="3" ${sessionScope.shipment=='3'?'selected':''}> DHL </option>
+                                                <option value="4" ${sessionScope.shipment=='4'?'selected':''}> Normal </option>
+                                                <option value="5" ${sessionScope.shipment=='5'?'selected':''}> Kerry Express </option>
                                             </select>
                                         </div>
                                     </div>
