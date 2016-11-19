@@ -112,21 +112,19 @@
                                             <div class="description">
                                                 ${p.description}
                                             </div>
-                                            <div class="price">
-                                                <span class="price-new">$<fmt:formatNumber value="${p.price}" pattern="#,###.00"/></span> 
-                                            </div>
-                                            
-                                                <div class="cart-button button-group">                                        
-                                                    <form action="AddToCart" method="post">                                           
-                                                        <input type="hidden" name="pid" value="${p.prodId}">
-                                                        <input type="hidden" name="target" value="/category-list.jsp">                                                          
-                                                        <button type="submit" class="btn btn-cart">
-                                                            <i class="fa fa-shopping-cart"></i> 
-                                                            Add to cart
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            
+                                        </div>
+                                        <div class="price">
+                                            <span class="price-new"><fmt:formatNumber value="${p.price}" pattern="#,###.00"/></span>
+                                        </div>
+                                        <div class="cart-button button-group">                                        
+                                            <form action="AddToCart" method="post">                                           
+                                                <input type="hidden" name="pid" value="${p.prodId}">
+                                                <input type="hidden" name="target" value="/category-list.jsp">                                                          
+                                                <button type="submit" class="btn btn-cart">
+                                                    <i class="fa fa-shopping-cart"></i> 
+                                                    Add to cart
+                                                </button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

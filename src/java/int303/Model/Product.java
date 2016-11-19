@@ -167,7 +167,20 @@ public class Product implements Serializable{
         return prod;
     }
     
-
+    public static ResultSet getBrandName(String brand) {
+        ResultSet rs = null;
+        try {
+            Connection conn = ConnectionBuilder.getConnection();
+            PreparedStatement ppstm = conn.prepareStatement("SELECT brandName FROM brand "
+                    + "WHERE brandName LIKE ?");
+            ppstm.setString(1, "%"+brand+"%");
+            rs = ppstm.executeQuery();
+        } catch (SQLException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return rs;
+    }
+    
     public static void orm(ResultSet rs, Product prod) throws SQLException {
         if (prod == null) {
             prod = new Product();
