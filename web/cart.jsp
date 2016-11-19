@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
-<html lang="en">
+<html>
     <head>
 
         <meta charset="utf-8">
@@ -102,12 +102,12 @@
                             <c:forEach items="${CART.items}" var="it" varStatus="vs">
                                 <tr>
                                     <td class="text-center">
-                                        <a href="product.jsp">
-                                            <img src="images/product-images/${it.value.product.prodId}.jpg" alt="Product Name" title="Product Name" class="img-thumbnail" />
+                                        <a href="SearchProduct?target=/product.jsp&searchBy=id&id=${it.value.product.prodId}">
+                                            <img src="images/product-images/${it.value.product.prodId}.jpg" alt="Product Name" title="Product Naroduct.prodIdme" class="img-thumbnail" style="width: 200px"/>
                                         </a>
                                     </td>
                                     <td class="text-center">
-                                        <a href="product-full.jsp">${it.value.product.prodName}</a>
+                                        <a href="SearchProduct?target=/product.jsp&searchBy=id&id=${it.value.product.prodId}">${it.value.product.prodName}</a>
                                     </td>							
                                     <td class="text-center">
                                         <div class="input-group btn-block">
@@ -150,55 +150,7 @@
             <section class="registration-area">
                 <div class="row">
                     <!-- Shipping & Shipment Block Starts -->
-                    <div class="col-sm-6">
-                        <!-- Taxes Block Starts -->
-                        <div class="panel panel-smart">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    Shipping &amp; Taxes
-                                </h3>
-                            </div>
-                            <div class="panel-body">
-                                <!-- Form Starts -->
-                                <form class="form-horizontal" role="form">
-                                    <div class="form-group">
-                                        <label for="inputCountry" class="col-sm-3 control-label">Country :</label>
-                                        <div class="col-sm-9">
-                                            <select class="form-control" id="inputCountry">
-                                                <option>- All Countries -</option>
-                                                <option>India</option>
-                                                <option>USA</option>
-                                                <option>UK</option>
-                                                <option>China</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputRegion" class="col-sm-3 control-label">Region :</label>
-                                        <div class="col-sm-9">
-                                            <select class="form-control" id="inputRegion">
-                                                <option>- All Regions -</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputZipCode" class="col-sm-3 control-label">Zip Code :</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputZipCode" placeholder="Zip Code">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-offset-3 col-sm-9">
-                                            <button type="submit" class="btn btn-default">
-                                                Get Info
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                                <!-- Form Ends -->
-                            </div>
-                        </div>
-                        <!-- Taxes Block Ends -->
+                    <div class="col-sm-6">             
                         <!-- Shipment Information Block Starts -->
                         <div class="panel panel-smart">
                             <div class="panel-heading">
@@ -208,65 +160,47 @@
                             </div>
                             <div class="panel-body">
                                 <!-- Form Starts -->
-                                <form class="form-horizontal" role="form">
+                                <form class="form-horizontal" role="form" action="editprofile.jsp">
                                     <div class="form-group">
                                         <label for="inputFname" class="col-sm-3 control-label">First Name :</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputFname" placeholder="First Name">
+                                            <input type="text" class="form-control"  placeholder="${sessionScope.user.fname}" name="fname" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputLname" class="col-sm-3 control-label">Last Name :</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputLname" placeholder="Last Name">
+                                            <input type="text" class="form-control"  placeholder="${sessionScope.user.sname}" name="sname" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputEmail" class="col-sm-3 control-label">Email :</label>
                                         <div class="col-sm-9">
-                                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                            <input type="text" class="form-control"  placeholder="${sessionScope.user.email}" name="email" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPhone" class="col-sm-3 control-label">Phone :</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputPhone" placeholder="Phone">
+                                            <input type="number" class="form-control"  placeholder="${sessionScope.user.tel}" name="tel" disabled>     
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputAddress1" class="col-sm-3 control-label">Address/1 :</label>
+                                        <label for="inputAddress1" class="col-sm-3 control-label">Address :</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputAddress1" placeholder="Address/1">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputAddress2" class="col-sm-3 control-label">Address/2 :</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputAddress2" placeholder="Address/2">
+                                            <input type="text" class="form-control"  placeholder="${sessionScope.user.address}" name="address" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputCity" class="col-sm-3 control-label">City :</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputCity" placeholder="City">
+                                            <input type="text" class="form-control"  placeholder="${sessionScope.user.city}" name="city" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPostCode" class="col-sm-3 control-label">Postal Code :</label>
                                         <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputPostCode" placeholder="Postal Code">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputCountry" class="col-sm-3 control-label">Country :</label>
-                                        <div class="col-sm-9">
-                                            <select class="form-control" id="inputCountry1">
-                                                <option>- All Countries -</option>
-                                                <option>India</option>
-                                                <option>USA</option>
-                                                <option>UK</option>
-                                                <option>China</option>
-                                            </select>
+                                            <input type="text" class="form-control"  placeholder="${sessionScope.user.postcode}" name="postcode" disabled>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -279,9 +213,11 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-offset-3 col-sm-9">
+                                            <input type="hidden" name="target" value="/cart.jsp">
                                             <button type="submit" class="btn btn-black">
-                                                Submit
+                                                Edit
                                             </button>
+                                            
                                         </div>
                                     </div>
                                 </form>
@@ -292,55 +228,7 @@
                     </div>
                     <!-- Shipping & Shipment Block Ends -->
                     <!-- Discount & Conditions Blocks Starts -->
-                    <div class="col-sm-6">
-                        <!-- Discount Coupon Block Starts -->
-                        <div class="panel panel-smart">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    Discount Coupon Code
-                                </h3>
-                            </div>
-                            <div class="panel-body">
-                                <!-- Form Starts -->
-                                <form class="form-horizontal" role="form">
-                                    <div class="form-group">
-                                        <label for="inputCouponCode" class="col-sm-3 control-label">Coupon Code :</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="inputCouponCode" placeholder="Coupon Code">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-sm-offset-3 col-sm-9">
-                                            <button type="submit" class="btn btn-default">
-                                                Apply Coupon
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                                <!-- Form Ends -->
-                            </div>
-                        </div>
-                        <!-- Discount Coupon Block Ends -->
-                        <!-- Conditions Panel Starts -->
-                        <div class="panel panel-smart">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    Terms &amp; Conditions
-                                </h3>
-                            </div>
-                            <div class="panel-body">
-                                <p>
-                                    HTML Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. 
-                                </p>
-                                <p>
-                                    Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. 
-                                </p>
-                                <p>
-                                    Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat.
-                                </p>								
-                            </div>
-                        </div>
-                        <!-- Conditions Panel Ends -->
+                    <div class="col-sm-6">                                             
                         <!-- Total Panel Starts -->
                         <div class="panel panel-smart">
                             <div class="panel-heading">
@@ -350,16 +238,12 @@
                             </div>
                             <div class="panel-body">
                                 <dl class="dl-horizontal">
-                                    <dt>Coupon Discount :</dt>
-                                    <dd>$-25.00</dd>
-                                    <dt>Subtotal :</dt>
-                                    <dd>$300.00</dd>
-                                    <dt>Payment Fee :</dt>
-                                    <dd>$10.00</dd>
+                                    <dt>Total :</dt>
+                                    <dd><fmt:formatNumber value="${CART.totalPrice}" pattern="#,###.00"/></dd>
                                     <dt>Shipment Fee :</dt>
-                                    <dd>$15.00</dd>
-                                    <dt>Tax Total :</dt>
-                                    <dd>$315.00</dd>
+                                    <dd>15.00</dd>
+                                    <dt>Total All:</dt>
+                                    <dd>315.00</dd>
                                 </dl>
                                 <hr />
                                 <dl class="dl-horizontal total">

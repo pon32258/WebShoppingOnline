@@ -31,6 +31,10 @@ public class EditProfileServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        String target = request.getParameter("target");
+        if(target != null){
+            getServletContext().getRequestDispatcher(target).forward(request, response);
+        }
         String customerId = request.getParameter("customerId");
         String email = request.getParameter("email");
         String fname = request.getParameter("fname");
@@ -41,7 +45,7 @@ public class EditProfileServlet extends HttpServlet {
         String tel = request.getParameter("tel");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        String target = "/editprofile.jsp";
+        target = "/editprofile.jsp";       
         String mss = "";
         String color = "";
 

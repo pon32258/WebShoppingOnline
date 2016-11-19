@@ -103,6 +103,7 @@
                             <input type="hidden" name="customerId" value="${sessionScope.user.customerId}">
                             <input type="hidden" name="password" value="${sessionScope.user.password}">
                             <input type="hidden" name="username" value="${sessionScope.user.username}">
+                            <input type="hidden" name="target" value="${param.target}">
                             <br><br>                    
                             <button type="submit" class="btn btn-black"value="submit">Confirm</button>&nbsp;&nbsp;<button type="cancel" class="btn btn-black" onclick="javascript:window.location = 'userprofile.jsp';">Cancel</button>
                         </div>   
