@@ -207,6 +207,7 @@
                                         <label for="inputRegion" class="col-sm-3 control-label">Region :</label>
                                         <div class="col-sm-9">
                                             <select class="form-control" id="inputRegion1">
+                                                
                                                 <option>- All Regions -</option>
                                             </select>
                                         </div>
@@ -251,7 +252,7 @@
                             <div class="panel-body">
                                 <dl class="dl-horizontal">
                                     <table>
-                                        <tr><td>Please Select a Payment Method: </td></tr>
+                                        <tr><td>Please Select a Payment Method : </td></tr>
                                         <tr><td><select name="paymentMethod">
                                                     <option selected="Select">Select Payment</option>
                                                     <option value="Master">Master</option>
@@ -279,8 +280,7 @@
                                                     <option value="10">10</option>
                                                     <option value="11">11</option>
                                                     <option value="12">12</option>                                      
-                                                </select> </td>
-                                            <td>
+                                                </select> 
                                                 <select name="year">
                                                     <option selected="----">----</option>
                                                     <option value="2016">2016</option>
