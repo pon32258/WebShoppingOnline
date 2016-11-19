@@ -63,6 +63,7 @@
         <div class="main-container container">
             <!-- Typography #1 Starts -->
             <div class="row">
+                <h3 style="color:${color}">${message}</h3>
                 <h1 class="text-uppercase">Register</h1>
                 <div class="col-sm-10"  style="border: 1px solid lightgray;padding-bottom: 3%;border-radius:10px ">
                     
@@ -106,7 +107,6 @@
                     </div>   
                     </form>
                     <br><br>
-                    <h3 style="color:${color}">${message}
                 </div>
                 <div class="col-sm-3">                   
                 </div>

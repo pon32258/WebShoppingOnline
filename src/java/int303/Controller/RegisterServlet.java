@@ -49,7 +49,7 @@ public class RegisterServlet extends HttpServlet {
                 message = "Register Success.";
                 color = "green";
             }else{
-                 message = "Register fail.";
+                 message = "User name is already been used";
             }              
         }
         request.setAttribute("message", message);
