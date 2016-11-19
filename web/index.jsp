@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="int303.Model.Product"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
 <html lang="en">
     <head>
@@ -79,205 +82,36 @@
                                 <!-- Product Carousel Starts -->
                                 <div id="owl-product" class="owl-carousel">
                                     <!-- Product #1 Starts -->
+                                    <% List<Product> prods = Product.getLastestProduct();
+                                        for(Product p:prods){%>
                                     <div class="item">
                                         <div class="product-col">
                                             <div class="image">
-                                                <img src="images/product-images/1.jpg" alt="product" class="img-responsive" />
+                                                <img src="images/product-images/<%=p.getProdId()%>.jpg" alt="product" class="img-responsive" />
                                             </div>
                                             <div class="caption">
-                                                <h4><a href="product.jsp">Digital Electro Goods</a></h4>
-                                                <p class="description">
-                                                    We are so lucky living in such a wonderful time. Our almost unlimited ...
+                                                <h4><a href="SearchProduct?target=/product.jsp&searchBy=id&id=<%=p.getProdId()%>"><%=p.getProdName()%></a></h4>
+                                                <p class="description max-lines">
+                                                    <%=p.getDescription()%>
                                                 </p>
                                                 <div class="price">
-                                                    <span class="price-new">$199.50</span> 
-                                                    <span class="price-old">$249.50</span>
+                                                    <span class="price-new"><fmt:formatNumber value="<%=p.getPrice()%>" pattern="#,###.00"/></span> 
                                                 </div>
                                                 <div class="cart-button button-group">
-                                                    <button type="button" class="btn btn-cart">
-                                                        <i class="fa fa-shopping-cart"></i> 
-                                                        Add to cart
-                                                    </button>                                                   									
+                                                    <form action="AddToCart" method="post">                                           
+                                                        <input type="hidden" name="pid" value="<%=p.getProdId()%>">
+                                                        <input type="hidden" name="target" value="/index.jsp">                                                          
+                                                        <button type="submit" class="btn btn-cart">
+                                                            <i class="fa fa-shopping-cart"></i> 
+                                                            Add to cart
+                                                        </button>
+                                            </form>                                                  									
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Product #1 Ends -->
-                                    <!-- Product #2 Starts -->
-                                    <div class="item">
-                                        <div class="product-col">
-                                            <div class="image">
-                                                <img src="images/product-images/2.jpg" alt="product" class="img-responsive" />
-                                            </div>
-                                            <div class="caption">
-                                                <h4><a href="product.jsp">Digital Electro Goods</a></h4>
-                                                <p class="description">
-                                                    We are so lucky living in such a wonderful time. Our almost unlimited ...
-                                                </p>
-                                                <div class="price">
-                                                    <span class="price-new">$199.50</span> 
-                                                    <span class="price-old">$249.50</span>
-                                                </div>
-                                                <div class="cart-button button-group">
-                                                    <button type="button" class="btn btn-cart">
-                                                        <i class="fa fa-shopping-cart"></i> 
-                                                        Add to cart
-                                                    </button>                                                    									
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Product #2 Ends -->
-                                    <!-- Product #3 Starts -->
-                                    <div class="item">	
-                                        <div class="product-col">
-                                            <div class="image">
-                                                <img src="images/product-images/3.jpg" alt="product" class="img-responsive" />
-                                            </div>
-                                            <div class="caption">
-                                                <h4><a href="product.jsp">Digital Electro Goods</a></h4>
-                                                <p class="description">
-                                                    We are so lucky living in such a wonderful time. Our almost unlimited ...
-                                                </p>
-                                                <div class="price">
-                                                    <span class="price-new">$199.50</span> 
-                                                    <span class="price-old">$249.50</span>
-                                                </div>
-                                                <div class="cart-button button-group">
-                                                    <button type="button" class="btn btn-cart">
-                                                        <i class="fa fa-shopping-cart"></i> 
-                                                        Add to cart
-                                                    </button>                                                   									
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Product #3 Ends -->
-                                    <!-- Product #4 Starts -->
-                                    <div class="item">	
-                                        <div class="product-col">
-                                            <div class="image">
-                                                <img src="images/product-images/4.jpg" alt="product" class="img-responsive" />
-                                            </div>
-                                            <div class="caption">
-                                                <h4><a href="product.jsp">Digital Electro Goods</a></h4>
-                                                <p class="description">
-                                                    We are so lucky living in such a wonderful time. Our almost unlimited ...
-                                                </p>
-                                                <div class="price">
-                                                    <span class="price-new">$199.50</span> 
-                                                    <span class="price-old">$249.50</span>
-                                                </div>
-                                                <div class="cart-button button-group">
-                                                    <button type="button" class="btn btn-cart">
-                                                        <i class="fa fa-shopping-cart"></i> 
-                                                        Add to cart
-                                                    </button>                                                   									
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Product #4 Ends -->
-                                    <!-- Product #5 Starts -->
-                                    <div class="item">
-                                        <div class="product-col">
-                                            <div class="image">
-                                                <img src="images/product-images/5.jpg" alt="product" class="img-responsive" />
-                                            </div>
-                                            <div class="caption">
-                                                <h4><a href="product.jsp">Digital Electro Goods</a></h4>
-                                                <p class="description">
-                                                    We are so lucky living in such a wonderful time. Our almost unlimited ...
-                                                </p>
-                                                <div class="price">
-                                                    <span class="price-new">$199.50</span> 
-                                                    <span class="price-old">$249.50</span>
-                                                </div>
-                                                <div class="cart-button button-group">
-                                                    <button type="button" class="btn btn-cart">
-                                                        <i class="fa fa-shopping-cart"></i> 
-                                                        Add to cart
-                                                    </button>                                                    									
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Product #5 Ends -->
-                                    <!-- Product #6 Starts -->
-                                    <div class="item">
-                                        <div class="product-col">
-                                            <div class="image">
-                                                <img src="images/product-images/6.jpg" alt="product" class="img-responsive" />
-                                            </div>
-                                            <div class="caption">
-                                                <h4><a href="product.jsp">Digital Electro Goods</a></h4>
-                                                <p class="description">
-                                                    We are so lucky living in such a wonderful time. Our almost unlimited ...
-                                                </p>
-                                                <div class="price">
-                                                    <span class="price-new">$199.50</span> 
-                                                    <span class="price-old">$249.50</span>
-                                                </div>
-                                                <div class="cart-button button-group">
-                                                    <button type="button" class="btn btn-cart">
-                                                        <i class="fa fa-shopping-cart"></i> 
-                                                        Add to cart
-                                                    </button>                                                   								
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Product #6 Ends -->
-                                    <!-- Product #7 Starts -->
-                                    <div class="item">	
-                                        <div class="product-col">
-                                            <div class="image">
-                                                <img src="images/product-images/7.jpg" alt="product" class="img-responsive" />
-                                            </div>
-                                            <div class="caption">
-                                                <h4><a href="product.jsp">Digital Electro Goods</a></h4>
-                                                <p class="description">
-                                                    We are so lucky living in such a wonderful time. Our almost unlimited ...
-                                                </p>
-                                                <div class="price">
-                                                    <span class="price-new">$199.50</span> 
-                                                    <span class="price-old">$249.50</span>
-                                                </div>
-                                                <div class="cart-button button-group">
-                                                    <button type="button" class="btn btn-cart">
-                                                        <i class="fa fa-shopping-cart"></i> 
-                                                        Add to cart
-                                                    </button>                                                   									
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Product #7 Ends -->
-                                    <!-- Product #8 Starts -->
-                                    <div class="item">	
-                                        <div class="product-col">
-                                            <div class="image">
-                                                <img src="images/product-images/8.jpg" alt="product" class="img-responsive" />
-                                            </div>
-                                            <div class="caption">
-                                                <h4><a href="product.jsp">Digital Electro Goods</a></h4>
-                                                <p class="description">
-                                                    We are so lucky living in such a wonderful time. Our almost unlimited ...
-                                                </p>
-                                                <div class="price">
-                                                    <span class="price-new">$199.50</span> 
-                                                    <span class="price-old">$249.50</span>
-                                                </div>
-                                                <div class="cart-button button-group">
-                                                    <button type="button" class="btn btn-cart">
-                                                        <i class="fa fa-shopping-cart"></i> 
-                                                        Add to cart
-                                                    </button>                                                   									
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Product #8 Ends -->
+                                    <% } %>
+                                    <!-- Product #1 Ends -->                                   
                                 </div>
                                 <!-- Product Carousel Ends -->
                             </div>

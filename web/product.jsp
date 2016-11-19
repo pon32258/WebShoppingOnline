@@ -99,7 +99,7 @@
                             <!-- Price Starts -->
                             <div class="price">
                                 <span class="price-head">Price :</span>
-                                <span class="price-new">$${product.price}</span> 
+                                <span class="price-new">${product.price}</span> 
                             </div>
                             <!-- Price Ends -->
                             <hr />

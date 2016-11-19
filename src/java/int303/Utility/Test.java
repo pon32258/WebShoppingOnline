@@ -5,6 +5,7 @@
  */
 package int303.Utility;
 
+import int303.Model.Product;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,6 +21,9 @@ import java.util.logging.Logger;
 public class Test {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-
+        List<Product> prods = Product.getLastestProduct();
+        for (Product p : prods) {
+            System.out.println(p.getProdId());
+        }
     }
 }

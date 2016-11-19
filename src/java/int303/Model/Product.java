@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -181,6 +182,27 @@ public class Product implements Serializable{
         return rs;
     }
     
+    public static List<Product> getLastestProduct() {
+        List<Product> products = new ArrayList<Product>();
+        try {
+            Connection conn = ConnectionBuilder.getConnection();
+            Statement st = conn.createStatement();
+            String searchQuery = "SELECT * FROM item i "
+                    + "JOIN itemType it ON i.typeId = it.typeId "
+                    + "JOIN brand b ON i.brandId = b.brandId "
+                    + "ORDER BY i.itemID desc LIMIT 10";                 
+            ResultSet rs  = st.executeQuery(searchQuery); 
+            while (rs.next()) {
+                Product prod = new Product();
+                orm(rs, prod);
+                products.add(prod);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return products;
+    }
+    
     public static void orm(ResultSet rs, Product prod) throws SQLException {
         if (prod == null) {
             prod = new Product();
@@ -192,5 +214,5 @@ public class Product implements Serializable{
         prod.setBrand(rs.getString("brandName"));
         prod.setDescription(rs.getString("itemDescription"));
     }
-
+    
 }
