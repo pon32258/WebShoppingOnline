@@ -213,7 +213,7 @@ hr{
 			background:none;
 			border:none;
 		}
-		#cart .dropdown-menu table.hcart td, 
+		#cart .dropdown-menu table.hcart tr, 
 		.line-bottom{
 			border-bottom:1px solid #54575b;
 		}
@@ -1450,6 +1450,7 @@ hr{
   overflow: hidden;
   max-height: 3.6em;
   line-height: 1.8em;
+  
 }
 table { border: none; border-collapse: collapse; }
 table td { border-left: 1px solid lightgray; }

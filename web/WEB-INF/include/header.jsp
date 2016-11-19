@@ -52,21 +52,21 @@
                                     </table>
                                 </c:when>
                                 <c:otherwise>
-                                    <table class="table hcart">
+                                    <table class="table hcart " >
                                         <!-- Item -->
                                         <c:forEach items="${CART.items}" var="it" varStatus="vs">
                                             <tr>
-                                                <td class="text-center">
+                                                <td class="text-center ">
                                                     <a href="SearchProduct?target=/product.jsp&searchBy=id&id=${it.value.product.prodId}">
                                                         <img src="images/product-images/hcart-thumb1.jpg" alt="image" title="image" class="img-thumbnail img-responsive" />
                                                     </a>
                                                 </td>
-                                                <td class="text-left">
+                                                <td class="text-left  max-lines ">
                                                     <a href="SearchProduct?target=/product.jsp&searchBy=id&id=${it.value.product.prodId}">
                                                         ${it.value.product.prodName}
                                                     </a>
                                                 </td>                                               
-                                                <td class="text-right">x ${it.value.quantity}</td>
+                                                <td class="text-right ">x ${it.value.quantity}</td>
                                                 <td class="text-right">$<fmt:formatNumber value="${it.value.total}" pattern="#,###.00"/></td>
                                                 <td class="text-center">
                                                     <a href="#">
