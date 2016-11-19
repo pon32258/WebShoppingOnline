@@ -97,13 +97,7 @@
                                                     <button type="button" class="btn btn-cart">
                                                         <i class="fa fa-shopping-cart"></i> 
                                                         Add to cart
-                                                    </button>
-                                                    <button type="button" title="Wishlist" class="btn btn-wishlist">
-                                                        <i class="fa fa-heart"></i>
-                                                    </button>
-                                                    <button type="button" title="Compare" class="btn btn-compare">
-                                                        <i class="fa fa-bar-chart-o"></i>
-                                                    </button>									
+                                                    </button>                                                   									
                                                 </div>
                                             </div>
                                         </div>
@@ -128,13 +122,7 @@
                                                     <button type="button" class="btn btn-cart">
                                                         <i class="fa fa-shopping-cart"></i> 
                                                         Add to cart
-                                                    </button>
-                                                    <button type="button" title="Wishlist" class="btn btn-wishlist">
-                                                        <i class="fa fa-heart"></i>
-                                                    </button>
-                                                    <button type="button" title="Compare" class="btn btn-compare">
-                                                        <i class="fa fa-bar-chart-o"></i>
-                                                    </button>									
+                                                    </button>                                                    									
                                                 </div>
                                             </div>
                                         </div>
@@ -159,13 +147,7 @@
                                                     <button type="button" class="btn btn-cart">
                                                         <i class="fa fa-shopping-cart"></i> 
                                                         Add to cart
-                                                    </button>
-                                                    <button type="button" title="Wishlist" class="btn btn-wishlist">
-                                                        <i class="fa fa-heart"></i>
-                                                    </button>
-                                                    <button type="button" title="Compare" class="btn btn-compare">
-                                                        <i class="fa fa-bar-chart-o"></i>
-                                                    </button>									
+                                                    </button>                                                   									
                                                 </div>
                                             </div>
                                         </div>
@@ -190,13 +172,7 @@
                                                     <button type="button" class="btn btn-cart">
                                                         <i class="fa fa-shopping-cart"></i> 
                                                         Add to cart
-                                                    </button>
-                                                    <button type="button" title="Wishlist" class="btn btn-wishlist">
-                                                        <i class="fa fa-heart"></i>
-                                                    </button>
-                                                    <button type="button" title="Compare" class="btn btn-compare">
-                                                        <i class="fa fa-bar-chart-o"></i>
-                                                    </button>									
+                                                    </button>                                                   									
                                                 </div>
                                             </div>
                                         </div>
@@ -221,13 +197,7 @@
                                                     <button type="button" class="btn btn-cart">
                                                         <i class="fa fa-shopping-cart"></i> 
                                                         Add to cart
-                                                    </button>
-                                                    <button type="button" title="Wishlist" class="btn btn-wishlist">
-                                                        <i class="fa fa-heart"></i>
-                                                    </button>
-                                                    <button type="button" title="Compare" class="btn btn-compare">
-                                                        <i class="fa fa-bar-chart-o"></i>
-                                                    </button>									
+                                                    </button>                                                    									
                                                 </div>
                                             </div>
                                         </div>
@@ -252,13 +222,7 @@
                                                     <button type="button" class="btn btn-cart">
                                                         <i class="fa fa-shopping-cart"></i> 
                                                         Add to cart
-                                                    </button>
-                                                    <button type="button" title="Wishlist" class="btn btn-wishlist">
-                                                        <i class="fa fa-heart"></i>
-                                                    </button>
-                                                    <button type="button" title="Compare" class="btn btn-compare">
-                                                        <i class="fa fa-bar-chart-o"></i>
-                                                    </button>									
+                                                    </button>                                                   								
                                                 </div>
                                             </div>
                                         </div>
@@ -283,13 +247,7 @@
                                                     <button type="button" class="btn btn-cart">
                                                         <i class="fa fa-shopping-cart"></i> 
                                                         Add to cart
-                                                    </button>
-                                                    <button type="button" title="Wishlist" class="btn btn-wishlist">
-                                                        <i class="fa fa-heart"></i>
-                                                    </button>
-                                                    <button type="button" title="Compare" class="btn btn-compare">
-                                                        <i class="fa fa-bar-chart-o"></i>
-                                                    </button>									
+                                                    </button>                                                   									
                                                 </div>
                                             </div>
                                         </div>
@@ -314,13 +272,7 @@
                                                     <button type="button" class="btn btn-cart">
                                                         <i class="fa fa-shopping-cart"></i> 
                                                         Add to cart
-                                                    </button>
-                                                    <button type="button" title="Wishlist" class="btn btn-wishlist">
-                                                        <i class="fa fa-heart"></i>
-                                                    </button>
-                                                    <button type="button" title="Compare" class="btn btn-compare">
-                                                        <i class="fa fa-bar-chart-o"></i>
-                                                    </button>									
+                                                    </button>                                                   									
                                                 </div>
                                             </div>
                                         </div>
@@ -366,13 +318,7 @@
                                             <button type="button" class="btn btn-cart">
                                                 <i class="fa fa-shopping-cart"></i> 
                                                 Add to cart
-                                            </button>
-                                            <button type="button" title="Wishlist" class="btn btn-wishlist">
-                                                <i class="fa fa-heart"></i>
-                                            </button>
-                                            <button type="button" title="Compare" class="btn btn-compare">
-                                                <i class="fa fa-bar-chart-o"></i>
-                                            </button>									
+                                            </button>                                            								
                                         </div>
                                     </div>
                                 </div>
@@ -399,13 +345,7 @@
                                             <button type="button" class="btn btn-cart">
                                                 <i class="fa fa-shopping-cart"></i> 
                                                 Add to cart
-                                            </button>
-                                            <button type="button" title="Wishlist" class="btn btn-wishlist">
-                                                <i class="fa fa-heart"></i>
-                                            </button>
-                                            <button type="button" title="Compare" class="btn btn-compare">
-                                                <i class="fa fa-bar-chart-o"></i>
-                                            </button>									
+                                            </button>                                           									
                                         </div>
                                     </div>
                                 </div>
@@ -432,13 +372,7 @@
                                             <button type="button" class="btn btn-cart">
                                                 <i class="fa fa-shopping-cart"></i> 
                                                 Add to cart
-                                            </button>
-                                            <button type="button" title="Wishlist" class="btn btn-wishlist">
-                                                <i class="fa fa-heart"></i>
-                                            </button>
-                                            <button type="button" title="Compare" class="btn btn-compare">
-                                                <i class="fa fa-bar-chart-o"></i>
-                                            </button>									
+                                            </button>                                            									
                                         </div>
                                     </div>
                                 </div>
