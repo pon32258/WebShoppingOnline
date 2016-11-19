@@ -5,7 +5,14 @@
  */
 package int303.Model;
 
+import int303.Utility.ConnectionBuilder;
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -62,5 +69,20 @@ public class Order {
         this.orderType = orderType;
     }
     
-    
+    public static int shipmentFee(int orderTypeId){
+        int fee = 0;
+        try {
+            Connection conn = ConnectionBuilder.getConnection();
+            PreparedStatement ppstm = conn.prepareStatement("SELECT fee FROM orderType" 
+                    + " WHERE orderTypeId = ?");
+            ppstm.setInt(1, orderTypeId);
+            ResultSet rs = ppstm.executeQuery();
+            if (rs.next()) {
+                fee = rs.getInt("fee");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return fee;
+    }
 }

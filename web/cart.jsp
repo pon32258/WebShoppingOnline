@@ -1,3 +1,4 @@
+<%@page import="int303.Model.Order"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!doctype html>
@@ -160,7 +161,7 @@
                             </div>
                             <div class="panel-body">
                                 <!-- Form Starts -->
-                                <form class="form-horizontal" role="form" action="editprofile.jsp">
+                                <form class="form-horizontal" role="form" action="ShipmentFee" method="post">
                                     <div class="form-group">
                                         <label for="inputFname" class="col-sm-3 control-label">First Name :</label>
                                         <div class="col-sm-9">
@@ -204,11 +205,14 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputRegion" class="col-sm-3 control-label">Region :</label>
+                                        <label for="inputShipment" class="col-sm-3 control-label">Shipment :</label>
                                         <div class="col-sm-9">
-                                            <select class="form-control" id="inputRegion1">
-                                                
-                                                <option>- All Regions -</option>
+                                            <select class="form-control" id="inputRegion1" name="shipment">                                                
+                                                <option value="1"> EMS </option>
+                                                <option value="2"> FedEx </option>
+                                                <option value="3"> DHL </option>
+                                                <option value="4"> Normal </option>
+                                                <option value="5"> Kerry Express </option>
                                             </select>
                                         </div>
                                     </div>
@@ -216,10 +220,11 @@
                                         <div class="col-sm-offset-3 col-sm-9">
                                             <c:choose>
                                                 <c:when test="${sessionScope.user!=null}">
-                                                    <input type="hidden" name="target" value="/cart.jsp">
-                                                    <button type="submit" class="btn btn-black">
+                                                    <a href="editprofile.jsp?target=/cart.jsp">
+                                                    <button type="button" class="btn btn-black">
                                                         Edit
                                                     </button>
+                                                    </a>
                                                 </c:when>
                                                 <c:otherwise>
                                                     <a href="Login?target=/cart.jsp">
@@ -229,6 +234,10 @@
                                                     </a>
                                                 </c:otherwise>
                                             </c:choose>
+                                                <button type="submit" class="btn btn-black">
+                                                    Submit
+                                                </button>
+                                            
                                         </div>
                                     </div>
                                 </form>
@@ -321,14 +330,12 @@
                                     <dt>Total :</dt>
                                     <dd><fmt:formatNumber value="${CART.totalPrice}" pattern="#,###.00"/></dd>
                                     <dt>Shipment Fee :</dt>
-                                    <dd>15.00</dd>
-                                    <dt>Total All:</dt>
-                                    <dd>315.00</dd>
+                                    <dd>${fee}</dd>
                                 </dl>
                                 <hr />
                                 <dl class="dl-horizontal total">
                                     <dt>Total :</dt>
-                                    <dd>$325.00</dd>
+                                    <dd>${CART.totalPrice+fee}</dd>
                                 </dl>
                                 <hr />
                                 <div class="text-uppercase clearfix">
