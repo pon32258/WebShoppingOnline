@@ -69,7 +69,7 @@
                 <div class="col-sm-1"> </div>
                 <div class="col-sm-10"  style="border: 1px solid lightgray;padding-bottom: 3%;border-radius:10px ">
                     <form action="?????????????????" method="post" >
-                        <table class="table table-bordered " style="padding-top: 3%;margin-top: 3%">
+                        <table class="table table-bordered " style="padding-top: 3%;margin-top: 3%; background-color: white">
                             <thead style="font-size: 24px">
                                 <tr>
                                     <th style="text-align: center">No</th>
