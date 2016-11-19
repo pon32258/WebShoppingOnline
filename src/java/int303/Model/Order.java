@@ -30,8 +30,7 @@ public class Order {
     public Order() {
     }
 
-    public Order(int orderId, Date orderDate, int orderType, int customerId) {
-        this.orderId = orderId;
+    public Order(Date orderDate, int orderType, int customerId) {
         this.orderDate = orderDate;
         this.orderType = orderType;
         this.customerId = customerId;
@@ -84,5 +83,64 @@ public class Order {
             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
         }
         return fee;
+    }
+    
+    public static boolean insertOrder(Order order) {       
+        boolean result = false;
+        try {  
+            Connection conn = ConnectionBuilder.getConnection();
+            String sqlcmd = "INSERT INTO orders(orderDate,orderTypeID,customerId) values(?,?,?)";
+            PreparedStatement pstm = conn.prepareStatement(sqlcmd);
+            pstm.setDate(1, order.getOrderDate());
+            pstm.setInt(2, order.getOrderType());
+            pstm.setInt(3, order.getCustomerId());
+
+            if (pstm.executeUpdate() > 0) {
+                result = true;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
+    }
+    
+    public static boolean insertOrderItem(int itemId,int qty,int price){
+        boolean result = false;
+        try {  
+            Connection conn = ConnectionBuilder.getConnection();
+            String sqlcmd = "INSERT INTO orderItem (orderID,itemID,"
+                    + "orderQuantity,price) values(?,?,?,?)";
+            PreparedStatement pstm = conn.prepareStatement(sqlcmd);
+            pstm.setInt(1, getLastOrder());
+            pstm.setInt(2, itemId);
+            pstm.setInt(3, qty);
+            pstm.setInt(4, price);
+
+            if (pstm.executeUpdate() > 0) {
+                result = true;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
+    }
+    
+    public static int getLastOrder(){
+        int lastId = 0;
+        try{
+            Connection conn = ConnectionBuilder.getConnection();
+            String sql ="SELECT MAX(orderID) FROM orders ";                
+            PreparedStatement pstm =conn.prepareStatement(sql);
+            ResultSet rs =pstm.executeQuery();
+            if(rs.next()){
+                lastId = rs.getInt("MAX(orderID)");
+            }     
+            conn.close();
+        }catch(SQLException ex){
+             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return lastId;
     }
 }

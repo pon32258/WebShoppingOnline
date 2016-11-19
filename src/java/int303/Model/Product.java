@@ -26,7 +26,7 @@ public class Product implements Serializable{
     private int prodId;
     private String prodName;
     private String typeName;
-    private double price;
+    private int price;
     private String brand;
     private String description;
 
@@ -74,11 +74,11 @@ public class Product implements Serializable{
         this.typeName = typeName;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

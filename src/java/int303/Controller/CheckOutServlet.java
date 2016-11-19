@@ -5,9 +5,12 @@
  */
 package int303.Controller;
 
+import int303.Model.Cart;
+import int303.Model.Cart.LineItem;
 import int303.Model.Order;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.Calendar;
+import java.util.Set;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Witchapon Kaptop
  */
-public class ShipmentFeeServlet extends HttpServlet {
+public class CheckOutServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,13 +33,28 @@ public class ShipmentFeeServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String shipment = request.getParameter("shipment");
-        if(shipment!=null||shipment.trim().length()!=0){
-            int fee = Order.shipmentFee(Integer.parseInt(shipment));
-            request.getSession().setAttribute("fee", fee);
-            request.getSession().setAttribute("shipment", shipment);
+        int orderType = Integer.parseInt(request.getParameter("orderType"));
+        int customerId = Integer.parseInt(request.getParameter("customerId"));
+        Cart cart = (Cart) request.getSession().getAttribute("CART");
+        String target = "/cart.jsp";
+        if (cart != null) {
+            Order order = new Order(new java.sql.Date(Calendar.getInstance().getTimeInMillis()), orderType, customerId);
+            if (Order.insertOrder(order) == true) {
+                Set<Integer> pid = cart.items.keySet();
+                for (int p : pid) {
+                    LineItem items = cart.getItem(p);
+                    int qty = items.getQuantity();
+                    int total = items.getTotal();
+                    if(Order.insertOrderItem(p, qty, total)==true){                   
+                        request.getSession().removeAttribute("CART");
+                        target = "/index.jsp";
+                    }
+                }
+            }
+        }else{
+            request.setAttribute("mss", "Please add product to cart before checkout.");
         }
-        getServletContext().getRequestDispatcher("/cart.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher(target).forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

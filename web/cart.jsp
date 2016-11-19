@@ -344,13 +344,18 @@
                                 </dl>
                                 <hr />
                                 <div class="text-uppercase clearfix">
-                                    <a href="#" class="btn btn-default pull-left">
+                                    <a href="category-list.jsp" class="btn btn-default pull-left">
                                         <span class="hidden-xs">Continue Shopping</span>
                                         <span class="visible-xs">Continue</span>
                                     </a>
-                                    <a href="#" class="btn btn-default pull-right">		
+                                    <form action="CheckOut" method="post">
+                                    <input type="hidden" name="orderType" value="${sessionScope.shipment}">
+                                    <input type="hidden" name="customerId" value="${sessionScope.user.customerId}">    
+                                    <input type="hidden" name="target" value="/cart.jsp">    
+                                    <button type="submit" class="btn btn-default pull-right">		
                                         Checkout
-                                    </a>
+                                    </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>

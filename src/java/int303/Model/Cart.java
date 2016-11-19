@@ -14,7 +14,7 @@ import java.util.Map;
  * @author frest
  */
 public class Cart {
-    Map<Integer,LineItem> items = null ;
+    public Map<Integer,LineItem> items = null ;
 
     public Cart() {
         items = new HashMap<>();
@@ -59,8 +59,8 @@ public class Cart {
         items.remove(productId) ;
     }
     
-    public double getTotalPrice() {
-        double totalPrice = 0 ;
+    public int getTotalPrice() {
+        int totalPrice = 0 ;
         for(LineItem lit : items.values()) {
             totalPrice += lit.getTotal() ;
         }
@@ -78,8 +78,8 @@ public class Cart {
     public static class LineItem implements Serializable {
         Product product;
         int quantity  ;
-        double total ;
-        double discount ;
+        int total ;
+        int discount ;
 
         public Product getProduct() {
             return product;
@@ -98,19 +98,19 @@ public class Cart {
             calculateTotal();
         }
 
-        public double getTotal() {
+        public int getTotal() {
             return total;
         }
 
-        public void setTotal(double total) {
+        public void setTotal(int total) {
             this.total = total;
         }
 
-        public double getDiscount() {
+        public int getDiscount() {
             return discount;
         }
 
-        public void setDiscount(double discount) {
+        public void setDiscount(int discount) {
             this.discount = discount;
         }
         
