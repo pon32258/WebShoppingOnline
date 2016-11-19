@@ -49,6 +49,8 @@ public class SearchProductServlet extends HttpServlet {
         int id2 = Integer.parseInt(id);
         product = Product.getProductById(id2);
         request.setAttribute("product", product);
+        getServletContext().getRequestDispatcher(target).forward(request, response);
+        return;
         }
         
         request.getSession().setAttribute("products", products);

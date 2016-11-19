@@ -56,7 +56,7 @@
                 <!-- Breadcrumb Starts -->
                 <ol class="breadcrumb">
                     <li><a href="index.jsp">Home</a></li>
-                    <li class="active">product category</li>
+                    <li class="active">category</li>
                 </ol>
                 <!-- Breadcrumb Ends -->		
             </div>

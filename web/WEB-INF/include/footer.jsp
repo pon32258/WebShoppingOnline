@@ -9,7 +9,7 @@
 					<div class="col-md-2 col-sm-3 col-xs-12">
 						<h5>Information</h5>
 						<ul>
-							<li><a href="about.jsp">About Us</a></li>
+							<li><a href="#">About Us</a></li>
 							<li><a href="#">Delivery Information</a></li>
 							<li><a href="#">Privacy Policy</a></li>
 							<li><a href="#">Terms &amp; Conditions</a></li>
@@ -32,7 +32,7 @@
 					<div class="col-md-2 col-sm-3 col-xs-12">
 						<h5>Service</h5>
 						<ul>
-							<li><a href="contact.jsp">Contact Us</a></li>
+							<li><a href="#">Contact Us</a></li>
 							<li><a href="#">Returns</a></li>
 							<li><a href="#">Site Map</a></li>
 							<li><a href="#">Affiliates</a></li>
@@ -52,7 +52,7 @@
 					</div>
 				<!-- Follow Us Links Ends -->
 				<!-- Contact Us Starts -->
-					<div class="col-md-4 col-xs-12 last">
+					<div class="col-sm-4 col-xs-12 last">
 						<h5>Contact Us</h5>
 						<ul>
 							<li>My Company</li>

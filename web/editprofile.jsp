@@ -105,7 +105,7 @@
                             <input type="hidden" name="username" value="${sessionScope.user.username}">
                             <input type="hidden" name="target" value="${param.target}">
                             <br><br>                    
-                            <button type="submit" class="btn btn-black"value="submit">Confirm</button>&nbsp;&nbsp;<button type="cancel" class="btn btn-black" onclick="javascript:window.location = 'userprofile.jsp';">Cancel</button>
+                            <button type="submit" class="btn btn-black"value="submit">Confirm</button>&nbsp;&nbsp;<button type="button" class="btn btn-black" onclick="javascript:window.location = 'userprofile.jsp';">Cancel</button>
                         </div>   
                     </form>
                     <br><br>
@@ -115,10 +115,6 @@
 
                 </div>
                 <div class="col-sm-3">
-                    <h2 class="text-uppercase">Simply text of H2</h2>
-                    <p class="text-justify">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-                    </p>
                 </div>
             </div>
         </div>

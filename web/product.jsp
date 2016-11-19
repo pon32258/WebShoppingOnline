@@ -110,12 +110,9 @@
                                     <input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control" />
                                 </div>
                                 <div class="cart-button button-group">
-                                    <form action="AddToCart" method="post">  
-                                        <button type="button" title="Wishlist" class="btn btn-wishlist">
-                                            <i class="fa fa-heart"></i>
-                                        </button>                                                                              
+                                    <form action="AddToCart" method="post">                                   
                                         <input type="hidden" name="pid" value="${p.prodId}">
-                                        <input type="hidden" name="target" value="/SearchProduct?target=/category-list.jsp&type=${param.type}&searchBy=${param.searchBy}&word=${param.word}&brand=${param.brand}">
+                                        <input type="hidden" name="target" value="/product.jsp">
                                         <button type="submit" class="btn btn-cart">
                                             <i class="fa fa-shopping-cart hidden-sm hidden-xs"></i> Add to Cart
                                         </button>
@@ -215,17 +212,11 @@
                                             <span class="price-new">$199.50</span> 
                                             <span class="price-old">$249.50</span>
                                         </div>
-                                        <div class="cart-button button-group">
+                                        <div class="cart-button button-group">                                           
                                             <button type="button" class="btn btn-cart">
                                                 <i class="fa fa-shopping-cart"></i> 
                                                 Add to cart
-                                            </button>
-                                            <button type="button" title="Wishlist" class="btn btn-wishlist">
-                                                <i class="fa fa-heart"></i>
-                                            </button>
-                                            <button type="button" title="Compare" class="btn btn-compare">
-                                                <i class="fa fa-bar-chart-o"></i>
-                                            </button>									
+                                            </button>								
                                         </div>
                                     </div>
                                 </div>
