@@ -104,21 +104,22 @@
                             <!-- Price Ends -->
                             <hr />
                             <!-- Available Options Starts -->
+                            <form action="UpdateCart" method="post">
                             <div class="options">
                                 <div class="form-group">
                                     <label class="control-label text-uppercase" for="input-quantity">Qty:</label>
-                                    <input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control" />
+                                    <input type="text" name="-${product.prodId}"  placeholder="0" size="2" id="input-quantity" class="form-control" />
                                 </div>
-                                <div class="cart-button button-group">
-                                    <form action="AddToCart" method="post">                                   
+                                <div class="cart-button button-group">                                                                       
                                         <input type="hidden" name="pid" value="${p.prodId}">
                                         <input type="hidden" name="target" value="/product.jsp">
                                         <button type="submit" class="btn btn-cart">
-                                            <i class="fa fa-shopping-cart hidden-sm hidden-xs"></i> Add to Cart
+                                            <i class="fa fa-shopping-cart hidden-sm hidden-xs"></i> 
+                                            Add to Cart
                                         </button>
-                                    </form>   
                                 </div>
                             </div>
+                            </form>
                             <!-- Available Options Ends -->
                             <hr />
                         </div>

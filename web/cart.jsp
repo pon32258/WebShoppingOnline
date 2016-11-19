@@ -71,80 +71,85 @@
             <!-- Main Heading Ends -->
             <!-- Shopping Cart Table Starts -->
             <div class="table-responsive shopping-cart-table">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <td class="text-center">
-                                Image
-                            </td>
-                            <td class="text-center">
-                                Product Details
-                            </td>							
-                            <td class="text-center">
-                                Quantity
-                            </td>
-                            <td class="text-center">
-                                Price
-                            </td>
-                            <td class="text-center">
-                                Total
-                            </td>
-                            <td class="text-center">
-                                Action
-                            </td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:choose>
-                            <c:when test="${CART==null || CART.size==0}">
-                            <h3 style="color:red;margin-left: 480px">No item in cart ...</h3>
-                        </c:when>
-                        <c:otherwise>
-                            <c:forEach items="${CART.items}" var="it" varStatus="vs">
-                                <tr>
-                                    <td class="text-center">
-                                        <a href="SearchProduct?target=/product.jsp&searchBy=id&id=${it.value.product.prodId}">
-                                            <img src="images/product-images/${it.value.product.prodId}.jpg" alt="Product Name" title="Product Naroduct.prodIdme" class="img-thumbnail" style="width: 200px"/>
-                                        </a>
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="SearchProduct?target=/product.jsp&searchBy=id&id=${it.value.product.prodId}">${it.value.product.prodName}</a>
-                                    </td>							
-                                    <td class="text-center">
-                                        <div class="input-group btn-block">
-                                            <input type="text" name="quantity" value="${it.value.quantity}" size="1" class="form-control" required>
-                                        </div>								
-                                    </td>
-                                    <td class="text-center">
-                                        <fmt:formatNumber value="${it.value.product.price}" pattern="#,###.00"/>
-                                    </td>
-                                    <td class="text-center">
-                                        <fmt:formatNumber value="${it.value.total}" pattern="#,###.00"/>
-                                    </td>
-                                    <td class="text-center">
-                                        <button type="submit" title="Update" class="btn btn-default tool-tip">
-                                            <i class="fa fa-refresh"></i>
-                                        </button>
-                                        <button type="button" title="Remove" class="btn btn-default tool-tip">
-                                            <i class="fa fa-times-circle"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                        </c:otherwise>
-                    </c:choose>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="4" class="text-right">
-                                <strong>Total :</strong>
-                            </td>
-                            <td colspan="2" class="text-left">
-                                <fmt:formatNumber value="${CART.totalPrice}" pattern="#,###.00"/>
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>				
+                <form action="UpdateCart" methos="post">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <td class="text-center">
+                                    Image
+                                </td>
+                                <td class="text-center">
+                                    Product Details
+                                </td>							
+                                <td class="text-center">
+                                    Quantity
+                                </td>
+                                <td class="text-center">
+                                    Price
+                                </td>
+                                <td class="text-center">
+                                    Total
+                                </td>
+                                <td class="text-center">
+                                    Action
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:choose>
+                                <c:when test="${CART==null || CART.size==0}">
+                                <h3 style="color:red;margin-left: 480px">No item in cart ...</h3>
+                            </c:when>
+                            <c:otherwise>
+                                <c:forEach items="${CART.items}" var="it" varStatus="vs">
+                                    <tr>
+                                        <td class="text-center">
+                                            <a href="SearchProduct?target=/product.jsp&searchBy=id&id=${it.value.product.prodId}">
+                                                <img src="images/product-images/${it.value.product.prodId}.jpg" alt="Product Name" title="Product Naroduct.prodIdme" class="img-thumbnail" style="width: 200px"/>
+                                            </a>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="SearchProduct?target=/product.jsp&searchBy=id&id=${it.value.product.prodId}">${it.value.product.prodName}</a>
+                                        </td>							
+                                        <td class="text-center">
+                                            <div class="input-group btn-block">
+                                                <input type="text" name="_${it.key}" value="${it.value.quantity}" size="1" class="form-control" required>
+                                            </div>								
+                                        </td>
+                                        <td class="text-center">
+                                            <fmt:formatNumber value="${it.value.product.price}" pattern="#,###.00"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <fmt:formatNumber value="${it.value.total}" pattern="#,###.00"/>
+                                        </td>
+                                        <td class="text-center">
+                                            <input type="hidden" name="target" value="/cart.jsp">
+                                            <button type="submit" title="Update" class="btn btn-default tool-tip">
+                                                <i class="fa fa-refresh"></i>
+                                            </button>
+                                            <a href="UpdateCart?deleteItem=${it.value.product.prodId}&target=/cart.jsp">
+                                                <button type="button" title="Remove" class="btn btn-default tool-tip">
+                                                    <i class="fa fa-times-circle"></i>
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4" class="text-right">
+                                    <strong>Total :</strong>
+                                </td>
+                                <td colspan="2" class="text-left">
+                                    <fmt:formatNumber value="${CART.totalPrice}" pattern="#,###.00"/>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </form>
             </div>
             <!-- Shopping Cart Table Ends -->
             <!-- Shipping Section Starts -->
@@ -221,9 +226,9 @@
                                             <c:choose>
                                                 <c:when test="${sessionScope.user!=null}">
                                                     <a href="editprofile.jsp?target=/cart.jsp">
-                                                    <button type="button" class="btn btn-black">
-                                                        Edit
-                                                    </button>
+                                                        <button type="button" class="btn btn-black">
+                                                            Edit
+                                                        </button>
                                                     </a>
                                                 </c:when>
                                                 <c:otherwise>
@@ -234,10 +239,10 @@
                                                     </a>
                                                 </c:otherwise>
                                             </c:choose>
-                                                <button type="submit" class="btn btn-black">
-                                                    Submit
-                                                </button>
-                                            
+                                            <button type="submit" class="btn btn-black">
+                                                Submit
+                                            </button>
+
                                         </div>
                                     </div>
                                 </form>
@@ -335,7 +340,7 @@
                                 <hr />
                                 <dl class="dl-horizontal total">
                                     <dt>Total :</dt>
-                                    <dd>${CART.totalPrice+fee}</dd>
+                                    <dd><fmt:formatNumber value="${CART.totalPrice+fee}" pattern="#,###.00"/></dd>
                                 </dl>
                                 <hr />
                                 <div class="text-uppercase clearfix">

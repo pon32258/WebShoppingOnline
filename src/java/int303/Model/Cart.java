@@ -45,7 +45,16 @@ public class Cart {
             lit.setQuantity(qty);
         }
     }
-
+    
+    public void updateQty(int productId, int qty) {
+        LineItem lit = items.get(productId) ;
+        if (lit == null) {
+            items.put(productId, new LineItem(productId, qty));
+        } else {
+            lit.setQuantity(lit.getQuantity()+qty);
+        }
+    }
+    
     public void remove(int productId) {
         items.remove(productId) ;
     }

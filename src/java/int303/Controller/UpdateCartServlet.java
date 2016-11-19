@@ -5,19 +5,21 @@
  */
 package int303.Controller;
 
+import int303.Model.Cart;
 import java.io.IOException;
-import java.util.List;
+import java.io.PrintWriter;
+import java.util.Enumeration;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import int303.Model.Product;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author frest
+ * @author Witchapon Kaptop
  */
-public class SearchProductServlet extends HttpServlet {
+public class UpdateCartServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,30 +32,33 @@ public class SearchProductServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String searchBy = request.getParameter("searchBy");
+        HttpSession session = request.getSession();
         String target = request.getParameter("target");
-        List<Product> products = null;
-        Product product = null;
-        
-        if(searchBy.equals("word")){
-        String word = request.getParameter("word");
-        products = Product.getProductByWord(word);    
-        }else if(searchBy.equals("type")){
-        String type = request.getParameter("type");
-        products = Product.getProductByType(type);    
-        }else if(searchBy.equals("brand")){
-        String brand = request.getParameter("brand");
-        products = Product.getProductByBrand(brand);
-        }else if(searchBy.equals("id")){
-        String id = request.getParameter("id");
-        int id2 = Integer.parseInt(id);
-        product = Product.getProductById(id2);
-        request.getSession().setAttribute("product", product);
-        getServletContext().getRequestDispatcher(target).forward(request, response);
-        return;
+        if (session != null && session.getAttribute("CART") != null) {
+            Cart cart = (Cart) session.getAttribute("CART");
+            String deleteItem = request.getParameter("deleteItem");
+            if (deleteItem != null) {
+                cart.remove(Integer.parseInt(deleteItem));
+
+            }
+            Enumeration<String> items = request.getParameterNames();
+            while (items.hasMoreElements()) {
+                String x = items.nextElement();
+                if (x.charAt(0) == '_') {
+                    int pid = Integer.parseInt(x.substring(1));
+                    int qty = Integer.parseInt(request.getParameter(x));
+                    if (cart.getItem(pid) != null) {
+                        cart.updateItem(pid, qty);
+                    }
+                }else if(x.charAt(0) == '-'){
+                    int pid = Integer.parseInt(x.substring(1));
+                    int qty = Integer.parseInt(request.getParameter(x));
+                    if (cart.getItem(pid) != null) {
+                        cart.updateQty(pid, qty);
+                    }
+                }
+            }
         }
-        
-        request.getSession().setAttribute("products", products);
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }
 
