@@ -53,7 +53,8 @@
                 <!-- Breadcrumb Starts -->
                 <ol class="breadcrumb">
                     <li><a href="index.jsp">Home</a></li>
-                    <li class="active">Order History</li>
+                    <li><a href="orderhistory.jsp">Order History</a></li>
+                    <li class="active">Order History Detail</li>
                 </ol>
                 <!-- Breadcrumb Ends -->		
             </div>
@@ -68,26 +69,46 @@
                 <div class="col-sm-1"> </div>
                 <div class="col-sm-10"  style="border: 1px solid lightgray;padding-bottom: 3%;border-radius:10px ">
                     <form action="?????????????????" method="post" >
-                        <table class="table table-striped " >
+                        <table class="table table-bordered " style="padding-top: 3%;margin-top: 3%">
                             <thead style="font-size: 24px">
                                 <tr>
-                                    <th>Order No.</th>
-                                    <th>Date</th>
-                                    <th>Total price</th>
-                                    <th ></th>
+                                    <th style="text-align: center">No</th>
+                                    <th style="text-align: center">Product</th>
+                                    <th style="text-align: center">Quantity</th>
+                                    <th style="text-align: center">Price</th>
                                 </tr>
                             </thead>
                             <tbody style="font-size: 20px">
                                 <!-- Content -->
                                 <tr>
-                                    <td>123</td>
-                                    <td>12/13/14</td>
-                                    <td>999999999 bath</td>
-                                    <td style="text-align: right"><button type="submit" style="font-size: 20px" class="btn btn-black" value="GOGOGO">View Order</button></td>
+                                    <td style="text-align: center">1</td>
+                                    <td>Product1</td>
+                                    <td style="text-align: right">1</td>
+                                    <td style="text-align: right">111</td>
                                 </tr>
-                                
+                                <tr>
+                                    <td style="text-align: center">2</td>
+                                    <td>Product2</td>
+                                    <td style="text-align: right">2</td>
+                                    <td style="text-align: right">2222</td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align: center">3</td>
+                                    <td>Product3</td>
+                                    <td style="text-align: right">3</td>
+                                    <td style="text-align: right">33333</td>
+                                </tr>
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td> </td>
+                                    <td> </td>
+                                    <td style="text-align: right; font-weight: bold;font-size: large">Total Price: </td>
+                                    <td style="text-align: right; font-size: large">35666</td>
+                                </tr>
+                            </tfoot>
                         </table>
+                        <button type="button" style="font-size: 20px; color: white;margin-left: 78%;margin-right: 2%" class="btn btn-danger" value="BackToOrdHis" >Back To Order History</button>
                     </form>
                 </div>
                 <div class="col-sm-1"></div>
