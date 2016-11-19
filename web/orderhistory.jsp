@@ -66,9 +66,9 @@
                 
                 <h1 class="text-uppercase">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Order History</h1>
                 <div class="col-sm-1"> </div>
-                <div class="col-sm-10"  style="border: 1px solid lightgray;padding-bottom: 3%;border-radius:10px ">
+                <div class="col-sm-10"  style="border: 1px solid lightslategray;padding-bottom: 3%;border-radius:10px;background-color: white ">
                     <form action="?????????????????" method="post" >
-                        <table class="table table-striped " >
+                        <table class="table table-bordered " style="padding-top: 3%;margin-top: 3%;">
                             <thead style="font-size: 24px">
                                 <tr>
                                     <th>Order No.</th>
