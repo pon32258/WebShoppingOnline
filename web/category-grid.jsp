@@ -80,10 +80,10 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="display">
-                                    <a href="SearchProduct?target=/category-list.jsp&type=${param.type}&searchBy=${param.searchBy}&word=${param.word}&brand=${param.brand}">
+                                    <a href="category-list.jsp">
                                         <i class="fa fa-th-list" title="List View"></i>
                                     </a>
-                                    <a href="SearchProduct?target=/category-grid.jsp&type=${param.type}&searchBy=${param.searchBy}&word=${param.word}&brand=${param.brand}" class="active">
+                                    <a href="category-grid.jsp" class="active">
                                         <i class="fa fa-th" title="Grid View"></i>
                                     </a>
                                 </div>
@@ -101,7 +101,7 @@
                                         <img src="images/product-images/${p.prodId}.jpg" alt="product" class="img-responsive" />
                                     </div>
                                     <div class="caption">
-                                        <h4><a href="product.jsp">${p.prodName}</a></h4>
+                                        <h4><a href="SearchProduct?target=/product.jsp&searchBy=id&id=${p.prodId}">${p.prodName}</a></h4>
                                         <div class="description max-lines">
                                             ${p.description}
                                         </div>

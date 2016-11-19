@@ -137,17 +137,7 @@
                             </p>                           
                         </div>
                     </div>
-                    <!-- Product Description Ends -->
-                    <!-- Additional Information Starts -->
-                    <div class="product-info-box">
-                        <h4 class="heading">Additional Information</h4>
-                        <div class="content panel-smart">
-                            <p>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Additional Information Ends -->
+                    <!-- Product Description Ends -->                   
                     <!-- Related Products Starts -->
                     <div class="product-info-box">
                         <h4 class="heading">Related Products</h4>
@@ -155,7 +145,7 @@
                         <!-- Products Row Starts -->
                         <div class="row">
                             <!-- Product #1 Starts -->
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-sm-4 col-sm-6">
                                 <div class="product-col">
                                     <div class="image">
                                         <img src="images/product-images/2.jpg" alt="product" class="img-responsive" />
@@ -173,12 +163,6 @@
                                             <button type="button" class="btn btn-cart">
                                                 <i class="fa fa-shopping-cart"></i> 
                                                 Add to cart
-                                            </button>
-                                            <button type="button" title="Wishlist" class="btn btn-wishlist">
-                                                <i class="fa fa-heart"></i>
-                                            </button>
-                                            <button type="button" title="Compare" class="btn btn-compare">
-                                                <i class="fa fa-bar-chart-o"></i>
                                             </button>									
                                         </div>
                                     </div>
@@ -186,7 +170,7 @@
                             </div>
                             <!-- Product #1 Ends -->
                             <!-- Product #2 Starts -->
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-sm-4 col-sm-6">
                                 <div class="product-col">
                                     <div class="image">
                                         <img src="images/product-images/3.jpg" alt="product" class="img-responsive" />
@@ -217,7 +201,7 @@
                             </div>
                             <!-- Product #2 Ends -->
                             <!-- Product #3 Starts -->
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-sm-4 col-sm-6">
                                 <div class="product-col">
                                     <div class="image">
                                         <img src="images/product-images/4.jpg" alt="product" class="img-responsive" />

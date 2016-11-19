@@ -57,12 +57,12 @@
                                         <c:forEach items="${CART.items}" var="it" varStatus="vs">
                                             <tr>
                                                 <td class="text-center">
-                                                    <a href="product.jsp">
+                                                    <a href="SearchProduct?target=/product.jsp&searchBy=id&id=${it.value.product.prodId}">
                                                         <img src="images/product-images/hcart-thumb1.jpg" alt="image" title="image" class="img-thumbnail img-responsive" />
                                                     </a>
                                                 </td>
                                                 <td class="text-left">
-                                                    <a href="product-full.jsp">
+                                                    <a href="SearchProduct?target=/product.jsp&searchBy=id&id=${it.value.product.prodId}">
                                                         ${it.value.product.prodName}
                                                     </a>
                                                 </td>                                               

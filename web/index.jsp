@@ -298,7 +298,7 @@
                         <!-- Products Row Starts -->
                         <div class="row">
                             <!-- Product #1 Starts -->
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-sm-4 col-sm-6">
                                 <div class="product-col">
                                     <div class="image" >
                                         <img src="images/product-images/9.jpg" alt="product" class="img-responsive img-center-sm img-center-xs"  />
@@ -325,7 +325,7 @@
                             </div>
                             <!-- Product #1 Ends -->
                             <!-- Product #2 Starts -->
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-sm-4 col-sm-6">
                                 <div class="product-col">
                                     <div class="image">
                                         <img src="images/product-images/10.jpg" alt="product" class="img-responsive img-center-sm img-center-xs" />
@@ -352,7 +352,7 @@
                             </div>
                             <!-- Product #2 Ends -->
                             <!-- Product #3 Starts -->
-                            <div class="col-md-4 col-sm-6">
+                            <div class="col-sm-4 col-sm-6">
                                 <div class="product-col">
                                     <div class="image">
                                         <img src="images/product-images/11.jpg" alt="product" class="img-responsive img-center-sm img-center-xs" />
