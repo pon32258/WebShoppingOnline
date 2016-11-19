@@ -32,8 +32,9 @@ public class CheckSessionFilter implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpSession s = ((HttpServletRequest) request).getSession(false) ;
+        String target = request.getParameter("target");
         if (s==null || s.getAttribute("user")==null) {
-            config.getServletContext().getRequestDispatcher("/Login").forward(request, response);
+            config.getServletContext().getRequestDispatcher("/Login?target="+target).forward(request, response);
         } else {
             chain.doFilter(request, response);
         }

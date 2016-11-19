@@ -47,7 +47,10 @@ public class LoginServlet extends HttpServlet {
                 message = " User ID "+ userid + " does not exist !!! " ;
             } else if (password.equals(user.getPassword())) {              
                 request.getSession().setAttribute("user", user);
-                target = "/index.jsp" ;      
+                target = request.getParameter("target");
+                if(target == null||target.trim().length()==0){
+                    target = "/index.jsp" ;
+                }
             } else {
                 message = " Incorrect password ... try agian " ;
             }

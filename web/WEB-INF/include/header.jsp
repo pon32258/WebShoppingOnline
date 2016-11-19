@@ -20,7 +20,7 @@
                     <li><a href="cart.jsp">Shopping Cart</a></li>
                         <c:choose>
                             <c:when test="${sessionScope.user==null}">
-                            <li><a href="login.jsp">Login</a></li>
+                            <li><a href="Login?target=${param.target}">Login</a></li>
                             <li><a href="register.jsp">Register</a></li>
                             </c:when>
                             <c:otherwise>
@@ -90,9 +90,6 @@
                                     <p class="text-right btn-block1">
                                         <a href="cart.jsp">
                                             View Cart
-                                        </a>
-                                        <a href="#">
-                                            Checkout
                                         </a>
                                     </p>
                                 </li>

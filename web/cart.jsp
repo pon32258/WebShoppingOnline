@@ -213,11 +213,21 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-sm-offset-3 col-sm-9">
-                                            <input type="hidden" name="target" value="/cart.jsp">
-                                            <button type="submit" class="btn btn-black">
-                                                Edit
-                                            </button>
-                                            
+                                            <c:choose>
+                                                <c:when test="${sessionScope.user!=null}">
+                                                    <input type="hidden" name="target" value="/cart.jsp">
+                                                    <button type="submit" class="btn btn-black">
+                                                        Edit
+                                                    </button>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <a href="Login?target=/cart.jsp">
+                                                        <button type="button" class="btn btn-black">
+                                                            Edit
+                                                        </button>
+                                                    </a>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </div>
                                     </div>
                                 </form>

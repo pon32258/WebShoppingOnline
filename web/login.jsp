@@ -89,6 +89,7 @@
 									<label class="sr-only" for="exampleInputPassword2">Password</label>
 									<input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" name="password">
 								</div>
+                                                                <input type="hidden" name="target" value="${param.target}">
 								<button type="submit" class="btn btn-black">
 									Login
 								</button>

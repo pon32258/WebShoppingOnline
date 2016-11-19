@@ -110,7 +110,7 @@
                                         <div class="cart-button button-group">
                                             <form action="AddToCart" method="post">                                           
                                                 <input type="hidden" name="pid" value="${p.prodId}">
-                                                <input type="hidden" name="target" value="/SearchProduct?target=/category-list.jsp&type=${param.type}&searchBy=${param.searchBy}&word=${param.word}&brand=${param.brand}">                                                          
+                                                <input type="hidden" name="target" value="/category-grid.jsp">                                                          
                                                 <button type="submit" class="btn btn-cart">
                                                     <i class="fa fa-shopping-cart"></i> 
                                                     Add to cart
