@@ -21,7 +21,7 @@
 
     <!-- Bestsellers Links Starts -->
 
-    <h3 class="side-heading"><i class="fa fa-align-justify"></i> Bestsellers</h3>
+    <h3 class="side-heading"><i class="fa fa-align-justify"></i> Best Seller</h3>
     <div id="owl-demo" class="owl-carousel" >
         <!-- Item 1 start -->
         <% List<Product> prods = Product.getProductByRating();
