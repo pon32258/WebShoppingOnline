@@ -122,7 +122,7 @@
                                         </td>							
                                         <td class="text-center">
                                             <div class="input-group btn-block">
-                                                <input type="text" name="_${it.key}" value="${it.value.quantity}" size="1" class="form-control" required>
+                                                <input type="text" name="_${it.key}" value="${it.value.quantity}" size="1" class="form-control" pattern="[0-9][0-9]?" required>
                                             </div>								
                                         </td>
                                         <td class="text-center">
