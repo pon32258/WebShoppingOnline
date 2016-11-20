@@ -45,6 +45,15 @@
         <link rel="shortcut icon" href="images/fav.png">
 
     </head>
+    <script>
+
+        function changeFunc() {
+            var shipment = document.getElementById('shipmentBox');
+            var selectedValue = shipment.options[shipment.selectedIndex].value;
+            window.location = 'ShipmentFee?shipment='+selectedValue;
+        }
+
+    </script>
     <body>
         <header class="header-wrap inner">
             <jsp:include page="WEB-INF/include/header.jsp"/>
@@ -212,7 +221,7 @@
                                     <div class="form-group">
                                         <label for="inputShipment" class="col-sm-3 control-label">Shipment :</label>
                                         <div class="col-sm-9">
-                                            <select class="form-control" id="inputRegion1" name="shipment">                                                
+                                            <select class="form-control" id="shipmentBox" name="shipment" onchange="changeFunc()">                                                
                                                 <option value="1" ${sessionScope.shipment=='1'?'selected':''}> EMS </option>
                                                 <option value="2" ${sessionScope.shipment=='2'?'selected':''}> FedEx </option>
                                                 <option value="3" ${sessionScope.shipment=='3'?'selected':''}> DHL </option>
