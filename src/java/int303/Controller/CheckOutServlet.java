@@ -40,15 +40,20 @@ public class CheckOutServlet extends HttpServlet {
         if (cart != null) {
             Order order = new Order(new java.sql.Date(Calendar.getInstance().getTimeInMillis()), orderType, customerId);
             if (Order.insertOrder(order) == true) {
+                boolean addSuccess = false;
                 Set<Integer> pid = cart.items.keySet();
                 for (int p : pid) {
                     LineItem items = cart.getItem(p);
                     int qty = items.getQuantity();
                     int total = items.getTotal();
-                    if(Order.insertOrderItem(p, qty, total)==true){                   
-                        request.getSession().removeAttribute("CART");
-                        target = "/index.jsp";
-                    }
+                    addSuccess = Order.insertOrderItem(p, qty, total); 
+                }
+                if(addSuccess==true){
+                    int orderId = Order.getLastOrder();
+                    request.setAttribute("orderId", orderId);
+                    request.setAttribute("oldCART", cart);
+                    request.getSession().removeAttribute("CART");
+                    target = "/checkout.jsp";                  
                 }
             }
         }else{

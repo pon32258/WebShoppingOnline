@@ -70,7 +70,7 @@
                 Checkout Successfully
             </h2>
             <h3 class="main-container text-left">
-                Your order number is XXXX  <br> <br>
+                Your order number is ${orderId}  <br> <br>
                 Thank you for purchasing our product <br> <br>
                 Your purchased order's detail is on below <br>
             </h3>
@@ -100,11 +100,11 @@
                         </thead>
                         <tbody>
                             <c:choose>
-                                <c:when test="${CART==null || CART.size==0}">
+                            <c:when test="${oldCART==null || oldCART.size==0}">
                                 <h3 style="color:red;margin-left: 480px">No item in cart ...</h3>
                             </c:when>
                             <c:otherwise>
-                                <c:forEach items="${CART.items}" var="it" varStatus="vs">
+                                <c:forEach items="${oldCART.items}" var="it" varStatus="vs">
                                     <tr>
                                         <td class="text-center">
                                             <a href="SearchProduct?target=/product.jsp&searchBy=id&id=${it.value.product.prodId}">
@@ -136,7 +136,7 @@
                                     <strong>Total :</strong>
                                 </td>
                                 <td colspan="1" class="text-left">
-                                    <fmt:formatNumber value="${CART.totalPrice}" pattern="#,###.00"/>
+                                    <fmt:formatNumber value="${oldCART.totalPrice}" pattern="#,###.00"/>
                                 </td>
                             </tr>
                             <tr>
