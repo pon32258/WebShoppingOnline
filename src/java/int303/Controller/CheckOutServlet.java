@@ -36,10 +36,11 @@ public class CheckOutServlet extends HttpServlet {
             throws ServletException, IOException {
         int orderType = Integer.parseInt(request.getParameter("orderType"));
         int customerId = Integer.parseInt(request.getParameter("customerId"));
+        int totalPrice = Integer.parseInt(request.getParameter("totalPrice"));
         Cart cart = (Cart) request.getSession().getAttribute("CART");
         String target = "/cart.jsp";
         if (cart != null) {
-            Order order = new Order(new java.sql.Date(Calendar.getInstance().getTimeInMillis()), orderType, customerId);
+            Order order = new Order(new java.sql.Date(Calendar.getInstance().getTimeInMillis()), orderType, customerId,totalPrice);
             if (Order.insertOrder(order) == true) {
                 boolean addSuccess = false;
                 Set<Integer> pid = cart.items.keySet();

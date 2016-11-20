@@ -354,6 +354,7 @@
                                         <span class="visible-xs">Continue</span>
                                     </a>
                                     <form action="CheckOut" method="post">
+                                    <input type="hidden" name="totalPrice" value="${CART.totalPrice+fee}">
                                     <input type="hidden" name="orderType" value="${sessionScope.shipment}">
                                     <input type="hidden" name="customerId" value="${sessionScope.user.customerId}">    
                                     <input type="hidden" name="target" value="/cart.jsp">    

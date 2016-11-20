@@ -96,13 +96,13 @@
                                     <td> </td>
                                     <td> </td>
                                     <td style="text-align: right; font-weight: bold;font-size: large">Shipment: </td>
-                                    <td style="text-align: right; font-size: large"><fmt:formatNumber value="${fee}" pattern="#,###.00"/></td>
+                                    <td style="text-align: right; font-size: large">$<fmt:formatNumber value="${fee}" pattern="#,###.00"/></td>
                                 </tr>
                                 <tr>
                                     <td> </td>
                                     <td> </td>
                                     <td style="text-align: right; font-weight: bold;font-size: large">Total Price: </td>
-                                    <td style="text-align: right; font-size: large"><fmt:formatNumber value="${orderTotal}" pattern="#,###.00"/></td>
+                                    <td style="text-align: right; font-size: large">$<fmt:formatNumber value="${orderTotal}" pattern="#,###.00"/></td>
                                 </tr>
                             </tfoot>
                         </table>

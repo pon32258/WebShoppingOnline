@@ -51,10 +51,11 @@ public class Order {
     public Order() {
     }
 
-    public Order(Date orderDate, int orderType, int customerId) {
+    public Order(Date orderDate, int orderType, int customerId,int orderTotal) {
         this.orderDate = orderDate;
         this.orderType = orderType;
         this.customerId = customerId;
+        this.orderTotal = orderTotal;
     }
 
     public int getCustomerId() {
@@ -127,11 +128,12 @@ public class Order {
         boolean result = false;
         try {  
             Connection conn = ConnectionBuilder.getConnection();
-            String sqlcmd = "INSERT INTO orders(orderDate,orderTypeID,customerId) values(?,?,?)";
+            String sqlcmd = "INSERT INTO orders(orderDate,orderTypeID,customerId,totalPrice) values(?,?,?,?)";
             PreparedStatement pstm = conn.prepareStatement(sqlcmd);
             pstm.setDate(1, order.getOrderDate());
             pstm.setInt(2, order.getOrderType());
             pstm.setInt(3, order.getCustomerId());
+            pstm.setInt(4, order.getOrderTotal());
 
             if (pstm.executeUpdate() > 0) {
                 result = true;
@@ -163,30 +165,7 @@ public class Order {
             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
-    }
-    
-    
-    public static int getOrderTotal(int orderId){
-        int total = 0;
-        try{
-            Connection conn = ConnectionBuilder.getConnection();
-            String sql ="SELECT ot.fee,SUM(oi.price) FROM orders o"
-                    +" JOIN orderType ot ON o.orderTypeId = ot.orderTypeId"              
-                    +" JOIN orderItem oi ON o.orderId = oi.orderId"               
-                    +" WHERE o.orderId="+orderId;               
-            PreparedStatement pstm =conn.prepareStatement(sql);
-            ResultSet rs =pstm.executeQuery();
-            if(rs.next()){
-                int fee = rs.getInt("ot.fee");
-                int totalPrice = rs.getInt("SUM(oi.price)");
-                total = fee + totalPrice;
-            }     
-            conn.close();
-        }catch(SQLException ex){
-             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return total;
-    }
+    }       
     
     public static int getLastOrder(){
         int lastId = 0;
@@ -208,7 +187,6 @@ public class Order {
     public static List<Order> getOrderById(int customerId) {
         List<Order> orders = new ArrayList<Order>();
         Order order = null;
-        int total = 0;
         try {
             Connection conn = ConnectionBuilder.getConnection();
             PreparedStatement ppstm = conn.prepareStatement("SELECT * FROM orders o"
@@ -220,8 +198,6 @@ public class Order {
             while (rs.next()) {
                 order = new Order();
                 orm(rs, order);
-                total = Order.getOrderTotal(order.getOrderId());
-                order.setOrderTotal(total);
                 orders.add(order);
             }            
         } catch (SQLException ex) {
@@ -238,6 +214,7 @@ public class Order {
         order.setOrderId(rs.getInt("orderID"));
         order.setOrderDate(rs.getDate("orderDate"));
         order.setOrderTypeName(rs.getString("orderType"));
-        order.setCustomerId(rs.getInt("customerId"));     
+        order.setCustomerId(rs.getInt("customerId"));
+        order.setOrderTotal(rs.getInt("totalPrice"));
     }
 }
