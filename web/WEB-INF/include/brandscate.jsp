@@ -33,7 +33,7 @@
                 </div>
                 <div class="caption">
                     <h4>
-                        <a href="product-full.jsp"><%=p.getProdName()%></a>
+                        <a href="SearchProduct?target=/product.jsp&searchBy=id&id=<%=p.getProdId()%>"><%=p.getProdName()%></a>
                     </h4>
                     <div class="description max-lines">
                         <%=p.getDescription()%>
