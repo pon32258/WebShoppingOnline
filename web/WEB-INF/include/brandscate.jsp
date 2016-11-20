@@ -2,6 +2,7 @@
 <%@page import="int303.Model.Product"%>
 <%@page import="java.sql.ResultSet"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <link href="css/owl.carousel.css" rel="stylesheet">
 <!-- Sidebar Starts -->
 <div class="col-md-3" >
@@ -38,7 +39,7 @@
                         <%=p.getDescription()%>
                     </div>
                     <div class="price">
-                        <span class="price-new"><%=p.getPrice()%></span> 
+                        <span class="price-new"><fmt:formatNumber pattern="#,###.00" value="<%=p.getPrice()%>"/> </span> 
                     </div>
                     <div class="cart-button button-group">
                         <form action="AddToCart" method="post">                                           

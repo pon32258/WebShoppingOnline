@@ -99,7 +99,7 @@
                             <!-- Price Starts -->
                             <div class="price">
                                 <span class="price-head">Price :</span>
-                                <span class="price-new">${product.price}</span> 
+                                <span class="price-new"><fmt:formatNumber value="${product.price}" pattern="#,###.00" /></span> 
                             </div>
                             <!-- Price Ends -->
                             <hr />
