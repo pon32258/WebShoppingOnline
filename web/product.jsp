@@ -108,7 +108,7 @@
                             <div class="options">
                                 <div class="form-group">
                                     <label class="control-label text-uppercase" for="input-quantity">Qty:</label>
-                                    <input type="text" name="-${product.prodId}"  placeholder="0" size="2" id="input-quantity" class="form-control" />
+                                    <input type="number" name="-${product.prodId}"  placeholder="0" size="2" id="input-quantity" class="form-control" required/>
                                 </div>
                                 <div class="cart-button button-group">                                                                       
                                         <input type="hidden" name="pid" value="${p.prodId}">
