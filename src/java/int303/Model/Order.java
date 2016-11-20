@@ -106,6 +106,23 @@ public class Order {
         return fee;
     }
     
+    public static int shipmentFeeByName(String orderTypeName){
+        int fee = 0;
+        try {
+            Connection conn = ConnectionBuilder.getConnection();
+            PreparedStatement ppstm = conn.prepareStatement("SELECT fee FROM orderType" 
+                    + " WHERE orderType = ?");
+            ppstm.setString(1, orderTypeName);
+            ResultSet rs = ppstm.executeQuery();
+            if (rs.next()) {
+                fee = rs.getInt("fee");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return fee;
+    }
+    
     public static boolean insertOrder(Order order) {       
         boolean result = false;
         try {  
@@ -148,6 +165,7 @@ public class Order {
         return result;
     }
     
+    
     public static int getOrderTotal(int orderId){
         int total = 0;
         try{
@@ -185,7 +203,7 @@ public class Order {
              Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lastId;
-    }
+    }    
     
     public static List<Order> getOrderById(int customerId) {
         List<Order> orders = new ArrayList<Order>();

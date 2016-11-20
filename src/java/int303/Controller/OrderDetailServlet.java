@@ -6,6 +6,7 @@
 package int303.Controller;
 
 import int303.Model.Order;
+import int303.Model.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Witchapon Kaptop
  */
-public class OrderHistoryServlet extends HttpServlet {
+public class OrderDetailServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,16 +32,16 @@ public class OrderHistoryServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String customerId = request.getParameter("customerId");
-        if(customerId!=null){
-            List<Order> orders = Order.getOrderById(Integer.parseInt(customerId));
-            if(orders!=null){
-                request.getSession().setAttribute("orders", orders);
-            }else{
-                request.setAttribute("mss", "Cannot found any your order.");
-            }
+        String orderId = request.getParameter("orderId");
+        String orderTotal = request.getParameter("orderTotal");
+        String shipment = request.getParameter("shipment");
+        List<Product> products = Product.getProductByOrder(Integer.parseInt(orderId));
+        if(products!=null){
+            request.setAttribute("fee", Order.shipmentFeeByName(shipment));
+            request.setAttribute("products", products);
+            request.setAttribute("orderTotal", Integer.parseInt(orderTotal));
         }
-        getServletContext().getRequestDispatcher("/orderhistory.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/ordhisdetail.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

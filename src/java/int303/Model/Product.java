@@ -29,9 +29,27 @@ public class Product implements Serializable{
     private int price;
     private String brand;
     private String description;
+    private int quantity;
+    private int totalPrice;
 
     public Product() {
 
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public String getBrand() {
@@ -168,6 +186,28 @@ public class Product implements Serializable{
         return prod;
     }
     
+    public static List<Product> getProductByOrder(int orderId) {
+        List<Product> products = new ArrayList<Product>();
+        try {
+            Connection conn = ConnectionBuilder.getConnection();
+            PreparedStatement ppstm = conn.prepareStatement("SELECT i.itemName, "
+                    + "oi.price,oi.orderQuantity,i.itemId FROM orderItem oi "
+                    + "JOIN item i ON oi.itemId = i.itemId "
+                    + "WHERE orderId = ? "
+                    + "ORDER BY oi.itemId");
+            ppstm.setInt(1, orderId);
+            ResultSet rs = ppstm.executeQuery();
+            while (rs.next()) {
+                Product prod = new Product();
+                orm2(rs, prod);
+                products.add(prod);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return products;
+    }
+    
     public static ResultSet getBrandName(String brand) {
         ResultSet rs = null;
         try {
@@ -261,6 +301,17 @@ public class Product implements Serializable{
         prod.setPrice(rs.getInt("price"));
         prod.setBrand(rs.getString("brandName"));
         prod.setDescription(rs.getString("itemDescription"));
+    }
+    
+    public static void orm2(ResultSet rs, Product prod) throws SQLException {
+        if (prod == null) {
+            prod = new Product();
+        }
+        prod.setProdId(rs.getInt("itemId"));
+        prod.setProdName(rs.getString("itemName"));
+        prod.setTotalPrice(rs.getInt("price"));
+        prod.setQuantity(rs.getInt("orderQuantity"));
+
     }
     
 }

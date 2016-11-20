@@ -72,6 +72,10 @@
         <servlet-name>OrderHistoryServlet</servlet-name>
         <servlet-class>int303.Controller.OrderHistoryServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>OrderDetailServlet</servlet-name>
+        <servlet-class>int303.Controller.OrderDetailServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -115,6 +119,10 @@
     <servlet-mapping>
         <servlet-name>OrderHistoryServlet</servlet-name>
         <url-pattern>/OrderHistory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderDetailServlet</servlet-name>
+        <url-pattern>/OrderDetail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

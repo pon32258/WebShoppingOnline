@@ -1,5 +1,6 @@
 <!doctype html>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html lang="en">
     <head>
 
@@ -64,27 +65,34 @@
         <div class="main-container container">
             <!-- Typography #1 Starts -->
             <div class="row">
-                
+                <h3 style="color:red">${mss}</h3>
                 <h1 class="text-uppercase">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Order History</h1>
                 <div class="col-sm-1"> </div>
                 <div class="col-sm-10"  style="border: 1px solid lightslategray;padding-bottom: 3%;border-radius:10px;background-color: white ">
-                    <form action="?????????????????" method="post" >
+
+                    <form action="OrderDetail" method="post" >
+                        <input type="hidden" value="/orderhistory.jsp?customerId=${sessionScope.user.customerId}" name="target">
                         <table class="table table-bordered " style="padding-top: 3%;margin-top: 3%;">
                             <thead style="font-size: 24px">
                                 <tr>
                                     <th>Order No.</th>
                                     <th>Date</th>
+                                    <th>Shipment</th>
                                     <th>Total price</th>
                                     <th ></th>
                                 </tr>
                             </thead>
                             <tbody style="font-size: 20px">
                                 <c:forEach items="${orders}" var="o">
+                                <input type="hidden" value="${o.orderId}" name="orderId">
+                                <input type="hidden" value="${o.orderTotal}" name="orderTotal">
+                                <input type="hidden" value="${o.orderTypeName}" name="shipment">
                                 <tr>
                                     <td>${o.orderId}</td>
                                     <td>${o.orderDate}</td>
-                                    <td>${o.orderTotal}</td>
-                                    <td style="text-align: right"><button type="submit" style="font-size: 20px" class="btn btn-black" value="GOGOGO">View Order</button></td>
+                                    <td>${o.orderTypeName}</td>
+                                    <td><fmt:formatNumber value="${o.orderTotal}" pattern="#,###.00"/></td>
+                                    <td style="text-align: center"><button type="submit" style="font-size: 20px" class="btn btn-black" value="GOGOGO">View Order</button></td>
                                 </tr>
                                 </c:forEach>
                             </tbody>

@@ -1,4 +1,6 @@
 <!doctype html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html lang="en">
     <head>
 
@@ -68,7 +70,7 @@
                 <h1 class="text-uppercase">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Order History Detail</h1>
                 <div class="col-sm-1"> </div>
                 <div class="col-sm-10"  style="border: 1px solid lightslategray;padding-bottom: 3%;border-radius:10px;background-color: white ">
-                    <form action="?????????????????" method="post" >
+    
                         <table class="table table-bordered " style="padding-top: 3%;margin-top: 3%;">
                             <thead style="font-size: 24px">
                                 <tr>
@@ -80,36 +82,34 @@
                             </thead>
                             <tbody style="font-size: 20px">
                                 <!-- Content -->
+                                <c:forEach items="${products}" var="p" varStatus="vs">
                                 <tr>
-                                    <td style="text-align: center">1</td>
-                                    <td>Product1</td>
-                                    <td style="text-align: right">1</td>
-                                    <td style="text-align: right">111</td>
+                                    <td style="text-align: center">${vs.count}</td>
+                                    <td><a href="SearchProduct?target=/product.jsp&searchBy=id&id=${p.prodId}">${p.prodName}</a></td>
+                                    <td style="text-align: right">${p.quantity}</td>
+                                    <td style="text-align: right"><fmt:formatNumber value="${p.totalPrice}" pattern="#,###.00"/></td>
                                 </tr>
-                                <tr>
-                                    <td style="text-align: center">2</td>
-                                    <td>Product2</td>
-                                    <td style="text-align: right">2</td>
-                                    <td style="text-align: right">2222</td>
-                                </tr>
-                                <tr>
-                                    <td style="text-align: center">3</td>
-                                    <td>Product3</td>
-                                    <td style="text-align: right">3</td>
-                                    <td style="text-align: right">33333</td>
-                                </tr>
+                                </c:forEach>
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <td> </td>
                                     <td> </td>
+                                    <td style="text-align: right; font-weight: bold;font-size: large">Shipment: </td>
+                                    <td style="text-align: right; font-size: large"><fmt:formatNumber value="${fee}" pattern="#,###.00"/></td>
+                                </tr>
+                                <tr>
+                                    <td> </td>
+                                    <td> </td>
                                     <td style="text-align: right; font-weight: bold;font-size: large">Total Price: </td>
-                                    <td style="text-align: right; font-size: large">35666</td>
+                                    <td style="text-align: right; font-size: large"><fmt:formatNumber value="${orderTotal}" pattern="#,###.00"/></td>
                                 </tr>
                             </tfoot>
                         </table>
+                        <a href="orderhistory.jsp">
                         <button type="button" style="font-size: 20px; color: white;margin-left: 78%;margin-right: 2%" class="btn btn-danger" value="BackToOrdHis" >Back To Order History</button>
-                    </form>
+                        </a>
+
                 </div>
                 <div class="col-sm-1"></div>
             </div>

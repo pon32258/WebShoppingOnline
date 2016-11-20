@@ -141,7 +141,9 @@
                             </tr>
                             <tr>
                                 <td colspan="5" class="text-right">
+                                    <a href="OrderHistory?customerId=${sessionScope.user.customerId}">
                                     <button type="button" style="font-size: 20px; color: white;" class="btn btn-danger" value="BackToOrdHis" >Back To Order History</button>
+                                    </a>
                                 </td>
                             </tr>
                         </tfoot>
