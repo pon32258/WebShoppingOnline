@@ -74,7 +74,7 @@
                     <h3 class="text-justify">Password </h3>
                     <input type="password" class="form-control"  placeholder="Password" name="password" required>
                     <h3 class="text-justify">Email </h3>
-                    <input type="text" class="form-control"  placeholder="Email" name="email"required>
+                    <input type="email" class="form-control"  placeholder="Email" name="email"required>
                     </div> 
                     <div class="col-sm-6">
                     <h3 class="text-justify">Name</h3>
@@ -101,7 +101,7 @@
                     <br><br><br><br>
                     <div class="col-sm-12">
                     <h3 class="text-justify">Tel</h3>
-                    <input type="number" class="form-control"  placeholder="Tel" name="tel" required>
+                    <input type="tel" class="form-control"  placeholder="Tel" name="tel" required>
                     <br><br>                    
                     <button type="submit" class="btn btn-black"value="Submit">Submit</button> <button type="reset" class="btn btn-black">Reset</button> 
                     </div>   

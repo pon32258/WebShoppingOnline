@@ -284,9 +284,9 @@
                                                     <option value="Paypal">Paypal</option>
                                                 </select></td></tr>
                                         <tr><td>Card Number:</td></tr>
-                                        <tr><td><input type="text" name="cardnumber" maxlength="13" required</td></tr>
+                                        <tr><td><input type="text" name="cardnumber" pattern="[0-9]" maxlength="16" required</td></tr>
                                         <tr><td>Security Code:</td></tr>
-                                        <tr><td><input type="text" name="securitycode"  maxlength="3" required</td></tr>
+                                        <tr><td><input type="text" name="securitycode" pattern="[0-9]" maxlength="3" required</td></tr>
                                         <tr><td>Expiration date</td></tr>
                                         <tr>
                                             <td><select name="month">
