@@ -99,7 +99,7 @@
                         <br><br><br><br>
                         <div class="col-sm-12">
                             <h3 class="text-justify">Tel</h3>
-                            <input type="number" class="form-control"  value="${sessionScope.user.tel}"  pattern="[0-9]{10}" name="tel" required>
+                            <input type="number" class="form-control"  value="${sessionScope.user.tel}"  pattern="[0-9]{8,10}" name="tel" required>
                             
                             <input type="hidden" name="customerId" value="${sessionScope.user.customerId}">
                             <input type="hidden" name="password" value="${sessionScope.user.password}">

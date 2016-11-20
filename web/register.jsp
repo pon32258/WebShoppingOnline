@@ -101,7 +101,7 @@
                     <br><br><br><br>
                     <div class="col-sm-12">
                     <h3 class="text-justify">Tel</h3>
-                    <input type="tel" class="form-control"  placeholder="Tel" name="tel" pattern="[0-9]{10}" required>
+                    <input type="tel" class="form-control"  placeholder="Tel" name="tel" pattern="[0-9]{8,10}" required>
                     <br><br>                    
                     <button type="submit" class="btn btn-black"value="Submit">Submit</button> <button type="reset" class="btn btn-black">Reset</button> 
                     </div>   
