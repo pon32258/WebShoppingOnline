@@ -24,7 +24,7 @@
                             <li><a href="register.jsp">Register</a></li>
                             </c:when>
                             <c:otherwise>
-                            <li><a href="OrderHistory?customerId=${sessionScope.user.customerId}">Order-History</a></li>
+                            <li><a href="OrderHistory?customerId=${sessionScope.user.customerId}&target=/orderhistory.jsp">Order-History</a></li>
                             <li><a href="userprofile.jsp">Profile</a></li>
                             <li><a href="Logout">Logout</a></li>
                             </c:otherwise>
@@ -89,7 +89,7 @@
                                         </tbody>
                                     </table>
                                     <p class="text-right btn-block1">
-                                        <a href="cart.jsp">
+                                        <a href="ShipmentFee?shipment=${sessionScope.shipment==null?'1':sessionScope.shipment}">
                                             View Cart
                                         </a>
                                     </p>
