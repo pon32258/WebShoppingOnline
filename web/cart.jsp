@@ -338,14 +338,14 @@
                             <div class="panel-body">
                                 <dl class="dl-horizontal">
                                     <dt>Total :</dt>
-                                    <dd><fmt:formatNumber value="${CART.totalPrice}" pattern="#,###.00"/></dd>
+                                    <dd>$<fmt:formatNumber value="${CART.totalPrice}" pattern="#,###.00"/></dd>
                                     <dt>Shipment Fee :</dt>
-                                    <dd>${fee}</dd>
+                                    <dd>$${fee}</dd>
                                 </dl>
                                 <hr />
                                 <dl class="dl-horizontal total">
                                     <dt>Total :</dt>
-                                    <dd><fmt:formatNumber value="${CART.totalPrice+fee}" pattern="#,###.00"/></dd>
+                                    <dd>$<fmt:formatNumber value="${CART.totalPrice+fee}" pattern="#,###.00"/></dd>
                                 </dl>
                                 <hr />
                                 <div class="text-uppercase clearfix">
