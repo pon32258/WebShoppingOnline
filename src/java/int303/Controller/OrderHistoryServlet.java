@@ -5,13 +5,10 @@
  */
 package int303.Controller;
 
-import int303.Model.Cart;
-import int303.Model.Cart.LineItem;
 import int303.Model.Order;
-import int303.Model.Product;
 import java.io.IOException;
-import java.util.Calendar;
-import java.util.Set;
+import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Witchapon Kaptop
  */
-public class CheckOutServlet extends HttpServlet {
+public class OrderHistoryServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,35 +31,14 @@ public class CheckOutServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int orderType = Integer.parseInt(request.getParameter("orderType"));
-        int customerId = Integer.parseInt(request.getParameter("customerId"));
-        Cart cart = (Cart) request.getSession().getAttribute("CART");
-        String target = "/cart.jsp";
-        if (cart != null) {
-            Order order = new Order(new java.sql.Date(Calendar.getInstance().getTimeInMillis()), orderType, customerId);
-            if (Order.insertOrder(order) == true) {
-                boolean addSuccess = false;
-                Set<Integer> pid = cart.items.keySet();
-                for (int p : pid) {
-                    LineItem items = cart.getItem(p);
-                    int qty = items.getQuantity();
-                    int total = items.getTotal();
-                    if(Product.updateProdcutRate(p, qty)==true){
-                    addSuccess = Order.insertOrderItem(p, qty, total);
-                    }
-                }
-                if(addSuccess==true){
-                    int orderId = Order.getLastOrder();
-                    request.setAttribute("orderId", orderId);
-                    request.setAttribute("oldCART", cart);
-                    request.getSession().removeAttribute("CART");
-                    target = "/checkout.jsp";                  
-                }
+        String customerId = request.getParameter("customerId");
+        if(customerId!=null){
+            List<Order> orders = Order.getOrderById(Integer.parseInt(customerId));
+            if(orders!=null){
+                request.getSession().setAttribute("orders", orders);
             }
-        }else{
-            request.setAttribute("mss", "Please add product to cart before checkout.");
         }
-        getServletContext().getRequestDispatcher(target).forward(request, response);
+        getServletContext().getRequestDispatcher("/orderhistory.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

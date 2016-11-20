@@ -203,6 +203,54 @@ public class Product implements Serializable{
         return products;
     }
     
+    public static List<Product> getProductByRating() {
+        List<Product> products = new ArrayList<Product>();
+        try {
+            Connection conn = ConnectionBuilder.getConnection();
+            Statement st = conn.createStatement();
+            String searchQuery = "SELECT * FROM item i "
+                    + "JOIN itemType it ON i.typeId = it.typeId "
+                    + "JOIN brand b ON i.brandId = b.brandId "
+                    + "JOIN itemRating ir ON i.itemId = ir.itemId "
+                    + "ORDER BY ir.totalOrder desc LIMIT 5";                 
+            ResultSet rs  = st.executeQuery(searchQuery); 
+            while (rs.next()) {
+                Product prod = new Product();
+                orm(rs, prod);
+                products.add(prod);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return products;
+    }
+    
+    public static boolean updateProdcutRate(int pid,int qty) {
+        boolean result = false;
+        try {
+            Connection conn = ConnectionBuilder.getConnection();
+            Statement st = conn.createStatement();
+            String searchQuery = "SELECT totalOrder FROM itemRating "
+                    + "WHERE itemId = "+pid;                 
+            ResultSet rs  = st.executeQuery(searchQuery);
+            rs.next();
+            int totalOrder = rs.getInt("totalOrder");
+            totalOrder = totalOrder+qty;            
+            
+            PreparedStatement pstm = conn.prepareStatement("Update itemRating SET "
+                    + "totalOrder = ? WHERE itemID =?");
+            pstm.setInt(1,totalOrder);
+            pstm.setInt(2,pid);
+            if (pstm.executeUpdate() > 0) {
+                result = true;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Product.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
+    }
+    
     public static void orm(ResultSet rs, Product prod) throws SQLException {
         if (prod == null) {
             prod = new Product();

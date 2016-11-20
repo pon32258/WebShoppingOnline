@@ -1,4 +1,5 @@
 <!doctype html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
     <head>
 
@@ -78,14 +79,14 @@
                                 </tr>
                             </thead>
                             <tbody style="font-size: 20px">
-                                <!-- Content -->
+                                <c:forEach items="${orders}" var="o">
                                 <tr>
-                                    <td>123</td>
-                                    <td>12/13/14</td>
-                                    <td>999999999 bath</td>
+                                    <td>${o.orderId}</td>
+                                    <td>${o.orderDate}</td>
+                                    <td>${o.orderTotal}</td>
                                     <td style="text-align: right"><button type="submit" style="font-size: 20px" class="btn btn-black" value="GOGOGO">View Order</button></td>
                                 </tr>
-                                
+                                </c:forEach>
                             </tbody>
                         </table>
                     </form>

@@ -29,12 +29,10 @@ import java.util.logging.Logger;
 public class Test {
 
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
-        String orderType = "1";
-        String customerId = "1";
-        Order order = new Order(new java.sql.Date(Calendar.getInstance().getTimeInMillis()), Integer.parseInt(orderType), Integer.parseInt(customerId));
-        if(Order.insertOrder(order)==true){
-            System.out.println("asd");
-        }
-        
+//        //Order orders = Order.getOrderById(Integer.parseInt("1"));
+//        System.out.println(orders.getOrderTotal());
+//        System.out.println(orders.getCustomerId());
+//        System.out.println(orders.getOrderDate());
+//        System.out.println(orders.getOrderTypeName());
     }
 }

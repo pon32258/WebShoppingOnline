@@ -87,7 +87,7 @@
                                     <div class="item">
                                         <div class="product-col">
                                             <div class="image">
-                                                <img src="images/product-images/<%=p.getProdId()%>.jpg" alt="product" class="img-responsive" />
+                                                <img src="images/product-images/<%=p.getProdId()%>.jpg" style="width:300px" alt="product" class="img-responsive"/>
                                             </div>
                                             <div class="caption">
                                                 <h4><a href="SearchProduct?target=/product.jsp&searchBy=id&id=<%=p.getProdId()%>"><%=p.getProdName()%></a></h4>
@@ -105,7 +105,7 @@
                                                             <i class="fa fa-shopping-cart"></i> 
                                                             Add to cart
                                                         </button>
-                                            </form>                                                  									
+                                                    </form>                                                  									
                                                 </div>
                                             </div>
                                         </div>

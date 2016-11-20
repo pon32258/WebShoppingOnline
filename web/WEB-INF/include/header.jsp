@@ -17,13 +17,14 @@
             <div class="col-md-5 col-xs-12 hidden-sm hidden-xs">
                 <ul class="list-unstyled list-inline header-links text-center">
                     <li><a href="index.jsp">Home</a></li>
-                    <li><a href="cart.jsp">Shopping Cart</a></li>
+                    <li><a href="ShipmentFee?shipment=${sessionScope.shipment==null?'1':sessionScope.shipment}">Shopping Cart</a></li>
                         <c:choose>
                             <c:when test="${sessionScope.user==null}">
                             <li><a href="Login?target=${param.target}">Login</a></li>
                             <li><a href="register.jsp">Register</a></li>
                             </c:when>
                             <c:otherwise>
+                            <li><a href="OrderHistory?customerId=${sessionScope.user.customerId}">Order-History</a></li>
                             <li><a href="userprofile.jsp">Profile</a></li>
                             <li><a href="Logout">Logout</a></li>
                             </c:otherwise>
