@@ -118,21 +118,6 @@
 						</div>
 					</div>
 				<!-- Account Panel Ends -->
-				<!-- Guest Checkout Panel Starts -->
-					<div class="panel panel-smart">
-						<div class="panel-heading">
-							<h3 class="panel-title">
-								Checkout as Guest
-							</h3>
-						</div>
-						<div class="panel-body">
-							<p>
-								Checkout as a guest instead!
-							</p>
-							<button class="btn btn-black">As Guest</button>
-						</div>
-					</div>
-				<!-- Guest Checkout Panel Ends -->
 				</div>
 			</div>
 		</section>
