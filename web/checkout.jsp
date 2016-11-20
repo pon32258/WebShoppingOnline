@@ -120,10 +120,10 @@
                                             </div>								
                                         </td>
                                         <td class="text-center">
-                                            <fmt:formatNumber value="${it.value.product.price}" pattern="#,###.00"/>
+                                            $<fmt:formatNumber value="${it.value.product.price}" pattern="#,###.00"/>
                                         </td>
                                         <td class="text-center">
-                                            <fmt:formatNumber value="${it.value.total}" pattern="#,###.00"/>
+                                            $<fmt:formatNumber value="${it.value.total}" pattern="#,###.00"/>
                                         </td>
                                     </tr>
                                 </c:forEach>

@@ -247,11 +247,7 @@
                                                         </button>
                                                     </a>
                                                 </c:otherwise>
-                                            </c:choose>
-                                            <button type="submit" class="btn btn-black">
-                                                Submit
-                                            </button>
-
+                                            </c:choose>                                            
                                         </div>
                                     </div>
                                 </form>

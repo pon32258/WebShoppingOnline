@@ -91,7 +91,7 @@
                                     <td>${o.orderId}</td>
                                     <td>${o.orderDate}</td>
                                     <td>${o.orderTypeName}</td>
-                                    <td><fmt:formatNumber value="${o.orderTotal}" pattern="#,###.00"/></td>
+                                    <td>$<fmt:formatNumber value="${o.orderTotal}" pattern="#,###.00"/></td>
                                     <td style="text-align: center"><button type="submit" style="font-size: 20px" class="btn btn-black" value="GOGOGO">View Order</button></td>
                                 </tr>
                                 </c:forEach>

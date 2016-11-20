@@ -95,7 +95,7 @@
                                                     <%=p.getDescription()%>
                                                 </p>
                                                 <div class="price">
-                                                    <span class="price-new"><fmt:formatNumber value="<%=p.getPrice()%>" pattern="#,###.00"/></span> 
+                                                    <span class="price-new">$<fmt:formatNumber value="<%=p.getPrice()%>" pattern="#,###.00"/></span> 
                                                 </div>
                                                 <div class="cart-button button-group">
                                                     <form action="AddToCart" method="post">                                           

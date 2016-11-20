@@ -87,7 +87,7 @@
                                     <td style="text-align: center">${vs.count}</td>
                                     <td><a href="SearchProduct?target=/product.jsp&searchBy=id&id=${p.prodId}">${p.prodName}</a></td>
                                     <td style="text-align: right">${p.quantity}</td>
-                                    <td style="text-align: right"><fmt:formatNumber value="${p.totalPrice}" pattern="#,###.00"/></td>
+                                    <td style="text-align: right">$<fmt:formatNumber value="${p.totalPrice}" pattern="#,###.00"/></td>
                                 </tr>
                                 </c:forEach>
                             </tbody>

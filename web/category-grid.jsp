@@ -127,7 +127,7 @@
                                             ${p.description}
                                         </div>
                                         <div class="price">
-                                        <span class="price-new"><fmt:formatNumber value="${p.price}" pattern="#,###.00"/></span>
+                                        <span class="price-new">$<fmt:formatNumber value="${p.price}" pattern="#,###.00"/></span>
                                         </div>
                                         <div class="cart-button button-group">
                                             <form action="AddToCart" method="post">                                           

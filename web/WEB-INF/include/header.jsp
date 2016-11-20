@@ -37,7 +37,7 @@
                 <div id="cart" class="btn-group pull-right">
                     <button type="button" data-toggle="dropdown" class="btn dropdown-toggle text-uppercase">
                         <i class="fa fa-shopping-cart"></i>
-                        <span id="cart-total">${CART.getSize()} item(s)</span>
+                        <span id="cart-total">${CART==null?'0':CART.size} item(s)</span>
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <ul class="dropdown-menu pull-right">
@@ -70,7 +70,7 @@
                                                 <td class="text-right ">x ${it.value.quantity}</td>
                                                 <td class="text-right">$<fmt:formatNumber value="${it.value.total}" pattern="#,###.00"/></td>
                                                 <td class="text-center">
-                                                    <a href="#">
+                                                    <a href="UpdateCart?deleteItem=${it.value.product.prodId}&target=${param.target}">
                                                         <i class="fa fa-times"></i>
                                                     </a>
                                                 </td>
