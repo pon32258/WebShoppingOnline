@@ -34,7 +34,10 @@ public class UpdateCartServlet extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         String target = request.getParameter("target");
-        if (session != null && session.getAttribute("CART") != null) {
+        if (session != null) {
+            if (session.getAttribute("CART") == null) {
+                session.setAttribute("CART", new Cart());
+            }
             Cart cart = (Cart) session.getAttribute("CART");
             String deleteItem = request.getParameter("deleteItem");
             if (deleteItem != null) {
@@ -50,14 +53,13 @@ public class UpdateCartServlet extends HttpServlet {
                     if (cart.getItem(pid) != null) {
                         cart.updateItem(pid, qty);
                     }
-                }else if(x.charAt(0) == '-'){
+                } else if (x.charAt(0) == '-') {
                     int pid = Integer.parseInt(x.substring(1));
                     int qty = Integer.parseInt(request.getParameter(x));
-                    if (cart.getItem(pid) != null) {
-                        cart.updateQty(pid, qty);
-                    }
+                    cart.updateQty(pid, qty);
                 }
             }
+
         }
         getServletContext().getRequestDispatcher(target).forward(request, response);
     }
