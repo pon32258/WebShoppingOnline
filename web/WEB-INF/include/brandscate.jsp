@@ -39,7 +39,7 @@
                         <%=p.getDescription()%>
                     </div>
                     <div class="price">
-                        <span class="price-new"><fmt:formatNumber pattern="#,###.00" value="<%=p.getPrice()%>"/> </span> 
+                        <span class="price-new">$<fmt:formatNumber pattern="#,###.00" value="<%=p.getPrice()%>"/> </span> 
                     </div>
                     <div class="cart-button button-group">
                         <form action="AddToCart" method="post">                                           
