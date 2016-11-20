@@ -32,18 +32,19 @@ public class SearchProductServlet extends HttpServlet {
             throws ServletException, IOException {
         String searchBy = request.getParameter("searchBy");
         String target = request.getParameter("target");
+        String orderBy = request.getParameter("orderBy");
         List<Product> products = null;
         Product product = null;
         
         if(searchBy.equals("word")){
         String word = request.getParameter("word");
-        products = Product.getProductByWord(word);    
+        products = Product.getProductByWord(word,orderBy);    
         }else if(searchBy.equals("type")){
         String type = request.getParameter("type");
-        products = Product.getProductByType(type);    
+        products = Product.getProductByType(type,orderBy);    
         }else if(searchBy.equals("brand")){
         String brand = request.getParameter("brand");
-        products = Product.getProductByBrand(brand);
+        products = Product.getProductByBrand(brand,orderBy);
         }else if(searchBy.equals("id")){
         String id = request.getParameter("id");
         int id2 = Integer.parseInt(id);

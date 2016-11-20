@@ -45,6 +45,16 @@
         <link rel="shortcut icon" href="images/fav.png">
 
     </head>
+    <script>
+
+        function changeFunc() {
+            var orderBy = document.getElementById('orderBy');
+            var selectedValue = orderBy.options[orderBy.selectedIndex].value;
+            window.location = 'SearchProduct?target=/category-list.jsp&searchBy=${param.searchBy}&type=${param.type}&'+
+                    'brand=${param.brand}&word=${param.word}&orderBy='+selectedValue;
+        }
+
+    </script>
     <body>
         <header class="header-wrap inner">
             <jsp:include page="WEB-INF/include/header.jsp"/>
@@ -84,10 +94,21 @@
                                     <a href="category-list.jsp" class="active">
                                         <i class="fa fa-th-list" title="List View"></i>
                                     </a>
-                                    <a href="category-grid.jsp">
+                                    <a href="category-grid.jsp?searchBy=${param.searchBy}&type=${param.type}&
+                                        brand=${param.brand}&word=${param.word}&orderBy=${param.orderBy}">
                                         <i class="fa fa-th" title="Grid View"></i>
                                     </a>
                                 </div>
+                            </div>
+                            <div class="col-md-4 text-right">
+                            </div>
+                            <div class="col-md-3 text-right">
+                                <select class="form-control" name="orderBy" id="orderBy" onchange="changeFunc()">
+                                    <option value="itemName ASC" ${param.orderBy=='itemName ASC'?'selected':''}>Name (A - Z)</option>
+                                    <option value="itemName DESC" ${param.orderBy=='itemName DESC'?'selected':''}>Name (Z - A)</option>
+                                    <option value="price ASC" ${param.orderBy=='price ASC'?'selected':''}>Price (Min - Max)</option>
+                                    <option value="price DESC" ${param.orderBy=='price DESC'?'selected':''}>Price (Max - Min)</option>
+                                </select>
                             </div>
                         </div>						 
                     </div>

@@ -9,7 +9,7 @@
                     <div class="list-group categories">
                         <%ResultSet brand = Product.getBrandName("");
                           while(brand.next()){ %>
-                          <a href="SearchProduct?target=/category-list.jsp&searchBy=brand&brand=<%=brand.getString("brandName")%>" class="list-group-item">
+                          <a href="SearchProduct?target=/category-list.jsp&orderBy=itemName ASC&searchBy=brand&brand=<%=brand.getString("brandName")%>" class="list-group-item">
                             <i class="fa fa-angle-right"></i>
                             <%=brand.getString("brandName")%>
                         </a>

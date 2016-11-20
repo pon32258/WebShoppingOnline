@@ -16,15 +16,15 @@
             <!-- Nav Links Starts -->
             <ul class="nav navbar-nav">
                 <li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</li>
-                <li><a href="SearchProduct?target=/category-list.jsp&searchBy=type&type=Camera">Digital Cameras</a></li>
+                <li><a href="SearchProduct?target=/category-list.jsp&searchBy=type&type=Camera&orderBy=itemname ASC">Digital Cameras</a></li>
                 <li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</li>
-                <li><a href="SearchProduct?target=/category-list.jsp&searchBy=type&type=Sound Device">Sound Devices</a></li>
+                <li><a href="SearchProduct?target=/category-list.jsp&searchBy=type&type=Sound Device&orderBy=itemname ASC">Sound Devices</a></li>
                 <li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</li>
-                <li><a href="SearchProduct?target=/category-list.jsp&searchBy=type&type=Television">Televisions</a></li>
+                <li><a href="SearchProduct?target=/category-list.jsp&searchBy=type&type=Television&orderBy=itemname ASC">Televisions</a></li>
                 <li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</li>
-                <li><a href="SearchProduct?target=/category-list.jsp&searchBy=type&type=Computer">Computer</a></li>
+                <li><a href="SearchProduct?target=/category-list.jsp&searchBy=type&type=Computer&orderBy=itemname ASC">Computer</a></li>
                 <li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</li>
-                <li><a href="SearchProduct?target=/category-list.jsp&searchBy=type&type=Phone">Telephone</a></li>               
+                <li><a href="SearchProduct?target=/category-list.jsp&searchBy=type&type=Phone&orderBy=itemname ASC">Telephone</a></li>               
             </ul>
             <!-- Nav Links Ends -->
             <!-- Search Form Starts -->					
@@ -33,6 +33,7 @@
                     <input type="text" class="form-control" placeholder="Search" name="word" value="${param.word}" />
                     <input type="hidden" name="target" value="/category-list.jsp" />
                     <input type="hidden" name="searchBy" value="word" />
+                    <input type="hidden" name="orderBy" value="itemName ASC" />
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="submit">
                             <i class="fa fa-search"></i>

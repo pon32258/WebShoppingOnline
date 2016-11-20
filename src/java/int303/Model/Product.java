@@ -82,15 +82,15 @@ public class Product implements Serializable{
         this.price = price;
     }
 
-    public static List<Product> getProductByWord(String word) {
+    public static List<Product> getProductByWord(String word,String orderBy) {
         List<Product> products = new ArrayList<Product>();
         try {
             Connection conn = ConnectionBuilder.getConnection();
             PreparedStatement ppstm = conn.prepareStatement("SELECT * FROM item i "
                     + "JOIN itemType it ON i.typeId = it.typeId "
                     + "JOIN brand b ON i.brandId = b.brandId "
-                    + "WHERE LOWER(i.itemName) LIKE ?"
-                    + "ORDER BY i.itemName");
+                    + "WHERE LOWER(i.itemName) LIKE ? "
+                    + "ORDER BY i."+orderBy);
             ppstm.setString(1, "%" + word.toLowerCase() + "%");
             ResultSet rs = ppstm.executeQuery();
             while (rs.next()) {
@@ -104,7 +104,7 @@ public class Product implements Serializable{
         return products;
     }
     
-    public static List<Product> getProductByType(String type) {
+    public static List<Product> getProductByType(String type,String orderBy) {
         List<Product> products = new ArrayList<Product>();
         try {
             Connection conn = ConnectionBuilder.getConnection();
@@ -112,7 +112,7 @@ public class Product implements Serializable{
                     + "JOIN itemType it ON i.typeId = it.typeId "
                     + "JOIN brand b ON i.brandId = b.brandId "
                     + "WHERE LOWER(it.typeName) LIKE ? "
-                    + "ORDER BY i.itemName");
+                    + "ORDER BY i."+orderBy);
             ppstm.setString(1, "%" + type.toLowerCase() + "%");
             ResultSet rs = ppstm.executeQuery();
             while (rs.next()) {
@@ -126,7 +126,7 @@ public class Product implements Serializable{
         return products;
     }
     
-    public static List<Product> getProductByBrand(String brand) {
+    public static List<Product> getProductByBrand(String brand,String orderBy) {
         List<Product> products = new ArrayList<Product>();
         try {
             Connection conn = ConnectionBuilder.getConnection();
@@ -134,7 +134,7 @@ public class Product implements Serializable{
                     + "JOIN itemType it ON i.typeId = it.typeId "
                     + "JOIN brand b ON i.brandId = b.brandId "
                     + "WHERE LOWER(b.brandName) LIKE ? "
-                    + "ORDER BY i.itemName");
+                    + "ORDER BY i."+orderBy);
             ppstm.setString(1, "%" + brand.toLowerCase() + "%");
             ResultSet rs = ppstm.executeQuery();
             while (rs.next()) {
