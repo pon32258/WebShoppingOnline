@@ -122,7 +122,7 @@
                                         <img src="images/product-images/${p.prodId}.jpg" alt="product" class="img-responsive" />
                                     </div>
                                     <div class="caption">
-                                        <h4><a href="SearchProduct?target=/product.jsp&searchBy=id&id=${p.prodId}">${p.prodName}</a></h4>
+                                        <h4 style="margin:2%"><a href="SearchProduct?target=/product.jsp&searchBy=id&id=${p.prodId}">${p.prodName}</a></h4>
                                         <div class="description max-lines">
                                             ${p.description}
                                         </div>

@@ -104,7 +104,7 @@
                             <input type="hidden" name="customerId" value="${sessionScope.user.customerId}">
                             <input type="hidden" name="password" value="${sessionScope.user.password}">
                             <input type="hidden" name="username" value="${sessionScope.user.username}">
-                            <input type="hidden" name="target" value="${param.target}">
+                            <input type="hidden" name="target" value="${param.target==null?'/userprofile.jsp':param.target}">
                             <br><br>                    
                             <button type="submit" class="btn btn-black"value="submit">Confirm</button>&nbsp;&nbsp;<button type="button" class="btn btn-black" onclick="javascript:window.location = 'userprofile.jsp';">Cancel</button>
                         </div>   
