@@ -94,12 +94,12 @@
                         </div>
                         <div class="col-sm-4">
                             <h3 class="text-justify">Post code</h3>
-                            <input type="text" class="form-control"  value="${sessionScope.user.postcode}"  pattern="[0-9]{5}" name="postcode" required>
+                            <input type="text" class="form-control"  value="${sessionScope.user.postcode}"  name="postcode" required>
                         </div>
                         <br><br><br><br>
                         <div class="col-sm-12">
                             <h3 class="text-justify">Tel</h3>
-                            <input type="number" class="form-control"  value="${sessionScope.user.tel}"  pattern="[0-9]{8,10}" name="tel" required>
+                            <input type="number" class="form-control"  value="${sessionScope.user.tel}"  name="tel" required>
                             
                             <input type="hidden" name="customerId" value="${sessionScope.user.customerId}">
                             <input type="hidden" name="password" value="${sessionScope.user.password}">
