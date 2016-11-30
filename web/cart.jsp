@@ -349,10 +349,6 @@
                                 </dl>
                                 <hr />
                                 <div class="text-uppercase clearfix">
-                                    <a href="category-list.jsp" class="btn btn-default pull-left">
-                                        <span class="hidden-xs">Continue Shopping</span>
-                                        <span class="visible-xs">Continue</span>
-                                    </a>
                                     <form action="CheckOut" method="post">
                                     <input type="hidden" name="totalPrice" value="${CART.totalPrice+fee}">
                                     <input type="hidden" name="orderType" value="${sessionScope.shipment}">

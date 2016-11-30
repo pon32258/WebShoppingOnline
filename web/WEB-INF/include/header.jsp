@@ -70,7 +70,7 @@
                                                 <td class="text-right ">x ${it.value.quantity}</td>
                                                 <td class="text-right">$<fmt:formatNumber value="${it.value.total}" pattern="#,###.00"/></td>
                                                 <td class="text-center">
-                                                    <a href="UpdateCart?deleteItem=${it.value.product.prodId}&target=${param.target}">
+                                                    <a href="UpdateCart?deleteItem=${it.value.product.prodId}&target=${param.target==null?'/index.jsp':param.target}">
                                                         <i class="fa fa-times"></i>
                                                     </a>
                                                 </td>
